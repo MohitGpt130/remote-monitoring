@@ -1,0 +1,61 @@
+<form [formGroup]="form" class="user-form">
+  <mat-card class="p-0" style="height: 500px; width: 350px;">
+    <perfect-scrollbar>
+      <div fxLayout="column" fxLayoutAlign="space-between center" style="padding: 5px 20px;">
+        <mat-form-field class="w-100">
+          <input #roleTitle matInput placeholder="Role Title" formControlName="title">
+        </mat-form-field>
+        <!-- <mat-form-field class="w-100">
+          <input matInput placeholder="Role Name" [value]="roleTitle.value | uniqueName | lowercase" formControlName="name" disabled>
+        </mat-form-field> -->
+      </div>
+      <div class="role-content" fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="100" fxLayout="column" class="role-details transition-2">
+          <mat-tree #selection [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+              <button mat-icon-button disabled></button>
+              <mat-checkbox class="checklist-leaf-node" [checked]="checklistSelection.isSelected(node)"
+                (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+            </mat-tree-node>
+
+            <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" matTreeNodePadding>
+              <button mat-icon-button disabled></button>
+              <mat-form-field>
+                <input matInput #itemValue placeholder="New item...">
+              </mat-form-field>
+              <button *ngIf="itemValue.value" mat-button (click)="saveNode(node, itemValue.value)">Save</button>
+            </mat-tree-node>
+
+            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+              <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.filename">
+                <mat-icon class="mat-icon-rtl-mirror">
+                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                </mat-icon>
+              </button>
+              <mat-checkbox [checked]="descendantsAllSelected(node)"
+                [indeterminate]="descendantsPartiallySelected(node)" (change)="todoItemSelectionToggle(node)">
+                {{node.item}}</mat-checkbox>
+              <!-- <button mat-icon-button (click)="addNewItem(node)">
+                <mat-icon>add</mat-icon>
+              </button> -->
+            </mat-tree-node>
+          </mat-tree>
+        </div>
+      </div>
+      <!-- <div *ngIf="selectionView === 'list'" class="role-content" fxLayout="row" fxLayoutAlign="space-around center">
+        <div fxFlex="100" fxLayout="column" class="role-details transition-2">
+          <mat-selection-list #selection>
+            <mat-list-option *ngFor="let privilege of privileges">
+              {{privilege.name}}
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+      </div> -->
+    </perfect-scrollbar>
+  </mat-card>
+</form>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-raised-button color="primary" [mat-dialog-close]="form.value" [disabled]="!form.valid || !roleTitle.value ||!privileges"><span
+      *ngIf="!data.role?.id">Save</span><span *ngIf="data.role?.id">Update</span></button>
+  <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+</div>

@@ -1,0 +1,74 @@
+<div fxLayout="row wrap">
+  <div fxFlex="100" fxFlex.gt-md="33.3" fxFlex.md="50" class="flex-p">
+      <mat-card class="p-0">
+          <div class="bg-primary" fxLayout="row" style="background: #3f51b5; padding: 10px; color:white;" fxLayoutAlign="space-between center">
+              <h3 class="dashboardMenu-name">Menus/Route</h3>
+              <mat-button-toggle-group #controls="matButtonToggleGroup" appearance="legacy">
+                  <mat-button-toggle style="background: white;" value="add" (click)="openMenuDialog(null)" >
+                      <mat-icon >add</mat-icon>
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
+          </div>
+          <div class="dashboardMenu-content" fxLayout="row" fxLayoutAlign="space-around center">
+              <div fxFlex="100" fxLayout="column" class="dashboardMenu-details transition-2">
+                  <mat-list>
+                      <mat-list-item *ngFor="let item of privileges" [ngClass]="{'selected-item': selectedMenu?.name === item.name}" (click)="selectMenu(item)" fxLayoutAlign="start center" style="width: 100%;" matRipple>
+                          <div fxFlex> {{item.title}} [{{item.route.link}}] </div>
+                          <!-- <button mat-icon-button (click)="updateMenu(item)"><mat-icon>edit</mat-icon></button> -->
+                          <button mat-icon-button (click)="deleteMenu(item)"><mat-icon>delete</mat-icon></button>
+                      </mat-list-item>
+                  </mat-list>
+              </div>
+          </div>
+      </mat-card>
+  </div>
+
+  <!-- <div fxFlex="100" fxFlex.gt-md="33.3" fxFlex.md="50" class="flex-p">
+      <mat-card class="p-0">
+          <div class="bg-primary" fxLayout="row" style="background: #3f51b5; padding: 10px; color:white;" fxLayoutAlign="space-between center">
+              <h3 class="dashboardMenu-name">Components</h3>
+              <mat-button-toggle-group #controls="matButtonToggleGroup" appearance="legacy">
+                  <mat-button-toggle style="background: white;" value="add" (click)="selectedMenu ? openComponentDialog(null) : openComponentSnackBar('Please select route first!!','')">
+                      <mat-icon >add</mat-icon>
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
+          </div>
+          <div class="dashboardMenu-content" fxLayout="row" fxLayoutAlign="space-around center">
+              <div fxFlex="100" fxLayout="column" class="dashboardMenu-details transition-2">
+                  <mat-list>
+                      <mat-list-item *ngFor="let item of selectedMenu?.route?.components" [ngClass]="{'selected-item': selectedComponent?.name === item.name}" (click)="selectComponent(item)" fxLayoutAlign="start center" style="width: 100%;" matRipple>
+                          <div fxFlex>{{item.title}} </div>
+                          <button mat-icon-button (click)="deleteComponent(item)"><mat-icon>delete</mat-icon></button>
+                      </mat-list-item>
+                  </mat-list>
+              </div>
+          </div>
+      </mat-card>
+  </div>
+  <div fxFlex="100" fxFlex.gt-md="33.3" fxFlex.md="50" class="flex-p">
+      <mat-card class="p-0">
+          <div class="bg-primary" fxLayout="row" style="background: #3f51b5; padding: 10px; color:white;" fxLayoutAlign="space-between center">
+              <h3 class="dashboardMenu-name">Activities</h3>
+              <mat-button-toggle-group #controls="matButtonToggleGroup" appearance="legacy">
+                  <mat-button-toggle style="background: white;" value="add" (click)="selectedMenu && selectedComponent ? openActivityDialog(null): openActivitySnackBar('Please select route and component first!!','')">
+                      <mat-icon >add</mat-icon>
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
+          </div>
+          <div class="dashboardMenu-content" fxLayout="row" fxLayoutAlign="space-around center">
+              <div fxFlex="100" fxLayout="column" class="dashboardMenu-details transition-2">
+                  <mat-list>
+                      <mat-list-item *ngFor="let item of selectedComponent?.activities" fxLayoutAlign="start center" style="width: 100%;" matRipple>
+                          <div fxFlex>{{item.title}} </div>
+                          <button mat-icon-button (click)="deleteActivity(item)"><mat-icon>delete</mat-icon></button>
+                      </mat-list-item>
+                  </mat-list>
+              </div>
+          </div>
+      </mat-card>
+  </div> -->
+</div>
+
+<div *ngIf="!privileges" fxLayout="column" fxLayoutAlign="center center" class="dashboardMenu-spinner">
+  <mat-spinner color="primary"></mat-spinner>
+</div>

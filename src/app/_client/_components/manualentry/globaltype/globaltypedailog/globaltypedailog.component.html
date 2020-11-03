@@ -1,0 +1,47 @@
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;align-items: center;">{{title}}</h3>
+    <form [formGroup]="globaltypemasterform">
+        <div fxLayout="column" style="width:100%;" fxFlex="100">
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                
+                <mat-form-field class="form-mngv999
+                field" fxFlex="100">
+                    <mat-select formControlName="type" placeholder="Global type">
+                        <mat-option *ngFor="let i of GlobalKeys" [value]="i[1]">{{i[2]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field class="form-field" class="invisible" fxFlex="1">
+                    <input matInput autocomplete="off" placeholder="ID" formControlName="_id">
+                </mat-form-field>
+            </div>
+            
+            <!-- <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <textarea matInput autocomplete="off" placeholder="Global type"
+                        formControlName="type"></textarea>
+                </mat-form-field>
+            </div> -->
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Global type code" formControlName="value">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Global type display name" formControlName="display_name">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="globaltypemasterform.invalid" [mat-dialog-close]="globaltypemasterform.value" (click)="SubmitChanges()"
+                    > {{button}} </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{globaltypemasterform.value|json}}</pre>
+</div>

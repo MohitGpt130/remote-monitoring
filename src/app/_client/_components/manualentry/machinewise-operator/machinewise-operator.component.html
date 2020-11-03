@@ -1,0 +1,33 @@
+<p>machinewise-operator works!</p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  </style>
+</head>
+
+<body style="height: calc(100% - 120px); padding: 0 20px;">
+  <div style="margin: 1%;">
+    <h5 style="text-align: center;color:blue;"><b>Machine Wise Operator</b>
+    </h5>
+  </div>
+  <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap.gt-xs="2%" fxLayoutAlign="center"
+    ngClass.xs="mobileContainer" fxFlex="100%" style="width: 100%;">
+    <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap.gt-xs="2%" fxLayoutAlign="center"
+      ngClass.xs="mobileContainer" fxFlex="100%" style="width: 100%;">
+      <div fxLayout="row" style="width: 50%;" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%"
+        fxLayoutAlign="center center" fxFlex="100%">
+        <form novalidate fxLayout.xs="column" fxFlex="100%" fxLayoutAlign="start center">
+          <mat-form-field appearance="outline" fxFlex="35%">
+            <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Shift Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" fxFlex="22%">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,5 @@
+<app-header2 [isLoaded]="isLoaded" [data]="data" [screenConfigs]="screenConfigs"></app-header2>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <app-plant-diagram style="width: 100%;" [isLoaded]="isLoaded" [data]="data" [screenConfigs]="screenConfigs" style="z-index: 1;"></app-plant-diagram>
+    <app-fault-list2 style="position: absolute; bottom: 0;" [isLoaded]="isLoaded" [liveFaults]="liveFaults" [screenConfigs]="screenConfigs"></app-fault-list2>
+</div>

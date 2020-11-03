@@ -1,0 +1,65 @@
+<h1 mat-dialog-title><span *ngIf="!scheduleform.controls.isEdit.value">Add</span><span *ngIf="scheduleform.controls.isEdit.value">Edit</span> event</h1>
+<div style="width: 100%;height: 100%; ">
+    <form [formGroup]="scheduleform" style="width: 100%">
+        <div fxLayout="column" style="width: 100%; padding: 10;">
+            <mat-form-field class="form-field" style="display: block;visibility: hidden;height: 0;width: 0;">
+                <input matInput type="text" placeholder="ID" formControlName="scheduleid">
+            </mat-form-field>
+            <mat-form-field class="form-field" fxFlex="30">
+                <input matInput type="text" placeholder="Title" formControlName="title">
+            </mat-form-field>
+            <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between center">
+                <label>Start Date</label>
+                <input fxFlex="30" [min]="todaydate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time" formControlName="start">
+                <owl-date-time #dt1></owl-date-time>
+                <label>End Date</label>
+                <input fxFlex="30" [min]="todaydate" [owlDateTime]="dt10" [owlDateTimeTrigger]="dt10" placeholder="Date Time" formControlName="end">
+                <owl-date-time #dt10></owl-date-time>
+            </div>
+            <small style="color: red;" *ngIf="scheduleform.hasError('notValid')">Start Date of Event should be less than End Date</small>
+        </div>
+        <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center">
+            <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between center">
+                <mat-form-field class="form-field">
+                    <mat-label>Select Machine </mat-label>
+                    <mat-select formControlName="machine_name">
+                        <mat-option *ngFor="let m of Equipments;let i=index" [value]="m.equipmentid">
+                            <!-- {{apipath["allmachines"][m[0]]["display_name"]}} -->
+                            {{m.equipmentdisplayname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                    <mat-label>By whom </mat-label>
+                    <input matInput placeholder="By whom" formControlName="byWhom" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between center">
+                <mat-form-field class="form-field">
+                    <mat-label>Comment </mat-label>
+                    <textarea matInput style="width: 100%;" placeholder="comment" formControlName="comment" required> </textarea>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" style="width: 100%;height: 100; padding: 10;" fxLayoutAlign="space-around start">
+            <mat-form-field class="form-field">
+                <mat-label>Activity </mat-label>
+                <input matInput placeholder="Activity" formControlName="activity" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    <!-- <mat-option>None</mat-option> -->
+                    <mat-option *ngFor="let e of Eventstatus" [value]="e">{{e}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" style="width: 100%; padding: 10;" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" [mat-dialog-close]="scheduleform.value" [disabled]="scheduleform.invalid" (click)="ResetForm()">Update</button>
+            <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+        </div>
+       
+    </form>
+</div>

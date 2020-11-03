@@ -1,0 +1,39 @@
+
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;align-items: center;">{{title}}</h3>
+    <form [formGroup]="globalkeyform">
+        <div fxLayout="column" style="width:100%;" fxFlex="100">
+            <!-- <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Line ID" formControlName="_id">
+                </mat-form-field>
+            </div> -->
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+
+                <mat-form-field class="form-field" fxFlex="100">
+                    <textarea matInput autocomplete="off" placeholder="Enter Key Name"
+                        formControlName="value"></textarea>
+                </mat-form-field>
+
+                <!-- <mat-form-field class="form-field" fxFlex="45">
+                        <input matInput autocomplete="off" placeholder="Enter State name"
+                        formControlName="">
+                </mat-form-field> -->
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Enter Display Name" formControlName="display_name">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="globalkeyform.invalid" [mat-dialog-close]="globalkeyform.value" (click)="SubmitChanges()"
+                    > Submit </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{globalkeyform.value|json}}</pre>
+</div>

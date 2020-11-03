@@ -1,0 +1,55 @@
+{
+  "name": "SmartFactoryWorx",
+  "connection": {
+    "visible": true,
+    "styles": ""
+  },
+  "marquee": {
+    "visible": true,
+    "styles": ""
+  },
+  "navigationBar": {
+    "visible": true,
+    "styles": ""
+  },
+  "header": {
+    "visible": true,
+    "styles": ""
+  },
+  "drawer": {
+    "visible": true,
+    "styles": "",
+    "companyLogo": {
+
+    },
+    "userInfo": {
+
+    },
+    "menu": {
+      "routeBased": true,
+      "routeIndex": 2,
+      "list" : {
+        "default": [
+
+        ]
+      }
+    }
+  },
+  "settingOption": {
+    "visible": true,
+    "styles": ""
+  },
+  "breadcrumb": {
+    "visible": true,
+    "styles": ""
+  },
+  "footer": {
+    "visible": true,
+    "styles": "",
+    "newUpdateOrUpgrade": {
+      "tillDays": 3,
+      "visible": false,
+      "styles": ""
+    }
+  }
+}

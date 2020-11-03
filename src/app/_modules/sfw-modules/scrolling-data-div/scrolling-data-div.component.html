@@ -1,0 +1,18 @@
+<div *ngIf="(element?.scrollable | isDefined) && computedTableData[element.parameterName] && computedTableData[element.parameterName][displayedColumn]" >
+  <div [hidden]="i !== (counter%computedTableData[element.parameterName][displayedColumn].length)" *ngFor="let alarm of computedTableData[element.parameterName][displayedColumn]; let i=index;" >
+    <span *ngIf="element?.scrollable?.key | isDefined" >
+      {{alarm[element?.scrollable?.key]}}
+    </span>
+    <span *ngIf="element?.scrollable?.key | isUndefined" >
+      {{alarm}}
+    </span>
+  </div>
+  <!-- <div [hidden]="i !== (counter%computedTableData[element.parameterName][displayedColumn].length)" [@bounce]="{ value: bounce, params: { timing: 5 || 5, delay: 2 || 2 } }" *ngFor="let alarm of computedTableData[element.parameterName][displayedColumn]; let i=index;" >
+    <span *ngIf="element?.scrollable?.key | isDefined" >
+      {{alarm[element?.scrollable?.key]}}
+    </span>
+    <span *ngIf="element?.scrollable?.key | isUndefined" >
+      {{alarm}}
+    </span>
+  </div> -->
+</div>

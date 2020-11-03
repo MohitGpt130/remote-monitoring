@@ -1,0 +1,168 @@
+<mat-toolbar #header class="mat-elevation-z2" style="height: 15vw; max-height: 80px; min-height: 50px; padding: 0 5px;">
+    <div fxLayout="row" style="height: 100%;width: 100%;" fxLayoutAlign="space-between center">
+
+        <a fxFlex href="/" style="margin:0 3px; height: 80px;">
+            <img src="assets/images/logo.png" alt="smartfactoryworx" height="100%" width="auto" style="object-fit: contain;" />
+        </a>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%; font-size: 1.7vw;">
+            <div class="header-labels" style="width: 100%;" fxHide.xs fxLayout="row" fxLayoutAlign="center center" ngClass.sm="header-labels-sm" ngClass.md="header-labels-md" ngClass.lg="header-labels-lg" ngClass.xl="header-labels-xl">
+                <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Date: </span>
+                    <span class="header-value" fxLayoutAlign="end end" style="width: 100%;"><span>{{ headerInfo?.currentTime | date: 'dd-MMM-yyyy HH:mm:ss' }}</span>
+                    </span>
+                </div>
+                <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Shift: </span>
+                    <span class="header-value" fxLayoutAlign="center center" style="width: 100%;"><span>{{ headerInfo?.currentShift }}</span> </span>
+                </div>
+                <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Period: </span>
+                    <span class="header-value" fxLayoutAlign="center center" style="width: 100%;"><span>{{ headerInfo?.shiftTimings[headerInfo?.currentShift]?.from }}-{{ headerInfo?.currentTime| date: 'HH:mm' }}</span>
+                    </span>
+                </div>
+                <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>User: </span>
+                    <span class="header-value" fxLayoutAlign="center center" style="width: 100%;"><span>{{currentUser && currentUser?.user.fullName? currentUser?.user.fullName: 'user'}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="end center" style="width: 100%;">
+            <!-- <button mat-icon-button color="primary" (click)="left.toggle()" [ngClass]="showToggle">
+                <mat-icon>menu</mat-icon>
+            </button> -->
+            <button mat-icon-button style="min-width: 100%;" color="primary" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <mat-label>Logout</mat-label>
+            </button>
+            <button mat-icon-button color="primary">
+                <mat-icon *ngIf="connectionStatus?.status==='ok'" style="color: green;">signal_cellular_alt</mat-icon>
+                <mat-icon *ngIf="connectionStatus?.status==='plc_error'" style="color:#0000ff;">
+                    signal_cellular_connected_no_internet_4_bar</mat-icon>
+                <mat-icon *ngIf="connectionStatus?.status==='ipc_error'" style="color:violet;">
+                    signal_cellular_connected_no_internet_4_bar</mat-icon>
+                <mat-icon *ngIf="connectionStatus?.status==='con_error' || connectionStatus===undefined"
+                    style="color: red;">signal_cellular_off</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-toolbar>
+
+<!-- <router-outlet></router-outlet> -->
+
+
+<mat-sidenav-container class="container" style="height: calc(100% - 100px);  ">
+    <mat-sidenav #right position="start" mode="push">
+        <app-drawer></app-drawer>
+
+    </mat-sidenav>
+
+    <div fxLayout="column" #container fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxFlex style=" width:100%; ">
+        <div fxLayout="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between center" style="width: 100%;">
+            <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+                <!-- <div>
+                    <a [routerLink]="[ '/overview' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                        <button mat-stroked-button color="warn">Home</button>
+                    </a>
+                </div>-->
+                <div>
+                     <!-- <a [routerLink]="[ '/line' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                        <button mat-stroked-button color="warn">Line Diagram</button>
+                    </a> -->
+                </div>
+                <div>
+                    <button mat-stroked-button color="warn" [matMenuTriggerFor]="lineoverview">Line Overview</button>
+                    <mat-menu #lineoverview="matMenu">
+                        <a [routerLink]="[ '/lineview/table/count' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Table</button>
+                        </a>
+
+                        <a [routerLink]="[ '/lineview/charts' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Charts</button>
+                        </a>
+                    </mat-menu>
+                </div>
+                <div>
+                    <button mat-stroked-button color="warn" [matMenuTriggerFor]="manual">Manual Entry</button>
+                    <mat-menu #manual="matMenu">
+                        <!-- <a [routerLink]="[ '/manual' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Plant & hierarchy Entry</button>
+                        </a>
+                        <a [routerLink]="[ '/manual1' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Line Entry</button>
+                        </a> -->
+                        <a [routerLink]="[ '/manuallinewise' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Line & its associates</button>
+                        </a>
+                        <a [routerLink]="[ '/schedule' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Schedule Maintenance</button>
+                        </a>
+                    </mat-menu>
+                </div>
+                <!-- <div>
+                    <a [routerLink]="[ '/trend' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                        <button mat-stroked-button color="warn">Trend</button>
+                    </a>
+                </div> -->
+                <div>
+                    <button mat-stroked-button color="warn" [matMenuTriggerFor]="report">Reports</button>
+                    <mat-menu #report="matMenu">
+                        <a [routerLink]="[ '/report/shiftend' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Shift End Report</button>
+                        </a>
+
+                        <a [routerLink]="[ '/report/daywise' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Day Wise Report</button>
+                        </a>
+                        <!-- <a [routerLink]="[ '/report/faultcause' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+                            <button mat-stroked-button color="warn">Fault Cause Report</button>
+                        </a> -->
+                    </mat-menu>
+                </div>
+
+            </div>
+            <div class="header-labels">
+                <div class="header-label" style="background:linear-gradient(90deg, #6660be 100%, white 0%);" fxLayoutAlign="space-between center">
+                    <span>{{skuName}}</span>
+                </div>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+                <div class="header-labels">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h5 style="color: blue;">
+            Manual Entry - COUNTRY, STATE, LOCATION & PLANT
+        </h5>
+        <mat-tab-group mat-stretch-tabs mat-align-tabs="center" #tabGroup>
+            <mat-tab label="Company">
+                <ng-template matTabContent>
+                    <app-company *ngIf="tabGroup.selectedIndex === 0"></app-company>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="Country">
+                <ng-template matTabContent>
+                    <app-country *ngIf="tabGroup.selectedIndex === 1"></app-country>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="State">
+                <ng-template matTabContent>
+                    <app-state *ngIf="tabGroup.selectedIndex === 2"></app-state>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="Location">
+                <ng-template matTabContent>
+                    <app-location *ngIf="tabGroup.selectedIndex === 3"></app-location>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="Plant">
+                <ng-template matTabContent>
+                    <app-plant *ngIf="tabGroup.selectedIndex === 4"></app-plant>
+                </ng-template>
+            </mat-tab>
+            <!-- <mat-tab label="Equipment">
+            <app-equipment *ngIf="tabGroup.selectedIndex === 5"></app-equipment>
+        </mat-tab> -->
+        </mat-tab-group>
+    </div>
+</mat-sidenav-container>

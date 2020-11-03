@@ -1,0 +1,145 @@
+<nav mat-tab-nav-bar mat-stretch-tabs>
+    <a mat-tab-link *ngFor="let link of ['User Input','Comments']" (click)="activeLink = link"
+        [active]="activeLink == link"> {{link}}</a>
+</nav>
+<div *ngIf="activeLink==='User Input'" style="margin-top: 10px;">
+    <form *ngIf="gotFaultCauses"  class="example-form" style="height: 100%; width:100%;" novalidate [formGroup]="stop_user_inputs">
+        <div *ngIf="data.dataKey.machineState!='ready'
+            && data.dataKey.machineState!='pdt'&& data.dataKey.machineState!='blocked'
+            && data.dataKey.machineState!='waiting' && data.dataKey.machineState!='manual_stop' && data.dataKey.machineState!='updt'" style="padding: 10px;  color:black;text-align: center;font-weight: bold;">
+            Fault Cause
+        </div>
+        <div>
+            <div fxFlex  style="padding: 10px;  color:black;text-align: center;">
+                <div *ngIf="data.dataKey.machineState.indexOf('stop')>-1 && data.dataKey.machineState.indexOf('manual_stop')==-1">
+                    Status: Fault
+                </div>
+                <div *ngIf="!(data.dataKey.machineState.indexOf('stop')>-1 && data.dataKey.machineState.indexOf('manual_stop')==-1)">
+                    Status: {{data.dataKey.machineState | uppercase}}
+                </div>
+            </div>
+            <div fxFlex style="padding: 10px;  color:black;text-align: center;">
+               Machine : {{data.dataKey.machine | uppercase}}
+            </div>
+        </div>
+
+        <!-- <div *ngIf="faultName!==undefined && data.dataKey.machineState!='ready'
+            && data.dataKey.machineState!='pdt'&& data.dataKey.machineState!='blocked'
+            && data.dataKey.machineState!='waiting' && data.dataKey.machineState!='manual_stop' && data.dataKey.machineState!='updt'" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center">
+            <div style="padding: 0 10px;">
+                Fault Name:
+            </div>
+            <div fxFlex style="padding: 0 10px;">
+                {{ faultName }}
+            </div>
+        </div> -->
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td hidden>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Stop ID" disabled [value]="stopID" formControlName="stop_id"
+                            required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Name" formControlName="user_name" required>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <div style="border: 1px solid blue;">
+            <mat-label *ngIf="data.dataKey.machineState!='ready'
+            && data.dataKey.machineState!='pdt'&& data.dataKey.machineState!='blocked'
+            && data.dataKey.machineState!='waiting' && data.dataKey.machineState!='manual_stop'"
+             style="background: rgba(0,0,255,0.7); color:white;">Fault Cause List</mat-label>
+
+             <mat-label *ngIf="data.dataKey.machineState==='ready'
+             || data.dataKey.machineState==='pdt' || data.dataKey.machineState==='blocked'
+             || data.dataKey.machineState==='waiting' || data.dataKey.machineState==='manual_stop'"
+             style="background: rgba(0,0,255,0.7); color:white;">List</mat-label>
+            <mat-selection-list #faults style="height: 280px; overflow:auto;" formControlName="selected_causes">
+                <mat-list-option *ngFor="let faultCause of faultsCauses; let i = index" [value]='faultCause.id'>
+                    {{faultCause.cause_name}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+        <!-- <p>
+            Options selected: {{faults.selectedOptions.selected.length}}
+        </p> -->
+        <mat-divider color="black" style="margin:10px 0;background:#666600;"></mat-divider>
+        <mat-label *ngIf="data.dataKey.machineState!='ready'
+        && data.dataKey.machineState!='pdt'&& data.dataKey.machineState!='blocked'
+        && data.dataKey.machineState!='waiting' && data.dataKey.machineState!='manual_stop'" style="color:black;">Part Replaced :</mat-label>
+
+        <mat-form-field *ngIf="data.dataKey.machineState!='ready'
+        && data.dataKey.machineState!='pdt'&& data.dataKey.machineState!='blocked'
+        && data.dataKey.machineState!='waiting' && data.dataKey.machineState!='manual_stop'" class="example-chip-list example-full-width">
+            <!-- <mat-label style="color:black;">Part Replaced</mat-label> -->
+            <mat-chip-list #chipListControl aria-label="Parts selection" formControlName="parts">
+                <mat-chip *ngFor="let part of partsList" [selectable]="selectable" [removable]="removable"
+                    (removed)="remove(part)" style="width:100%;" >
+                    {{part}}
+                    <mat-icon matChipRemove *ngIf="removable" style="float: right;">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="Enter part name and hit Enter Key..."  [matChipInputFor]="chipListControl"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Comment</mat-label>
+            <textarea matInput placeholder="" formControlName="user_comment" cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="7" required></textarea>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button [disabled]="filledForm" (click)="submitForm()">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="activeLink==='Comments'" style="height: calc(100% - 50px); width: 100%; overflow: auto;">
+    <form class="example-form" style="height: 100%; width:100%;" novalidate [formGroup]="commentsControl">
+        <div fxLayout="column" *ngFor="let usercomment of comments">
+            <div *ngIf="usercomment.user_name!==''">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon mat-list-icon>account_circle</mat-icon>
+                        <h5 mat-line>{{usercomment.user_name}}</h5>
+                    </div>
+                    <div class="timestamp">
+                        {{getAge(usercomment.timestamp,null).ago}}
+                    </div>
+                </div>
+                <div class="comment">
+                    {{usercomment.comment}}
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+        <table  class="example-full-width" cellspacing="0">
+            <tr>
+                <td hidden>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Stop ID" disabled [value]="stopID" formControlName="stop_id"
+                            required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Name" formControlName="addcomment_user_name" required>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Comment</mat-label>
+            <textarea matInput placeholder="" formControlName="comment" cdkTextareaAutosize cdkAutosizeMinRows="3" cdkAutosizeMaxRows="7" required></textarea>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button [disabled]="!filledForm" (click)="sendComment()">submit</button>
+        </div>
+    </form>
+</div>

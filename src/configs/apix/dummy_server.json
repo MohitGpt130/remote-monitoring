@@ -1,0 +1,41 @@
+{
+    "server": "",
+    "apis": {
+        "alarms": {
+            "name": "configs/apix/alarms.json",
+            "interval": 5
+        },
+        "sku": {
+            "name": "configs/apix/sku.json",
+            "interval": 5
+        },
+        "shift": {
+            "name": "configs/apix/shift.json",
+            "interval": 5
+        },
+        "events": {
+            "name": "configs/apix/events.json",
+            "interval": 5
+        }
+    },
+    "display_logs": false,
+    "machines": ["filler", "induction", "labeller", "shrink", "case_packer", "case_erector", "weigher", "case_sealer"],
+    "shift_timings": {
+        "morning_shift": {
+            "from": "08:00",
+            "to": "20:00"
+        },
+        "evening_shift": {
+            "from": "20:00",
+            "to": "08:00"
+        },
+        "Shift A": {
+            "from": "08:00",
+            "to": "20:00"
+        },
+        "Shift B": {
+            "from": "20:00",
+            "to": "08:00"
+        }
+    }
+}

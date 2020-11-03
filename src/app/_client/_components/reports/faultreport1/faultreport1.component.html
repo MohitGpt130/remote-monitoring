@@ -1,0 +1,97 @@
+<div>
+    <h3 style="text-align: center; color: blue;">Fault Report</h3>
+</div>
+<div>
+    <div fxLayout="column" style="width: 100%;">
+        <form [formGroup]="filtersForm">
+            <div fxLayout="column" style="width:100%;">
+                <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="95">
+                    <mat-form-field class="form-field" appearance="outline" fxFlex="15">
+                        <mat-label>Select Shift</mat-label>
+                        <mat-select formControlName="shift">
+                            <mat-option *ngFor="let m of Shift;let i=index" [value]="m[2]">
+                                <!-- {{apipath["allmachines"][m[0]]["display_name"]}} -->
+                                {{m[2]}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="15">
+                        <input matInput [matDatepicker]="picker" [max]="tomorrow" formControlName="date" placeholder="Shift Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field" appearance="outline" fxFlex="1" class="invisible">
+                        <mat-label>State </mat-label>
+                        <mat-select formControlName="stateid">
+                            <mat-option *ngFor="let m of State;let i=index" [value]="m[1]">
+                                {{m[2]}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <button [disabled]="filtersForm.invalid" mat-raised-button color="primary" fxFlex="10"
+                        (click)="SearchStateData()">
+                        Submit
+                    </button>
+                    <div fxFlex=25 fxLayoutAlign="space-around center" fxLayout="column">
+                        <div fxLayout="row" style="width:100%;color: blue;">
+                            Machine with max. Fault Duration
+                        </div>
+                        <div fxLayout="row" style="width:100%;color: brown;">
+
+                            {{MaxGroupDuration?.machine_name}}--> {{MaxGroupDuration?.totalDuration}} Min.
+                        </div>
+                    </div>
+                    <div fxFlex=20 fxLayoutAlign="space-around center" fxLayout="column">
+                        <div fxLayout="row" style="width:100%;color: blue;">
+                            Machine with max. Fault count
+                        </div>
+                        <div fxLayout="row" style="width:100%;color: brown;">
+                            {{MaxGroupCount?.machine_name}}--> {{MaxGroupCount?.totalMachinecount}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <!-- <pre>
+            {{filtersForm.value|json}}
+        </pre> -->
+    </div>
+</div>
+<div>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container *ngFor="let column of columns; let i = index" matColumnDef="{{ column.field }}">
+            <mat-header-cell *matHeaderCellDef>{{ column.display_name }}
+                <button class="grid-view-header-menu" mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <mat-menu #menu>
+                    <button mat-menu-item (click)="groupBy($event, column);">Group By This Field</button>
+                    <button mat-menu-item (click)="unGroupBy($event, column);">Ungroup</button>
+                </mat-menu>
+
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row[column.field] }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        <!-- Group header -->
+        <ng-container matColumnDef="groupHeader">
+            <mat-cell colspan="999" *matCellDef="let group;let i=index">
+                <!-- [ngStyle]="{'background-color': i%2===0?'#b3ffff':'#ffb3ff'}" -->
+                <mat-icon *ngIf="group.expanded">remove_circle</mat-icon>
+                <mat-icon *ngIf="!group.expanded">add_circle</mat-icon>
+                <strong>{{group[groupByColumns[group.level-1]]}}({{group.totalCounts}})</strong>
+            </mat-cell>
+        </ng-container>
+
+        <mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup" (click)="groupHeaderClick(row)">
+        </mat-row>
+    </mat-table>
+</div>

@@ -1,0 +1,14 @@
+[
+    {
+      "_id": "5d7caaf17f6b4e3684c8d74b",
+      "machine_name": "Labeller",
+      "cause_name": "Power failure",
+      "__v": 0
+    },
+    {
+      "_id": "5d7cab317f6b4e3684c8d74c",
+      "machine_name": "Shrink",
+      "cause_name": "Break down",
+      "__v": 0
+    }
+  ]

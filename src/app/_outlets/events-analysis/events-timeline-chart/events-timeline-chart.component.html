@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="start center" style="height: 100%;width:100%; padding: 10px 20px;">
+  <div *ngIf="timelineChart" #eventBarChartdiv style="width: 100%; height: 100%;" (window:resize)="onResize($event)">
+    <google-chart #eventBarChart [data]="timelineChart" (mouseOver)="hoverTooltip($event)" (chartSelect)="config.isEnabledEventSelect? select($event): ''"></google-chart>
+  </div>
+
+  <!-- <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" class="box1"
+    style="width:80%;height:15%;text-align: center;">
+    <div *ngFor="let item of config.statusColors| keyvalue" fxLayout="row" class="box2"
+      [ngStyle]="{'background-color': item.value.color}" fxLayoutAlign="space-evenly center">{{item.value.text}}</div>
+  </div> -->
+</div>
+
+<!-- <div #eventBarChartdiv style="width: 100%; height: 100%;" (window:resize)="onResize($event)">
+  <google-chart #eventBarChart *ngIf="timelineChart" #eventBarChart [data]="timelineChart" (mouseOver)="hoverTooltip($event)"  (chartSelect)="select($event)"></google-chart>
+</div> -->
+
+<div #vTooltip class="google-visualization-tooltip"
+  style="width: 30px; height: 0; left: 198.248px; top: 42.496px; border: 1px solid rgb(73, 51, 182);cursor: pointer; "
+  fxLayout="column" fxLayoutAlign="space-between center">
+  <div fxFlex="25" style="background:white;width: 100%; height: 100%;" matRipple
+    (click)="getForm(stopID,machineName,stopData,machineState)"></div>
+  <div fxFlex="50" style="background:red;width: 10
+  0%; height: 100%;" matRipple (click)="getDetails()"></div>
+  <div fxFlex="25" style="background:brown;width: 100%; height: 100%;" matRipple
+    (click)="getVideo(stopID,machineName,stopData)"></div>
+</div>
+
+<div *ngIf="!timelineChart" style="width: 100%; height: 100%;" (window:resize)="onResize($event)">
+  no data
+</div>

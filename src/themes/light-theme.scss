@@ -1,0 +1,14 @@
+$sf-light-primary: mat-palette($mat-grey, 200, 500, 300);
+$sf-light-accent: mat-palette($mat-brown, 200);
+$sf-light-warn: mat-palette($mat-deep-orange, 200);
+
+$sf-light-theme: mat-light-theme(
+  $sf-light-primary,
+  $sf-light-accent,
+  $sf-light-warn
+);
+
+.light-theme {
+  @include angular-material-theme($sf-light-theme);
+  // @include custom-components-theme($sf-light-theme);
+}

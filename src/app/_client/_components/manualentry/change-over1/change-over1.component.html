@@ -1,0 +1,73 @@
+<div>
+
+  <mat-toolbar color="primary">
+    <div style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10">
+      <!-- <div>{{setupProcesses.current_timestamp | date:'MMM d, y, h:mm a':'UTC +4' }}</div> -->
+      <div>{{ title | uppercase }}</div>
+      <!-- <div>{{setupProcesses.linename | uppercase}}</div> -->
+    </div>
+  </mat-toolbar>
+  <form [formGroup]="changeoverForm">
+    <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center">
+      <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between center">
+        <mat-label fxFlex=20><b>Current Batch Number : </b> </mat-label>
+        <mat-label fxFlex=20><b>Current Batch Size : </b> </mat-label>
+        <mat-label fxFlex=20><b>Current Product : </b> </mat-label>
+        <mat-label fxFlex=20><b>Current FGex : </b> </mat-label>
+        <mat-label fxFlex=20><b>Current Format : </b> </mat-label>
+      </div>
+    </div>
+    <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center">
+      <div fxLayout="row" style="width: 100%; padding: 5px;" fxLayoutAlign="space-between center">
+
+        <mat-form-field>
+          <mat-label>Select ChangeOver Type </mat-label>
+          <mat-select formControlName="changeover_type_id">
+            <mat-option *ngFor="let c of ChangeoverType" [value]="c.ChangeoverTypeID">{{c.ChangeoverTypeName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field" fxFlex=19>
+          <mat-label>Enter Batch Number</mat-label>
+          <input autocomplete="off" matInput placeholder="Enter Batch Number" formControlName="batch_name" required>
+        </mat-form-field>
+        <mat-form-field class="form-field" fxFlex=19>
+          <mat-label> Enter Batch Size </mat-label>
+          <input autocomplete="off" matInput placeholder="Enter Batch Size" required type="number"
+            formControlName="batch_size">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" fxFlex=19>
+          <mat-label>Select Product (Code/Name) </mat-label>
+          <mat-select #sku formControlName="product_id">
+            <mat-option *ngFor="let product of Products" [value]="product.ProductID">{{product.ProductName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- (selectionChange)="GetChangeoverList($event.value)" -->
+
+        <mat-form-field class="form-field" fxFlex=19>
+          <mat-label>Select FGex </mat-label>
+          <mat-select #format formControlName="fgex">
+            <mat-option *ngFor="let f of FGex" [value]="f.FGexID">{{ f.FGexValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="form-field" fxFlex=30>
+        <mat-label>Machine Speed </mat-label>
+        <input autocomplete="off" matInput placeholder="Machine Speed" required>
+      </mat-form-field>-->
+
+        <!-- <mat-form-field class="form-field" fxFlex=19>
+        <mat-label>Target Quantity </mat-label>
+        <input autocomplete="off" matInput placeholder="Target Quantity" formControlName="Target" type="number" required>
+      </mat-form-field> -->
+
+
+      </div>
+    </div>
+    <button (click)="ChangeOverStart()" [disabled]="sku.value ? false : true" mat-raised-button color="warn"
+      style="margin-left:5%">Start</button>
+  </form>
+</div>

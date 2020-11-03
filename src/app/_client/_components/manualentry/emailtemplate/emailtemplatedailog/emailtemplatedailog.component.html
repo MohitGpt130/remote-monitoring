@@ -1,0 +1,64 @@
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;text-align: center;">{{title}}</h3>
+    <form [formGroup]="emailTemplateForm">
+        <div fxLayout="column" style="width:100%;">
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                
+                <mat-form-field class="form-mngv999
+                field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Template Name" formControlName="TemplateName">  
+                </mat-form-field>
+
+                <mat-form-field class="form-mngv999
+                field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Template Code" formControlName="Code">  
+                </mat-form-field>
+                
+                <mat-form-field class="form-field" class="invisible" fxFlex="1">
+                    <input matInput autocomplete="off" formControlName="_id">
+                </mat-form-field>
+            </div>
+            
+            <!-- <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <textarea matInput autocomplete="off" placeholder="Global type"
+                        formControlName="type"></textarea>
+                </mat-form-field>
+            </div> -->
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Email To" formControlName="To">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Cc" formControlName="Cc">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Bcc" formControlName="Bcc">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Subject" formControlName="Subject">
+                </mat-form-field>
+                
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Body" formControlName="Body">
+                </mat-form-field>
+                
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="emailTemplateForm.invalid" [mat-dialog-close]="emailTemplateForm.value" (click)="SubmitChanges()"
+                    > {{button}} </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{emailTemplateForm.value|json}}</pre>
+</div>

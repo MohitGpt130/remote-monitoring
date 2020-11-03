@@ -1,0 +1,65 @@
+<!-- <mat-toolbar *ngIf="displayData" color="primary" style="width: 100%; padding: 0 20px;" fxLayout="row" fxLayoutAlign="space-between center">
+  <span *ngFor="let key of (displayData | keys)">{{key}}:
+    {{displayData[key]}}
+  </span>
+  <span>
+    Time: {{now}}
+  </span>
+
+</mat-toolbar>
+<mat-toolbar *ngIf="!displayData" color="primary"><span></span></mat-toolbar> -->
+
+
+<div *ngIf="headerDataLoaded"  fxLayout="column" style="width: 100%; height: 70px; margin-bottom: 5px;">
+  <mat-toolbar #header class="mat-elevation-z5" fxLayout="row" style="height: 100%; padding: 0 5px; width: 100%; z-index: 100;"
+      fxLayoutAlign="space-between center">
+      <a fxFlex href="/" style="margin:0 3px;" style="height: 100%;">
+          <img src="assets/images/company/logo.png" alt="smartfactoryworx" height="95%" width="auto" />
+          <!-- <div style="height: 100px; width: 100px; background-image: url('assets/images/company/logo.png'); background-blend-mode:darken; object-fit: contain;" ></div> -->
+      </a>
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%; font-size: 1.7vw;">
+          <div class="header-labels" style="width: 100%;" fxHide.xs fxLayout="row" fxLayoutAlign="center center"
+              ngClass.sm="header-labels-sm" ngClass.md="header-labels-md" ngClass.lg="header-labels-lg"
+              ngClass.xl="header-labels-xl">
+              <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Date: </span>
+                  <span class="header-value" fxLayoutAlign="end end"
+                      style="width: 100%;"><span>{{ headerInfo?.currentTime | date: 'dd-MMM-yyyy HH:mm': 'UTC +530' }}</span>
+                      <!-- style="width: 100%;"><span>{{ headerInfo?.currentTime | date:'MMM d, y, h:mm a':'UTC +4' }}</span> -->
+                  </span>
+              </div>
+              <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Shift: </span>
+                  <span class="header-value" fxLayoutAlign="center center"
+                      style="width: 100%;"><span>{{ headerInfo?.currentShift }}</span> </span>
+              </div>
+              <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>Period: </span>
+                  <span class="header-value" fxLayoutAlign="center center"
+                      style="width: 100%;"><span>{{ headerInfo?.startTime }}-{{ (headerInfo?.loadUpdatedTime || headerInfo?.currentTime)| date: 'HH:mm':'UTC +530' }}</span>
+                      <!-- style="width: 100%;"><span>{{ headerInfo?.currentShiftTiming.from }}-{{ headerInfo?.currentTime| date: 'HH:mm' }}</span> -->
+                  </span>
+              </div>
+              <div class="header-label" style="font: 12px" fxLayoutAlign="space-between center"><span>User: </span>
+                  <span class="header-value" fxLayoutAlign="center center"
+                      style="width: 100%;"><span>{{headerInfo?.user && headerInfo?.user?.fullName? headerInfo?.user?.fullName : 'user'}}</span>
+                  </span>
+              </div>
+          </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-icon-button style="min-width:80px;" color="primary" (click)="onLogout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <mat-label>Logout</mat-label>
+          </button>
+          <button *ngIf="connectionStatus" mat-icon-button color="primary"
+              [matTooltip]="connectionStatus? connectionStatus.status: ''">
+              <mat-icon *ngIf="connectionStatus?.status==='ok'" style="color: green;">signal_cellular_alt</mat-icon>
+              <mat-icon *ngIf="connectionStatus?.status==='plc_error'" style="color:#0000ff;">
+                  signal_cellular_connected_no_internet_4_bar</mat-icon>
+              <mat-icon *ngIf="connectionStatus?.status==='ipc_error'" style="color:violet;">
+                  signal_cellular_connected_no_internet_4_bar</mat-icon>
+              <mat-icon *ngIf="connectionStatus?.status==='con_error' || connectionStatus===undefined"
+                  style="color: red;">signal_cellular_off</mat-icon>
+          </button>
+      </div>
+  </mat-toolbar>
+</div>

@@ -1,0 +1,54 @@
+<div *ngIf="element[displayedColumn]?.chart">
+  <!-- <ngx-charts-pie-grid [view]="[tdElements.offsetHeight,tdElements.offsetWidth]" -->
+  <ngx-charts-pie-grid
+    [scheme]="element[displayedColumn].chart.colorSchema"
+    [results]="computedTableData[element.parameterName][displayedColumn]" (select)="onSelect($event)">
+  </ngx-charts-pie-grid>
+</div>
+<div *ngIf="element[displayedColumn]?.table">
+  <div *ngIf="computedTableData[element.parameterName][displayedColumn]">
+    <table>
+      <tr>
+        <th *ngFor="let hColumn of element[displayedColumn]?.table.heading">{{hColumn}}</th>
+      </tr>
+      <tr *ngFor="let row of computedTableData[element.parameterName][displayedColumn]">
+        <td *ngFor="let column of row">{{column}} </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div *ngIf="computedTableData[element.parameterName][displayedColumn]?.threshold" style="width: 100%;" fxLayout="row">
+  <div fxFlex>{{computedTableData[element.parameterName][displayedColumn]?.data}}</div>
+  <mat-chip-list>
+    <mat-chip color="accent" selected="true" class="info-chip">
+      <mat-icon class="icon-sm">{{ computedTableData[element.parameterName][displayedColumn]?.threshold.icon }}
+      </mat-icon> {{ computedTableData[element.parameterName][displayedColumn]?.threshold.value }}
+    </mat-chip>
+  </mat-chip-list>
+</div>
+<div *ngIf="element[displayedColumn]?.expendable" fxLayout="column" fxLayoutAlign="center center">
+  <div *ngIf="!element[displayedColumn]?.expendable?.isExpended">
+    {{computedTableData[element.parameterName][displayedColumn].data}}
+  </div>
+  <div
+    *ngIf="element[displayedColumn]?.expendable?.chart && element[displayedColumn]?.expendable?.isExpended">
+    <!-- <ngx-charts-pie-grid [view]="[tdElements.offsetHeight,tdElements.offsetWidth]" -->
+    <ngx-charts-pie-grid
+      [scheme]="element[displayedColumn]?.expendable?.chart.colorSchema"
+      [results]="computedTableData[element.parameterName][displayedColumn].expending" (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+  </div>
+  <div
+    *ngIf="element[displayedColumn]?.expendable?.table && element[displayedColumn]?.expendable?.isExpended">
+    <div *ngIf="computedTableData[element.parameterName][displayedColumn]">
+      <table>
+        <tr>
+          <th *ngFor="let hColumn of element[displayedColumn]?.expendable?.table.heading">{{hColumn}}</th>
+        </tr>
+        <tr *ngFor="let row of computedTableData[element.parameterName][displayedColumn].expending">
+          <td *ngFor="let column of row">{{column}} </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

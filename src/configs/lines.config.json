@@ -1,0 +1,173 @@
+{
+  "default-line": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table.config.json",
+      "data": "https://remote-monitoring.testing.smartfactoryworx.net/api/shift/dashboard?line_id=",
+      "interval": 60
+    },
+    "alarmsAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?duration=5&line_id=",
+      "interval": 60
+    },
+    "timelineCharts": {
+      "config": "/configs/lines/line1-data-table.config.json",
+      "data": "https://capl91gn.smartfactoryworx.tech/dashboard/lines/5ecc8663c4100a70cc4a8d08/table-data/proxy"
+    },
+    "eventChartConfigJson": "/configs/lines/line1-event-chart.config.json",
+    "eventChartDataAPI": "https://capl91gn.smartfactoryworx.tech/dashboard/lines/5ecc8663c4100a70cc4a8d08/events",
+    "pieChartConfigJson": "/configs/lines/line1-pie-chart.config.json",
+    "pieChartDataAPI": "https://capl91gn.smartfactoryworx.tech/dashboard/lines/5ecc8663c4100a70cc4a8d08/pie-chart-data/proxy",
+    "reportEventChartConfigJson": "/configs/lines/line1-event-chart.config.json",
+    "reportEventChartDataAPI": "https://capl91gn.smartfactoryworx.tech/dashboard/lines/5ecc8663c4100a70cc4a8d08/events-history",
+    "reportPieChartConfigJson": "/configs/lines/line2-pie-chart.config.json",
+    "reportPieChartDataAPI": "https://capl91gn.smartfactoryworx.tech/dashboard/lines/5ecc8663c4100a70cc4a8d08/events-summary-history",
+    "interval": 60
+  },
+  "line1": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table.config.json",
+      "data": "https://remote-monitoring.testing.smartfactoryworx.net/api/shift/dashboard?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "alarmsAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://remote-monitoring.testing.smartfactoryworx.net/api/shift/dashboard?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    }
+  },
+  "line2": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/sku?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "alarmsAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?line_id=5f0809fdc2b1ce30cc53eb8d&duration=5",
+      "interval": 60
+    }
+  },
+  "line3": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table3.config.json",
+      "data": "configs/sample-data/data-table3.json",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?line_id=5f0809fdc2b1ce30cc53eb8d&duration=5",
+      "interval": 60
+    }
+  },
+  "line4": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table4.config.json",
+      "data": "configs/sample-data/data.json",
+      "interval": 60
+    },
+    "alarmsAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?line_id=5f0809fdc2b1ce30cc53eb8d&duration=5",
+      "interval": 60
+    }
+  },
+  "line10": {
+    "analysedSummaryDataAPI": {
+      "config": "https://config-api.smartfactoryworx.net/services/rahul/fake-api/test32",
+      "data": "https://config-api.smartfactoryworx.net/services/rahul/fake-api/datatable",
+      "interval": 60
+    },
+    "alarmsAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "shiftDataAPI": {
+      "config": "configs/default-line/shift-data.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "faultsDataTable": {
+      "config": "configs/default-line/faults-table.config.json",
+      "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?line_id=5f0809fdc2b1ce30cc53eb8d&duration=5",
+      "interval": 60
+    }
+  },
+
+  "line12": {
+    "analysedSummaryDataAPI": {
+      "config": "configs/default-line/data-table5.config.json",
+      "data": "https://remote-monitoring.testing.smartfactoryworx.net/api/shift/dashboard?line_id=5f0809fdc2b1ce30cc53eb8d",
+      "interval": 60
+    },
+    "line13": {
+      "analysedSummaryDataAPI": {
+        "config": "configs/default-line/data-table1.config.json",
+        "data": "https://dashboard.testing.smartfactoryworx.net/api/sku?line_id=5f0809fdc2b1ce30cc53eb8d",
+        "interval": 60
+      },
+      "alarmsAPI": {
+        "config": "configs/default-line/shift-data.config.json",
+        "data": "https://dashboard.testing.smartfactoryworx.net/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+        "interval": 60
+      },
+      "shiftDataAPI": {
+        "config": "configs/default-line/shift-data.config.json",
+        "data": "https://dashboard.testing.smartfactoryworx.net/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+        "interval": 60
+      },
+      "faultsDataTable": {
+        "config": "configs/default-line/faults-table.config.json",
+        "data": "https://dashboard.testing.smartfactoryworx.net/api/trend/duration_wise?line_id=5f0809fdc2b1ce30cc53eb8d&duration=5",
+        "interval": 60
+      }
+
+    
+  }
+}}

@@ -1,0 +1,92 @@
+
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;text-align: center;">Add Fgex Details</h3>
+    <form [formGroup]="Fgexform">
+        <div fxLayout="column" style="width:100%;">
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+
+                <!--<mat-form-field class="form-field" fxFlex=10>
+                    <input matInput autocomplete="off" placeholder="Format ID"
+                        formControlName="_id">
+                </mat-form-field> -->
+                <mat-form-field fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Fgex" formControlName="fgex" >
+                </mat-form-field>
+
+                <mat-form-field  fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Product Name" formControlName="product_name">
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Halb Code" formControlName="halb_code">
+                </mat-form-field>
+
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Pack" formControlName="pack">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <mat-label> Type </mat-label>
+                    <mat-select formControlName="type">
+                       <!----<mat-option value="Cold Form">Cold Form</mat-option>
+                        <mat-option value="Thermo Form">Thermo Form</mat-option> -->
+                        <mat-option *ngFor="let i of GlobalKeys" [value]="i[1]">{{i[2]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Layout No." formControlName="layout_no">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Blister Size" formControlName="blister_size">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Current Machine" formControlName="current_machine">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Format" formControlName="blister_per_format" (input)="BindRatedSpeedFrom($event.target.value)" type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Cycle" formControlName="machine_cycle"
+                    (input)="BindRatedSpeed($event.target.value)"
+                    type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <input matInput autocomplete="off" placeholder="Blister per Min" formControlName="rated_speed"
+                    readonly type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="50">
+                    <input matInput autocomplete="off" placeholder="Tablet Per Blister" formControlName="tablet_per_blister">
+                </mat-form-field>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+    <button mat-raised-button color="primary" [disabled]="Fgexform.invalid"
+        [mat-dialog-close]="Fgexform.value">{{button}} </button>
+    <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+</div>
+
+<!-- <pre>{{Fgexform.value|json}}</pre> -->

@@ -1,0 +1,11 @@
+<app-dashboard-layout *ngIf="layout && layout === 'dashboard'">
+  <router-outlet></router-outlet>
+</app-dashboard-layout>
+
+<app-sfw-layout *ngIf="layout && layout === 'sfw'" >
+  <router-outlet></router-outlet>
+</app-sfw-layout>
+
+<app-tv-screen-layout *ngIf="layout && layout === 'tv'">
+  <router-outlet></router-outlet>
+</app-tv-screen-layout>

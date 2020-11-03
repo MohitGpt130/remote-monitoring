@@ -1,0 +1,62 @@
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;align-items: center;">{{title}}</h3>
+    <form [formGroup]="lossmasterform">
+        <div fxLayout="column" style="width:100%;" fxFlex="100">
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-mngv999
+                field" fxFlex="100">
+                    <mat-label>Select Loss Type </mat-label>
+                    <mat-select formControlName="type">
+                        <mat-option *ngFor="let i of LossTypes" [value]="i[1]">{{i[2]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" class="invisible" fxFlex="1">
+                    <input matInput autocomplete="off" placeholder="ID" formControlName="_id">
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+
+                <mat-form-field class="form-field" fxFlex="100">
+                    <textarea matInput autocomplete="off" placeholder="Enter Loss Name"
+                        formControlName="display_name"></textarea>
+                </mat-form-field>
+
+                <!-- <mat-form-field class="form-field" fxFlex="45">
+                        <input matInput autocomplete="off" placeholder="Enter State name"
+                        formControlName="">
+                </mat-form-field> -->
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Enter Loss code" formControlName="value">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <mat-label>Select State</mat-label>
+                    <mat-select formControlName="state">
+                        <mat-option *ngFor="let i of stateofMachine" [value]="i[1]">{{i[2]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Enter Language" formControlName="another_language_name">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="lossmasterform.invalid" [mat-dialog-close]="lossmasterform.value"
+                 
+                    > {{button}} </button>
+                    
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{lossmasterform.value|json}}</pre>
+</div>

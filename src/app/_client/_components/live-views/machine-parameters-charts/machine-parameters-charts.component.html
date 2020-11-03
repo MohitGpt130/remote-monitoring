@@ -1,0 +1,63 @@
+<div fxLayout="column" fxLayoutAlign="start center" style="height: 100%;width:100%;">
+
+  <!-- <button mat-raised-button color="primary" fxFlex="15" (click)="RefreshChart()">
+    Refresh
+  </button> -->
+
+  <div *ngIf="gotEventChartData" #eventBarChartdiv style="width: 100%;">
+    <google-chart #eventBarChart *ngIf="updated" [data]="timelineChart" (chartSelect)="select($event)"></google-chart>
+    <google-chart #eventBarChart *ngIf="!updated" [data]="timelineChart" (chartSelect)="select($event)"></google-chart>
+  </div>
+  <div *ngIf="!gotEventChartData">
+    loading...
+  </div>
+  <!-- <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" class="box1"
+    style="width:80%;height:15%;text-align: center;">
+    <div *ngFor="let item of statusColors| keyvalue" fxLayout="row" class="box2"
+      [ngStyle]="{'background-color': item.value.color}" fxLayoutAlign="space-evenly center">{{item.value.text}}</div>
+  </div> -->
+  <div *ngIf="gotPieChartData" #piechartsdiv
+    style="height: 300px; width: 100%; position: relative; overflow-y: hidden; overflow-x: auto;">
+    <div style=" width:100%; height: 100%;" fxLayout="row" fxLayoutAlign="space-between center">
+      <div *ngFor="let pieChart of pieCharts; let i = index" style="height: 100%; width: 100%; margin:10px;">
+        <div style=" font-size: 12px; font-weight: bold;">
+          {{pieChart?.title | uppercase}}
+        </div>
+        <div style="align-items: center;">
+          <google-chart [data]="pieChart"></google-chart>
+        </div>
+        <div style=" font-size: 12px; font-weight: bold;">
+          <div *ngFor="let item of pieChart?.dataTable;let j = index" fxLayout="row" fxLayoutAlign="start center">
+            <div *ngIf="j!=0"
+              style="content:'';width:10px;height: 10px;color:black;font-size: 9px;font-family: Helvetica Neue,Helvetica,Arial,sans-serif;"
+              [ngStyle]="{'background-color': statusColors[item[0]]?.color}"></div>
+            <div *ngIf="j!=0">
+              {{(item[1]?item[1] * 60 * 60 :0 ) | duration2Time:'HH:MM' }}-{{ ((item[1]?item[1]:0)/ (pieChart?.dataTable[9][1]+pieChart?.dataTable[8][1]+pieChart?.dataTable[7][1]+pieChart?.dataTable[6][1]+pieChart?.dataTable[1][1]+pieChart?.dataTable[2][1]+pieChart?.dataTable[3][1]+pieChart?.dataTable[4][1]+pieChart?.dataTable[5][1]))*100|number : '2.0-0'}}%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!gotPieChartData">
+    loading...x
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" class="box1"
+        style="width:80%;height:3%;text-align: center;">
+        <div *ngFor="let item of statusColors| keyvalue" fxLayout="row" class="box2"
+            [ngStyle]="{'background-color': item.value.color}" fxLayoutAlign="space-evenly center">
+            {{item.value.text}}
+        </div>
+    </div>
+</div>
+<!--
+<div #vTooltip class="google-visualization-tooltip"
+  style="width: 30px; height: 0; left: 198.248px; top: 42.496px; border: 1px solid rgb(73, 51, 182);cursor: pointer; "
+  fxLayout="column" fxLayoutAlign="space-between center">
+  <div fxFlex="25" style="background:white;width: 100%; height: 100%;" matRipple
+    (click)="getForm(stopID,machineName,stopData,machineState)"></div>
+  <div fxFlex="50" style="background:red;width: 10
+  0%; height: 100%;" matRipple (click)="getDetails()"></div>
+  <div fxFlex="25" style="background:brown;width: 100%; height: 100%;" matRipple
+    (click)="getVideo(stopID,machineName,stopData)"></div>
+</div> -->

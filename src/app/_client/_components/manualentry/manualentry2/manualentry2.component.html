@@ -1,0 +1,237 @@
+
+<mat-sidenav-container class="container" style="height: calc(100% - 10px); overflow-y: scroll;"  >
+  <mat-sidenav #right position="start" mode="push">
+    <app-drawer></app-drawer>
+  </mat-sidenav>
+
+  <!-- <div fxLayout="column" #container fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxFlex
+    style=" width:100%; ">
+    <div fxLayout="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.xs="column" fxLayout.sm="column"
+      fxLayoutAlign="space-between center" style="width: 100%;">
+      <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+
+        <div>
+
+        </div>
+        <div>
+          <button mat-stroked-button color="warn" [matMenuTriggerFor]="lineoverview">Line Overview</button>
+          <mat-menu #lineoverview="matMenu">
+            <a [routerLink]="[ '/lineview/table/count' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Table</button>
+            </a>
+
+            <a [routerLink]="[ '/lineview/charts' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Charts</button>
+            </a>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-stroked-button color="warn" [matMenuTriggerFor]="manual">Manual Entry</button>
+          <mat-menu #manual="matMenu">
+            <a [routerLink]="[ '/change-over' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Change Over</button>
+            </a>
+            <a [routerLink]="[ '/manuallinewise' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Line & its associates</button>
+            </a>
+            <a [routerLink]="[ '/schedule' ]" target="_blank" routerLinkActive="active" style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Schedule Maintenance</button>
+            </a>
+          </mat-menu>
+        </div>
+
+        <div>
+          <button mat-stroked-button color="warn" [matMenuTriggerFor]="report">Reports</button>
+          <mat-menu #report="matMenu">
+            <a [routerLink]="[ '/report/shiftend' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Shift End Report</button>
+            </a>
+            <a [routerLink]="[ '/report/batchwise' ]" target="_blank" routerLinkActive="active"
+              style="text-decoration: none;">
+              <button mat-stroked-button color="warn">Batch Wise Report</button>
+            </a>
+
+          </mat-menu>
+        </div>
+
+      </div>
+      <div class="header-labels">
+
+        <div class="header-label" style="background:linear-gradient(90deg, #6660be 100%, white 0%);"
+          fxLayoutAlign="space-between center">
+          <span>{{skuName}}</span>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+        <div class="header-labels">
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <form [formGroup]="manualEntryForm">
+    <div fxLayout="column" fxLayoutAlign="space-around center" style="width: 100%;" fxFlex="90">
+      <div fxLayout="row" fxLayoutAlign="space-around center" style="width: 100%;" fxFlex="100">
+        <!-- <label fxFlex="30"><h5>Select Line</h5></label> -->
+        <!-- <mat-form-field style="width: 100%;">
+                <input matInput placeholder="Line" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                    (optionSelected)='getLineDetails($event.option.value)'>
+                    <mat-option *ngFor="let line of LinesData" [value]="line">
+                        <span style="color: red;">{{line.linename}}</span> |
+                        <small style="color: blue;">
+                            {{line.linename}}->{{line.locationname}}->{{line.statename}}->{{line.countryname}}->{{line.companyname}}</small>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field> -->
+
+        <mat-form-field class="form-field" fxFlex="35">
+          <mat-label>Select Line </mat-label>
+          <mat-select (selectionChange)="getLineDetails($event.value)" formControlName="lineSelect">
+            <mat-option *ngFor="let line of LinesData" [value]="line">
+              <span style="color: red;">{{line.linename}}</span> |
+              <small style="color: blue;">
+                {{line.linename}}-->{{line.plantname}}-->{{line.locationname}}-->{{line.statename}}-->{{line.countryname}}</small>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlex="35" *ngIf="LineName!=''" style="color:yellow;background: black;padding: 10px;">
+          {{LineName}}
+        </div>
+      </div>
+    </div>
+  </form>
+  <div >
+    <h5 style="color: blue;">
+
+    </h5>
+    <mat-tab-group mat-stretch-tabs mat-align-tabs="center" (selectedTabChange)="tabChanged($event)" #tabGroup >
+
+
+      <!--
+            <mat-tab label="Loss Master">
+                <app-lossmaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 1"></app-lossmaster>
+            </mat-tab> -->
+
+      <!--
+            <mat-tab label="Equipment">
+                <app-equipment [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 1"></app-equipment>
+            </mat-tab>
+             -->
+      <!--  <mat-tab label="Define Shift">
+                <app-shiftform [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 1"></app-shiftform>
+            </mat-tab>
+            <mat-tab label="SKU">
+                <app-skuform [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 2"></app-skuform>
+            </mat-tab> -->
+      <!-- <mat-tab label="Equipment">
+        <app-equipment [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 0"></app-equipment>
+      </mat-tab> -->
+      <mat-tab label="Fault Cause">
+        <app-faultname [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 0"></app-faultname>
+      </mat-tab>
+
+      <mat-tab label="Other State Definition">
+        <app-faultcauseform [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 1"></app-faultcauseform>
+      </mat-tab>
+
+      <mat-tab label="FGex">
+        <app-fgex [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 2"></app-fgex>
+      </mat-tab>
+
+      <!-- <mat-tab label="Change Over Master">
+        <app-changeovertype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 2"></app-changeovertype>
+      </mat-tab> -->
+
+      <!-- <mat-tab label="Format Master">
+        <app-format [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 3"></app-format>
+      </mat-tab>
+      <mat-tab label="Product">
+        <app-skuform [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 4"></app-skuform>
+      </mat-tab> -->
+
+      <!-- <mat-tab label="Plant Down Time">
+        <app-plantdowntime [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 3"></app-plantdowntime>
+      </mat-tab> -->
+      <!-- <mat-tab label="Machine Wise Operator">
+        <app-machinewise-operator *ngIf="tabGroup.selectedIndex === 5"></app-machinewise-operator>
+      </mat-tab> -->
+
+
+
+
+      <mat-tab label="Operator">
+        <app-operatorentry [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 3"></app-operatorentry>
+      </mat-tab>
+
+      <!-- <mat-tab label="Change Over Master">
+        <app-changeovertype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 4"></app-changeovertype>
+      </mat-tab> -->
+
+
+
+      <!-- <mat-tab label="Global key Master">
+        <app-globalkeymaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 5"></app-globalkeymaster>
+      </mat-tab>
+      <mat-tab label="Global type Master">
+        <app-globaltype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 6"></app-globaltype>
+      </mat-tab> -->
+
+      <!-- <mat-tab label="Change Over">
+        <app-change-over1 [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 9"></app-change-over1>
+      </mat-tab> -->
+
+
+      <!----<mat-tab label="Fault Name">
+                <app-lossmaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 6"></app-lossmaster>
+            </mat-tab>
+            <mat-tab label="Global type Master">
+                <app-globaltype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 7"></app-globaltype>
+            </mat-tab>
+
+
+            <mat-tab label="Global key Master">
+                <app-globalkeymaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 9"></app-globalkeymaster>
+            </mat-tab> -->
+
+      <!--  -->
+      <!-- <mat-tab label="Global key Master">
+                <app-globalkeymaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 6"></app-globalkeymaster>
+            </mat-tab> -->
+      <!-- <mat-tab label="Email Scheduler">
+                <app-emailscheduler [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 4"></app-emailscheduler>
+            </mat-tab>
+            <mat-tab label="Equipment">
+                <app-equipment [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 5"></app-equipment>
+            </mat-tab> -->
+
+      <!-- <mat-tab label="Email Template">
+                <app-emailtemplate [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 4"></app-emailtemplate>
+            </mat-tab>
+
+
+            <mat-tab label="Global type Master">
+                <app-globaltype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 6"></app-globaltype>
+            </mat-tab>
+            <mat-tab label="Global key Master">
+                <app-globalkeymaster [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 7"></app-globalkeymaster>
+            </mat-tab>
+
+
+
+
+
+             <mat-tab label="Global type Master">
+                <app-globaltype [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 5"></app-globaltype>
+            </mat-tab> -->
+
+      <!-- <mat-tab label="Plant Down Time">
+                <app-plantdowntime [lineid]="LineId" *ngIf="tabGroup.selectedIndex === 2"></app-plantdowntime>
+            </mat-tab> -->
+    </mat-tab-group>
+  </div>
+</mat-sidenav-container>

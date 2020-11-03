@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+    <div style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10">
+      <div>Date: {{data?.timestamp | date:'MMM d, y, h:mm a': 'GMT +04:00' }}</div>
+      <div>{{data?.projectName}}</div>
+      <div>{{data?.lineName}}</div>
+    </div>
+</mat-toolbar>

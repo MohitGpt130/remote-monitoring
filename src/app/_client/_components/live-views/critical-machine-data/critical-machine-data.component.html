@@ -1,0 +1,40 @@
+<div fxLayout="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.xs="column" fxLayout.sm="row"
+  style=" width:100%; padding: 5px; background:white;" fxLayoutAlign="start center">
+  <div style="color:brown;font-size: large;text-align: center;font-weight: 500; ">Shift Details</div>
+  <div fxFlex fxFlex.sm=50 style="background: blue;" style="width: 100%; height: 100%;">
+    <mat-grid-list fxFlex cols="4" [gutterSize]="'5px'" style="padding: 10px; background: white;" rowHeight="5:2">
+      <mat-grid-tile *ngFor="let data of criticalMachineData" colspan="1" rowspan="1">
+
+        <div style="height:100%; width:100%;">
+          <div style="height:100%;" fxLayout="column" fxLayoutAlign="center center"
+            [ngStyle]="{'background': criticalMachineParameters[data.title]?.background_color, 'color':criticalMachineParameters[data.title]?.color}">
+            <div class="SummaryDataText" ngClass.md="SummaryDataText-md" ngClass.lg="SummaryDataText-lg"
+              ngClass.xl="SummaryDataText-xl" ngClass.sm="SummaryDataText-sm">
+              {{criticalMachineParameters[data.title].display_name }}</div>
+            <div *ngIf="data.title?.includes('time_loss')" class="SummaryDataValue" ngClass.md="SummaryDataValue-md"
+              ngClass.lg="SummaryDataValue-lg" ngClass.xl="SummaryDataValue-xl" ngClass.sm="SummaryDataValue-sm">
+              {{(data.value*60) | duration2Time:'HH:MM:SS'}} {{ criticalMachineParameters[data.title].format }}</div>
+            <div *ngIf="!data.title?.includes('time_loss')" class="SummaryDataValue" ngClass.md="SummaryDataValue-md"
+              ngClass.lg="SummaryDataValue-lg" ngClass.xl="SummaryDataValue-xl" ngClass.sm="SummaryDataValue-sm">
+              {{data.value}} {{ criticalMachineParameters[data.title].format }}</div>
+
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div fxLayout="column" style="width:50%; height:20%;background-color: white;" fxLayoutAlign="space-around none"
+    fxFlex.sm=50>
+    <div *ngFor="let status of colorStatus" fxLayoutAlign="space-around none" style="width:100%;padding: 1px;">
+      <div class="MachineColourText" ngClass.lg="MachineColourText-lg" ngClass.md="MachineColourText-md"
+        ngClass.xl="MachineColourText-xl" ngClass.sm="MachineColourText-sm"
+        style="width:100%;background: black; height:100%;color:white;" fxLayoutAlign="center">
+        {{ statusColors[status].text }}
+      </div>
+      <div style="width:40%; background: gray;" [ngStyle]="{'background': statusColors[status].color}" fxFlex.lg="150%"
+        fxFlex.md="100%" fxFlex.sm="50%">
+      </div>
+    </div>
+  </div>
+</div>

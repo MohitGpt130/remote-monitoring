@@ -1,0 +1,92 @@
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.SummaryDataValue
+{
+    font-size: 15px;
+}
+.SummaryDataValue-sm
+{
+    font-size: 18px
+}
+
+.SummaryDataValue-md
+{
+    font-size: 18px
+}
+
+.SummaryDataValue-lg
+{
+    font-size: 24px;
+}
+
+.SummaryDataValue-xl
+{
+    font-size: 30px
+}
+
+.SummaryDataText
+{
+    font-size: 15px;
+}
+
+.SummaryDataText-sm
+{
+    font-size: 11px
+}
+
+.SummaryDataText-md
+{
+    font-size: 11px
+}
+
+.SummaryDataText-lg
+{
+    font-size: 14px;
+}
+
+.SummaryDataText-xl
+{
+    font-size: 18px
+}
+
+
+.MachineColourText
+{
+    font-size: 14px;
+    text-align: center;
+}
+
+.MachineColourText-sm
+{
+    font-size: 13px;
+    text-align: center;
+}
+
+.MachineColourText-md
+{
+    font-size: 13px;
+    text-align: center;
+}
+
+.MachineColourText-lg
+{
+    font-size: 15px;
+    text-align: center;
+}
+.MachineColourText-xl
+{
+    font-size: 20px;
+    text-align: center;
+}
+
+::ng-deep md-grid-tile.mat-grid-tile .mat-figure {
+    align-items: initial;  /*vertical alignment*/
+    justify-content: initial;  /*horizontal alignment*/
+}
+
+// mat-grid-list{
+//     border: 1px solid gray;
+// }

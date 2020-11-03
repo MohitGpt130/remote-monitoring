@@ -1,0 +1,87 @@
+<mat-sidenav-container class="container" style="height: 100%;">
+    <mat-sidenav #right position="start" mode="push">
+        <app-drawer></app-drawer>
+
+    </mat-sidenav>
+    
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="width: 100%;" fxFlex=80>
+    <div fxLayout="column" fxLayoutAlign="space-around center" style="width: 50%;" fxFlex=40>
+        <mat-form-field style="width: 100%;">
+            <mat-label style="color: blue;">Select Line Name </mat-label>
+            <input matInput placeholder="Line" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                (optionSelected)='getLineDetails($event.option.value)'>
+                <mat-option *ngFor="let line of LinesData" [value]="line">
+                    <span style="color: red;">{{line.linename}}</span> |
+                    <small style="color: blue;">
+                        {{line.linename}}-->{{line.locationname}}-->{{line.statename}}-->{{line.countryname}}-->{{line.companyname}}</small>
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <div *ngIf="LineName!=''" style="color:yellow;background: black;padding: 10px;">
+        {{LineName}}
+    </div>
+</div>
+<div>
+    <mwl-demo-component [lineid]="LineId" ></mwl-demo-component>
+</div>
+</mat-sidenav-container>
+<!-- <div fxLayout="row wrap">
+    <div fxFlex="100" class="flex-p">
+        <mat-card class="block p-0">
+            <div style="background-color: #283593;color: white;">
+                <div fxLayout="row"  fxLayout.xs="column" fxLayoutAlign="space-between center" class="w-100">
+                    <div >
+                        <button mat-icon-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                            <mat-icon>chevron_left</mat-icon>
+                        </button>
+                        <button mat-icon-button mwlCalendarToday [(viewDate)]="viewDate">
+                            <mat-icon>today</mat-icon>
+                        </button>
+                        <button mat-icon-button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                            <mat-icon>chevron_right</mat-icon>
+                        </button>
+                    </div>
+                    <h2>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
+                    <div class="">
+                        <button mat-icon-button (click)="view = 'month'">
+                            <mat-icon>view_comfy</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="view = 'week'">
+                            <mat-icon>view_week</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="view = 'day'">
+                            <mat-icon>view_day</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="openScheduleDialog(null)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ng-template #customCellTemplate let-day="day" let-locale="locale">
+                <div class="cal-cell-top">
+                    <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
+                    <small><span>{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span></small>
+                </div>
+                <small *ngFor="let item of day.events;let i=index;" [ngStyle]="{'background-color':item.meta.color}"
+                    style="color: white;padding: 3px;border:green;" (click)="fun(item)">{{ item.title }} </small>
+            </ng-template>
+            <div *ngIf="events$ | async; else loading; let events">
+            <div [ngSwitch]="view">
+                <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+                    [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+                    [cellTemplate]="customCellTemplate">
+                </mwl-calendar-month-view>
+                <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events"
+                    [refresh]="refresh">
+                </mwl-calendar-week-view>
+                <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events"
+                    [refresh]="refresh">
+                </mwl-calendar-day-view>
+            </div>
+        </div>
+        </mat-card>
+    </div>
+</div> -->

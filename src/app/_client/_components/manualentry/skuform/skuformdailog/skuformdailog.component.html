@@ -1,0 +1,113 @@
+<div fxLayout="column" class="form">
+    <form novalidate [formGroup]="skuform" style="width:100%;">
+        <h4 style="text-align: center;color: blue;">Enter Product Details</h4>
+        <div fxLayout="column" style="width:100%;">
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <mat-form-field class="form-field" class="invisible" fxFlex=1>
+                    <input matInput placeholder="Enter SKU Id" formControlName="sku_id">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=40>
+                    <input matInput type="number" autocomplete="off" placeholder="Enter Product Number"
+                        formControlName="sku_number">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=40>
+                    <input matInput autocomplete="off" placeholder="Enter Product Name" formControlName="sku_name">
+                </mat-form-field>
+                <mat-form-field class="form-field" class="invisible">
+                    <input matInput autocomplete="off" type="string" placeholder="Group" formControlName="group">
+                </mat-form-field>
+               
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" class="invisible">
+                <!-- <mat-form-field class="form-field" fxFlex=33>
+                    <input matInput autocomplete="off" type="string" placeholder="BPC" formControlName="bpm">
+                </mat-form-field> -->
+                <mat-form-field class="form-field" fxFlex=20>
+                    <input matInput type="number" autocomplete="off" placeholder="Enter Rated Speed" formControlName="rated_speed">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=20>
+                    <input matInput autocomplete="off" type="number" placeholder="Standard Speed"
+                        formControlName="standardspeed">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=20>
+                    <input matInput autocomplete="off" type="number" placeholder="CPP" formControlName="cpp">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=20>
+                    <input matInput autocomplete="off" type="number" placeholder="Speed per Shift"
+                        formControlName="speedpershift">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" class="invisible">
+                <mat-form-field class="form-field" fxFlex=33>
+                    <input matInput autocomplete="off" type="number" placeholder="Bottles per case"
+                        formControlName="bpc">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=33>
+                    <input matInput autocomplete="off" type="string" placeholder="Reliver" formControlName="reliver">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex=33>
+                    <input matInput autocomplete="off" type="string" placeholder="Bottleneck"
+                        formControlName="bottleneck">
+                </mat-form-field>
+            </div>
+            
+            <div fxLayout="row" style="width: 100%;" fxLayoutAlign="space-around start" class="invisible">
+                
+                <mat-form-field class="form-field" fxFlex=50>
+                    <input matInput autocomplete="off" type="string" placeholder="Time delay for OEE start after CO"
+                        formControlName="production_start_calculation_minute">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=50>
+                    <input matInput autocomplete="off" type="string" placeholder="Production stop delay before CO start"
+                        formControlName="changover_start_calculation_minute">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" class="invisible">
+                
+                <mat-form-field class="form-field" fxFlex=50>
+                    <input matInput autocomplete="off" type="number" placeholder="Weight(KG) Range From"
+                        formControlName="min_weight_range">
+                </mat-form-field>
+                <mat-form-field class="form-field" fxFlex=50>
+                    <input matInput autocomplete="off" type="number" placeholder="Weight(KG) Range To"
+                        formControlName="max_weight_range">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" >
+                <mat-label>Equipment to used </mat-label>
+                <mat-selection-list formControlName="equipments" class="list-horizontal" style="width: 100%;"
+                    fxLayout="row wrap" fxLayoutAlign="space-around center">
+                    <mat-list-option style="font-size: small;" *ngFor="let m of Equipments;let i=index"
+                        [value]="m.equipmentid" fxFlex="30">
+                        {{m.equipmentdisplayname}}
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+            <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" >
+                <mat-label>Format to used </mat-label>
+                <mat-selection-list formControlName="formats" class="list-horizontal" style="width: 100%;"
+                    fxLayout="row wrap" fxLayoutAlign="space-around center">
+                    <mat-list-option *ngFor="let f of Formats;let i=index" [value]="f.formatid" fxFlex="30">
+                        {{f.formatname}}
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+            <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" class="invisible">
+                <mat-label>Format to used </mat-label>
+                <mat-selection-list formControlName="designations" class="list-horizontal" style="width: 100%;"
+                    fxLayout="row wrap" fxLayoutAlign="space-around center">
+                    <mat-list-option *ngFor="let d of Designations;let i=index" [value]="d.designationid" fxFlex="30">
+                        {{d.designationdisplayname}}
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center none" style="width: 100%; padding: 1%;" fxFlex=100>
+                <button mat-raised-button color="primary" [disabled]="skuform.invalid" [mat-dialog-close]="skuform.value">
+                    Submit
+                </button>
+            </div>
+            <!-- <pre>{{skuform.value|json}}</pre> -->
+        </div>
+    </form>
+</div>

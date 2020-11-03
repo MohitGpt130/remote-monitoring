@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// for npm roboto-fontface package (to load local files)
+$roboto-font-path: "~roboto-fontface/fonts" !default;
+@import "~roboto-fontface/css/roboto/sass/roboto-fontface";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import "../node_modules/ng-pick-datetime/assets/style/picker.min.css";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
+@import url('https://cdn.quilljs.com/1.2.2/quill.snow.css');
+@import url('https://cdn.quilljs.com/1.2.2/quill.bubble.css');
+
+// indigo-pink, deeppurple-amber, purple-green and pink-bluegrey.
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "~@angular/material/theming";
+@include mat-core();
+@import "./themes/default-theme.scss";
+@import "./themes/dark-theme.scss";
+@import "./themes/light-theme.scss";
+@import "./themes/nature-theme.scss";
+@import "./themes/styles/base";
+@import "./themes/styles/theme";
+@import "./themes/styles/libs-override";
+@import "./themes/styles/rtl";
+$font-family: 'Roboto',
+sans-serif;
+$toolbar-height: 56px;
+$horizontal-menu-height: $toolbar-height;
+$sidenav-width: 250px;
+$sidenav-user-block-height: 156px;
+$mini-sidenav-user-block-height: 70px;
+$flex-distance: 8px;
+$inner-sidenav-content-padding: $flex-distance;
+//Login, Register, Errors box
+$box-height: 186px;
+$box-position: 34px;
+$register-box-height: 350px;
+// @import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.fail_color{
+    background-color: #ff0000;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

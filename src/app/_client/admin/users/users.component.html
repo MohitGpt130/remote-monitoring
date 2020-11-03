@@ -1,0 +1,155 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" class="flex-p">
+    <div fxLayout="row">
+        <mat-button-toggle-group #controls="matButtonToggleGroup" appearance="legacy">
+            <mat-button-toggle value="add" (click)="userCount ? checkUserCountSnackBar('You exceeded your limit!!','') : openUserDialog(null)">
+                <mat-icon>person_add</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="search">
+                <mat-icon>search</mat-icon>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <form class="user-search" [class.show]="controls.value == 'search'">
+        <mat-form-field class="user-search-input">
+            <input matInput placeholder="Search user by name..." [(ngModel)]="searchText" name="search">
+        </mat-form-field>
+    </form>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-button-toggle-group #viewType="matButtonToggleGroup" appearance="legacy">
+            <mat-button-toggle value="grid" [checked]="gridView">
+                <mat-icon>view_module</mat-icon>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>
+<div *ngIf="viewType?.value ? viewType.value === 'grid' : false" fxLayout="row wrap">
+    <div *ngFor="let user of users | UserSearchPipe : searchText | paginate: { itemsPerPage: 6, currentPage: page }" fxFlex="100" fxFlex.gt-md="33.3" fxFlex.md="50" class="flex-p">
+        <mat-card class="p-1">
+            <mat-card-header style="background: #3f51b5; color: white; ">
+                <div class="bg-primary" style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="bg-primary" fxLayout="row" fxLayoutAlign="space-between center">
+                        <h3 *ngIf="user.settings.isActive" [ngStyle]="{'font-weight': 500}" class="user-name">{{user?.fullName}} ({{user.code}})</h3>
+                        <h3 *ngIf="!user.settings.isActive" [ngStyle]="{'font-weight': 500}" class="user-name">{{user?.fullName}} ({{user.code}})</h3>
+                    </div>
+                    <div style="width:50px;">
+                        <mat-slide-toggle [checked]="user.settings.isActive" (change)="changeUserActivation(user, $event.checked)"> </mat-slide-toggle>
+                    </div>
+                </div>
+            </mat-card-header>
+
+            <div class="user-content" fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxFlex="30" fxLayout="column" fxLayoutAlign="center center">
+                    <div class="avatar-wrapper user-img">
+                        <img class="profile-pic" *ngIf="user?.profile?.picture" [src]="user.profile.picture" onError="this.src='assets/images/user-vector.jpg'" class="transition-2" [class.blocked]="!user.settings.isActive">
+                        <img class="profile-pic" *ngIf="!user?.profile?.picture" src="assets/images/user-vector.jpg" class="transition-2" [class.blocked]="!user.settings.isActive">
+                        <mat-icon *ngIf="!user.settings.isActive" class="warn-color">block</mat-icon>
+                    </div>
+                    <div class="user-social">
+                        <h3 *ngIf="!user.settings.isActive" [ngStyle]="{'font-weight': 500}" class="user-name">Deactive</h3>
+                    </div>
+                </div>
+                <div fxFlex="70" fxLayout="column" class="user-details transition-2" [class.blocked]="!user.settings.isActive">
+                    <p fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="muted-text">card_membership</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Roles</mat-label>
+                            <mat-select [disabled]="!user?.settings?.isActive" #{{user.name}}_selectedRoles [(ngModel)]="usersRoleName[user.name]" (selectionChange)="updateUserRoles(user, $event)">
+                                <mat-option *ngFor="let role of allRoles" [value]="role._id">{{role.title}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </p>
+                    <p fxLayout="row" fxLayoutAlign="start center" [ngStyle]="{'color': user.auth.email.isVerified?'':'red' }">
+                        <button mat-icon-button matTooltip="Send email verification code" (click)="sendVerificationCode(user.email)">
+              <mat-icon class="muted-text">mail_outline</mat-icon>
+            </button>
+                        <span>{{user.email || user.profile.contacts?.email}}</span>
+                    </p>
+                    <p fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="muted-text">home</mat-icon>
+                        <mat-form-field>
+                            <mat-label>Routes</mat-label>
+                            <mat-select [disabled]="!user?.settings?.isActive" #{{user.name}}_selectedRoutes [(ngModel)]="usersHomeRoutes[user.name]" (selectionChange)="updateUserHomeRoutes(user, $event)">
+                                <mat-option *ngFor="let route of usersRoutes[user.name]" [value]="route.link">{{route.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </p>
+                    <p fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="muted-text">work</mat-icon>
+                        <span>Created on: {{user.createdAt | date:"dd MMMM, yyyy"}}</span>
+                    </p>
+                    <p fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="muted-text">work</mat-icon>
+                        <span>Status: {{user.status}}</span>
+                    </p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf="viewType?.value ? viewType.value === 'list' : false" fxLayout="row wrap">
+    <div *ngFor="let user of users | UserSearchPipe : searchText | paginate: { itemsPerPage: 6, currentPage: page }" fxFlex="50" class="flex-p">
+        <mat-card class="p-1">
+            <div class="bg-primary" fxLayout="row" fxLayoutAlign="space-between center">
+                <h3 *ngIf="user.settings.isActive" [ngStyle]="{'font-weight': 500}" class="user-name">{{user?.fullName}} ({{user.code}})
+                </h3>
+                <h3 *ngIf="!user.settings.isActive" [ngStyle]="{'font-weight': 500}" class="user-name">{{user?.fullName}} ({{user.code}})
+                </h3>
+            </div>
+            <div class="user-content" fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxFlex="100">
+                    <div fxFlex="30" fxLayout="column" fxLayoutAlign="center center">
+                        <div class="avatar-wrapper user-img">
+                            <img class="profile-pic" *ngIf="user?.profile?.picture" [src]="user.profile.picture" onError="this.src='assets/images/user-vector.jpg'" class="transition-2" [class.blocked]="!user.settings.isActive">
+                            <img class="profile-pic" *ngIf="!user?.profile?.picture" src="assets/images/user-vector.jpg" class="transition-2" [class.blocked]="!user.settings.isActive">
+                            <mat-icon *ngIf="!user.settings.isActive" class="warn-color">block</mat-icon>
+                        </div>
+                        <div class="user-social">
+                            <mat-slide-toggle color="primary" [checked]="user.settings.isActive" (change)="changeUserActivation(user, $event.checked)"> </mat-slide-toggle>
+                        </div>
+                    </div>
+                    <div fxFlex="70" fxLayout="column" class="user-details transition-2" [class.blocked]="!user.settings.isActive">
+                        <p fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="muted-text">card_membership</mat-icon>
+                            <mat-form-field>
+                                <mat-label>Roles</mat-label>
+                                <mat-select [disabled]="!user?.settings?.isActive" #{{user.name}}_selectedRoles [(ngModel)]="usersRoleName[user.name]" (selectionChange)="updateUserRoles(user, $event)">
+                                    <mat-option *ngFor="let role of allRoles" [value]="role._id">{{role.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </p>
+                        <p fxLayout="row" fxLayoutAlign="start center" [ngStyle]="{'color': user.auth.email.isVerified?'':'red' }">
+                            <button mat-icon-button matTooltip="Send email verification code" (click)="sendVerificationCode(user.email)">
+                <mat-icon class="muted-text">mail_outline</mat-icon>
+              </button>
+                            <span>{{user.email || user.profile.contacts?.email}}</span>
+                        </p>
+                        <p fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="muted-text">verified_user</mat-icon>
+                            <span>{{user?.status}}</span>
+                        </p>
+                        <p fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="muted-text">home</mat-icon>
+                            <span>{{user?.settings?.homeRoute}}</span>
+                        </p>
+                        <p fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="muted-text">work</mat-icon>
+                            <span>Created on: {{user.createdAt | date:"dd MMMM, yyyy"}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf="users" fxLayout="row wrap">
+    <div fxFlex="100" class="flex-p">
+        <mat-card class="p-0 text-center">
+            <pagination-controls class="gradus-pagination" autoHide="true" maxSize="3" (pageChange)="onPageChanged($event)">
+            </pagination-controls>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="!users" fxLayout="column" fxLayoutAlign="center center" class="user-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

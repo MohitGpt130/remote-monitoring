@@ -1,0 +1,70 @@
+<div style="width: 100%;height: 100%;">
+    <h4 style="color: blue;text-align: center;">Change Operator</h4>
+    <form [formGroup]="batchentryform">
+        <div fxLayout="column" style="width:100%;" fxFlex="100">
+
+            <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <!-- <mat-form-field appearance="outline" class="form-field" fxFlex="23">
+                    <input matInput autocomplete="off" placeholder="Date" formControlName="date" readonly disabled="true">
+                </mat-form-field> -->
+
+                <!-- <mat-form-field appearance="outline" class="form-field" fxFlex="73">
+                    <input matInput autocomplete="off" placeholder="Current SKU" formControlName="sku" readonly disabled="true">
+                </mat-form-field> -->
+            </div>
+
+            <div fxLayout="row" style="width: 100%" fxFlex="1">
+                <mat-form-field class="form-field" class="invisible" fxFlex="1">
+                    <input matInput autocomplete="off" placeholder="ID" formControlName="_id">
+                </mat-form-field>
+            </div>
+            <!-- <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <input matInput appSpecialCharacter autocomplete="off" placeholder="Batch Name"
+                        formControlName="batch_id">
+                </mat-form-field>
+            </div> -->
+
+            <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <mat-label>Shift A Operator</mat-label>
+                    <mat-select formControlName="shiftA">
+                        <mat-option *ngFor="let o of Operatordata" [value]="o.operatorEntryid">
+                            {{o.operatorEntryname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <mat-label>Shift B Operator</mat-label>
+                    <mat-select formControlName="shiftB">
+                        <mat-option *ngFor="let o of Operatordata" [value]="o.operatorEntryid">
+                            {{o.operatorEntryname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="30">
+                    <mat-label>Shift C Operator</mat-label>
+                    <mat-select formControlName="shiftC">
+                        <mat-option *ngFor="let o of Operatordata" [value]="o.operatorEntryid">
+                            {{o.operatorEntryname}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <!-- <div fxLayout="row" style="width: 100%; padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="example-full-width" fxFlex="100">
+                    <input matInput autocomplete="off" placeholder="Enter Target Quantity" type="number" min="0"
+                        formControlName="target_quantity">
+                </mat-form-field>
+            </div> -->
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [mat-dialog-close]="batchentryform.value"
+                    [disabled]="batchentryform.invalid" (click)="SubmitChanges()"> Submit </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

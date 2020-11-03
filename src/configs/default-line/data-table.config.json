@@ -1,0 +1,730 @@
+{
+  "conversion": null,
+  "fistColumnWidth": "250px",
+  "firstColumnStyles": "font-weight: bold;",
+  "rowHeight": "20px",
+  "columnMinWidth": "200px",
+  "headerHeight": "50px",
+  "fixedHeader": true,
+  "cellOverflow": "auto",
+  "hiddenColumns": [],
+  "isConfigurableDisplayName": true,
+  "undefinedCellContent": "NOT USED",
+  "fontSize": "13.5px",
+  "defaultCell": {
+    "backgroundColor": "",
+    "fontColor": "",
+    "alignment": ""
+  },
+  "showDefinedData": false,
+  "styles": "border: 1px solid gray",
+  "groupRows": [],
+  "tableHeader": {
+    "columns": {
+      "displayName": {
+        "displayName": "Details",
+        "styles": "font-weight: bold; font-size: 30px;",
+        "backgroundColor": "condition",
+        "backgroundColors": "statusColors",
+        "isSticky": true,
+        "exceptHeader": true,
+        "isStrict": true,
+        "fontColor": "blue",
+        "alignment": "left"
+      },
+      "case_erector": {
+        "displayName": "Case Erector",
+        "backgroundColor": "green",
+        "backgroundColors": "statusColors",
+        "fontColor": "blue",
+        "alignment": "center"
+      }
+    },
+    "backgroundColors": "statusColors",
+    "backgroundColor": "#ff0000",
+    "fontColor": "White",
+    "fontColors": "statusColors"    
+  },
+  "tableRows": {
+    "machineCycleCount": {
+      "displayName": "Machine Cycle Count",
+      "description": "Total machine count for the day",
+      "backgroundColor": "#8DB3E2",
+      "fontColor": "#ffb3b3",
+      "styles": {
+        "font-weight": "bold",
+        "border": "1px solid gray"
+      },
+      "cam_blister": {
+        "alignment": "center"
+      },
+     
+      "active": true
+    },
+    "machineLastAvgCurrent": {
+      "displayName": "Average Cycle current ",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAverageCycleCurrent": {
+      "displayName": "Previous Day Average Cycle current ",
+      "backgroundColor": "#ffb3b3",
+      "description": "Previous Day Average Cycle current",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAverageCycleCurrent": {
+      "displayName": "Current day average current",
+      "description": "Current day average current",
+      "fontColor": "#ffb3b3",
+      "backgroundColor": "#ffb3b3",
+      
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAverageCycleCurrent": {
+      "displayName": "Week Average Cycle current ",
+      "description": "week Average Cycle current ",
+      "fontColor": "#ffb3b3",
+      "backgroundColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverageCycleCurrent": {
+      "displayName": "Four weeks Average Cycle current ",
+      "description": "4 weeks Average Cycle current ",
+      "backgroundColor": "#ffb3b3",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAverageCycleCurrent": {
+      "displayName": "Beginning Average Cycle current",
+      "description": "Beginning Average Cycle current",
+      "backgroundColor": "#ffb3b3",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "machineLastPeakCurrent": {
+      "displayName": "Peak Cycle current ",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAveragePeakCurrent": {
+      "displayName": "Previous Day Avg Peak current",
+      "description": "Previous Day Avg Peak current ",
+      "backgroundColor": "#b3ffff",
+      
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAveragePeakCurrent": {
+      "displayName": "Current Day Avg Peak Current",
+      "description": "Current Day Avg Peak Current",
+      "backgroundColor": "#b3ffff",
+      
+           
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAveragePeakCurrent": {
+      "displayName": "Week Average Peak current ",
+      "description": "Week Average Peak current ",
+      "backgroundColor": "#b3ffff",
+     
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverage_PeakCurrent": {
+      "displayName": "Four Week Avg Peak current ",
+      "alignment": "left",
+      "description": "Four Week Avg Peak current",
+      "backgroundColor": "#b3ffff",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAveragePeakCurrent": {
+      "displayName": "Beginning Avg peak current",
+      "description": "Beginning Avg peak current",
+      "backgroundColor": "#b3ffff",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "machineLastAvgTorque": {
+      "displayName": "Average Cycle Torque ",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAverageCycleTorque": {
+      "displayName": "Previous Day Avg Cycle Torque",
+      "description": "Previous Day Avg Cycle Torque",
+      "backgroundColor": "#f4ebc1",
+      
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAverageCycleTorque": {
+      "displayName": "Current day Avg Torque",
+      "description": "Current day Avg Torque",
+      "backgroundColor": "#f4ebc1",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAverageCycleTorque": {
+      "displayName": "Week Avg Cycle Torque",
+      "description": "Week Avg Cycle Torque",
+      "backgroundColor": "#f4ebc1",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverageCycleTorque": {
+      "displayName": "Four Week Avg Cycle Torque",
+      "description": "Four weeks Avg Cycle Torque",
+      
+      "backgroundColor": "#f4ebc1",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAverageCycleTorque": {
+      "displayName": "Beginning Avg Cycle Torque",
+      "description": "Beginning Avg Cycle Torque",
+      "backgroundColor": "#f4ebc1",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "machineLastPeakTorque": {
+      "displayName": "Peak Cycle Torque ",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAveragePeakTorque": {
+      "displayName": "Previous Day Avg Peak Torque ",
+      "description": "Previous Day Avg Peak Torque",
+      "backgroundColor": "#aaff80",
+      "fontColor": "#aaff80",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAveragePeakTorque": {
+      "displayName": "Current Day Avg Peak torque",
+      "description": "Current Day Avg Peak torque",
+      "backgroundColor": "#aaff80",
+      "fontColor": "#aaff80",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAveragePeakTorque": {
+      "displayName": "Week Avg Cycle Peak Torque",
+      "description": "Week Avg Cycle Peak Torque",
+      "backgroundColor": "#aaff80",
+      "fontColor": "#aaff80",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverage_PeakTorque": {
+      "displayName": "Four Week Avg Peak Torque",
+      "description": "Four Week Avg Peak Torque",
+      "backgroundColor": "#aaff80",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAveragePeakTorque": {
+      "displayName": "Beginning Avg peak Torque",
+      "description": "Beginning Avg peak Torque",
+     
+      "backgroundColor": "#aaff80",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "machineLastAvgSpeed": {
+      "displayName": "Average Cycle Speed",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAverageCycleSpeed": {
+      "displayName": "Previous Day Avg Cycle Speed",
+      "description": "Previous Day Avg Cycle Speed",
+      "backgroundColor": "#ffff99",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAverageCycleSpeed": {
+      "displayName": "Current Day Avg Cycle Speed",
+      "description": "Current Day Avg Cycle Speed ",
+      "backgroundColor": "#ffff99",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAverageCycleSpeed": {
+      "displayName": "Week Avg Cycle Speed",
+      "description": "Week Avg Cycle Speed",
+      "backgroundColor": "#ffff99",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverageCycleSpeed": {
+      "displayName": "Four Week Avg Cycle Speed",
+      "description": "Four Week Avg Cycle Speed",
+      "backgroundColor": "#ffff99",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAverageCycleSpeed": {
+      "displayName": "Beginning Avg Cycle Speed",
+      "description": "Beginning Avg Cycle Speed",
+      "backgroundColor": "#ffff99",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "machineLastPeakSpeed": {
+      "displayName": "Peak Cycle Speed",
+      "backgroundColor": "#8DB3E2",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "previousDayAveragePeakSpeed": {
+      "displayName": "Previous Day Avg Peak Speed ",
+      "description": "Net Operating Time",
+      
+      "backgroundColor": "#ffcb8e",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "currentDayAveragePeakSpeed": {
+      "displayName": "Current Day Avg Peak Speed ",
+      "description": "Current Day Avg Peak Speed",
+      "backgroundColor": "#ffcb8e",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "right"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "weekAveragePeakSpeed": {
+      "displayName": "Week Avg Peak Speed",
+      "description": " Week Avg Peak Speed",
+      "backgroundColor": "#ffcb8e",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "fourWeeksAverage_PeakSpeed": {
+      "displayName": "Four Week Avg Peak Speed",
+      "description": "Four Week Avg Peak Speed",
+      "backgroundColor": "#ffcb8e",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "beginningAveragePeakSpeed": {
+      "displayName": "Beginning Avg Peak Speed",
+      "description": "Beginning Avg Peak Speed",
+      "backgroundColor": "#ffcb8e",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "pipe": {
+        "name": "decimal",
+        "arg": "1.1-2"
+      },
+      "active": true
+    },
+    "totalTime": {
+      "displayName": "Total time",
+      "description": "Total time",
+      "styles": {
+        "font-weight": "bold",
+        "border": "1px solid gray"
+      },
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#ffff99",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "faultManualTimeMajor": {
+      "displayName": "Fault & Manual Time major",
+      "description": "Fault & Manual Time major",
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "machineStates": {
+      "displayName": "Current Status",
+      "description": "",
+      "backgroundColor": "#ffb3b3",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": false
+    },
+    "grossOperating": {
+      "displayName": "Gross Operating Time",
+      "description": "Gross Operating TIme",
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "idleWaitBlockFaultMinor": {
+      "displayName": "Idle/Wait/Block/Fault minor /Fault / Minor ",
+      "description": "",
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#b3ffff",
+      "scrollable": {
+        "key": "name",
+        "interval": 1
+      },
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    
+    "speedLoss": {
+      "displayName": "Speed Loss",
+      "description": "",
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "netOperatingTime": {
+      "displayName": "Net Operating Time",
+      "description": "Net Operating TIme",
+      "backgroundColor": "#f7e7bd",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    
+    "mtbf": {
+      "displayName": "MTBF",
+      "description": "Mean Time Between Failure",
+      "backgroundColor": "#b3ffff",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "mttr": {
+      "displayName": "MTTR",
+      "description": "Mean Time To Repair",
+      "backgroundColor": "#b3ffff",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    },
+    "machineUncompleteCycleCount": {
+      "displayName": "Cycle incomplete Count",
+      "description": "Cycle incomplete Count ",
+      "backgroundColor": "#b3ffff",
+      "fontColor": "#b3ffff",
+      "cam_blister": {
+        "alignment": "center"
+      },
+      "active": true
+    }
+   
+    
+  },
+  "colors": {
+    "statusColors": {
+      "executing": {
+        "text": "Running",
+        "color": "#01af4e"
+      },
+      "ready": {
+        "text": "Idle",
+        "color": "#666699"
+      },
+      "waiting": {
+        "text": "Waiting",
+        "color": "#9dc0e8"
+      },
+      "blocked": {
+        "text": "Blocked",
+        "color": "#b37700"
+      },
+      "stop": {
+        "text": "Fault",
+        "color": "#fe0100"
+      },
+      "pdt": {
+        "text": "Plant Down Time",
+        "color": "#FFFF33"
+      },
+      "manual_stop": {
+        "text": "Manual Stop",
+        "color": "#FFA500"
+      },
+      "updt": {
+        "text": "Power Off",
+        "color": "#ff33cc"
+      },
+      "changeover": {
+        "text": "Changeover",
+        "color": "#a3a375"
+      }
+    }
+  }
+}

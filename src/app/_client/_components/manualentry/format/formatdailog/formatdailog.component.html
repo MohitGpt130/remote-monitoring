@@ -1,0 +1,53 @@
+
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;text-align: center;">Add Format Details</h3>
+    <form [formGroup]="Formatform">
+        <div fxLayout="column" style="width:100%;">
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+
+                <!--<mat-form-field class="form-field" fxFlex=10>
+                    <input matInput autocomplete="off" placeholder="Format ID"
+                        formControlName="_id">
+                </mat-form-field> -->
+                <mat-form-field fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Format Name" formControlName="format_name" >
+                </mat-form-field>
+
+                <mat-form-field  fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Format Code" formControlName="format_code">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Blister per Format" (input)="BindRatedSpeedFrom($event.target.value)"  formControlName="blister_per_format" type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Tablet per Blister" formControlName="tablet_per_blister" type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}" >
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Machine Speed" (input)="BindRatedSpeed($event.target.value)" formControlName="machine_speed"  
+                    type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Rated Speed" formControlName="rated_speed" readonly
+                    type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+    <button mat-raised-button color="primary" [disabled]="Formatform.invalid"
+        [mat-dialog-close]="Formatform.value">{{button}} </button>
+    <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+</div>
+<!-- 
+<pre>{{Formatform.value|json}}</pre>  -->

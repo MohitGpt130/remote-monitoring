@@ -1,0 +1,88 @@
+<!-- <p>data-grid works!</p>{{settings | json}} -->
+<mat-toolbar color="primary"><span class="grid-title" [style]="settings.title.style"
+    [ngStyle]="{'text-align':settings.title.alignment}">{{settings.title.text}}</span></mat-toolbar>
+<mat-grid-list [cols]="settings?.columns" [rowHeight]="settings.rowHeight">
+  <mat-grid-tile *ngFor="let tile of (settings.tiles | keys)" [ngStyle]="{
+      'background': (data[tile] | isObject) && data[tile]?.backgroundColor ? data[tile]?.backgroundColor? data[tile]?.backgroundColor : settings.tiles[tile]?.backgroundColor : settings?.defaultCell?.backgroundColor,
+      'color': (data[tile] | isObject) && data[tile]?.fontColor ? data[tile]?.fontColor? data[tile]?.fontColor : settings?.tiles[tile]?.fontColor : settings?.defaultCell?.fontColor
+    }"
+    [colspan]="(data[tile] | isObject) && data[tile]?.colspan ? data[tile]?.colspan? data[tile]?.colspan : settings.tiles[tile]?.colspan : settings?.defaultCell?.colspan"
+    [rowspan]="(data[tile] | isObject) && data[tile]?.rowspan ? data[tile]?.rowspan? data[tile]?.rowspan : settings.tiles[tile]?.rowspan : settings?.defaultCell?.rowspan"
+    >
+    <div *ngIf="(data[tile] | isDefined)"  class="tile" [style]="settings.tiles[tile].style" fxLayout="column" fxLayoutAlign="center center">
+      <div *ngIf="(data[tile] | isString) || (data[tile] | isNumber)" style="width: 100%;">
+        <div class="title"
+          [style]="(data[tile] | isObject) && data[tile]?.backgroundColor? '' :settings.tiles[tile]?.title?.style">
+            {{settings.tiles[tile].title.value}}
+        </div>
+        <div class="data" [style]="(data[tile] | isObject) && data[tile]?.backgroundColor? '' :settings?.tiles[tile]?.title?.style">
+          <span *ngIf="(settings.tiles[tile]?.evaluate | isDefined) && (settings.tiles[tile]?.thresholds | isUndefined)">
+            <span
+              *ngIf="((settings.tiles[tile]?.pipe | isUndefined) && (expLoaded[tile] | isDefined) && expLoaded[tile]) && settings.tiles[tile]?.evaluate && (settings.tiles[tile]?.evaluate?.formula | isDefined)">
+              <span *ngIf="(data[tile] | match : '[a-z]' : 'gi' | isNull )">
+                {{ (data[tile]) | evaluate }}
+              </span>
+              <span *ngIf="(data[tile] | match : '[a-z]' : 'gi' | isArray )">
+                {{ (data[tile])  }}
+              </span>
+            </span>
+            <span *ngIf="((settings.tiles[tile]?.pipe | isDefined) || (settings.tiles[tile]?.pipe | isUndefined) && (settings.tiles[tile]?.pipe | isDefined))">
+              <span
+                *ngIf="(settings.tiles[tile]?.pipe | isDefined) && settings.tiles[tile]?.pipe?.name && settings.tiles[tile]?.pipe?.arg">
+                <span *ngIf="(data[tile] | match : '[a-z]' : 'gi' | isNull )">
+                  {{ (data[tile]) | evaluate | dynamicPipe : settings.tiles[tile].pipe.name: settings.tiles[tile].pipe.arg  }}
+                </span>
+                <span *ngIf="(data[tile] | match : '[a-z]' : 'gi' | isArray )">
+                  {{ (data[tile]) }}
+                </span>
+              </span>
+            </span>
+          </span>
+          <span *ngIf="settings.tiles[tile]?.evaluate | isUndefined">
+            <span
+              *ngIf="(settings.tiles[tile]?.pipe | isUndefined) && !((expLoaded[tile] | isDefined) && expLoaded[tile])">
+              {{ (data[tile]) }}
+            </span>
+            <span
+              *ngIf="(settings.tiles[tile]?.pipe | isDefined) && settings.tiles[tile]?.pipe?.name && settings.tiles[tile]?.pipe?.arg">
+              {{ (data[tile]) | dynamicPipe : settings.tiles[tile].pipe.name: settings.tiles[tile].pipe.arg }}
+            </span>
+          </span>
+          <span *ngIf="settings.tiles[tile]?.postfix">
+            <span *ngIf="settings.tiles[tile]?.postfix?.icon">
+              <mat-icon>{{settings.tiles[tile].postfix.icon}}</mat-icon>
+            </span>
+            <span *ngIf="settings.tiles[tile]?.postfix?.content">
+              {{settings.tiles[tile]?.postfix?.content}}
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="(data[tile] | isObject)" style="width: 100%; ">
+        <div class="title"
+          [style]="(data[tile] | isObject) && data[tile]?.backgroundColor? '' :settings?.tiles[tile]?.title?.style">
+          {{settings?.tiles[tile]?.title?.value}}
+        </div>
+
+        <div *ngIf="(data[tile] | isObject)" class="data" [style]="settings.tiles[tile].data.style">
+          {{data[settings?.tiles[tile]?.data?.value] && (data[settings?.tiles[tile]?.data?.value]?.value || data[settings?.tiles[tile]?.data?.value].value == 0) ? data[settings?.tiles[tile]?.data?.value]?.value: settings?.tiles[tile]?.data?.value }}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="(data[tile] | isUndefined)" class="tile" [style]="settings.tiles[tile].style" fxLayout="column" fxLayoutAlign="center center">
+      <div class="title">
+        {{settings?.tiles[tile]?.title?.value}}
+      </div>
+      <div class="data">
+        <span>
+          -
+        </span>
+        <!-- {{settings?.tiles[tile]?.data?.value}} -->
+      </div>
+    </div>
+
+
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,382 @@
+[
+  {
+    "oee": {
+      "condition": "oee<60",
+      "backgroundColor": "#ff6666",
+      "fontColor": "#FFFFFF",
+      "value": "0.00"
+    },
+    "performance": {
+      "condition": "performance<70",
+      "backgroundColor": "#ff6666",
+      "fontColor": "#FFFFFF",
+      "value": "0.00"
+    },
+    "aviability": {
+      "condition": "aviability<80",
+      "backgroundColor": "#ff6666",
+      "fontColor": "#FFFFFF",
+      "value": "0.00"
+    },
+    "quality": {
+      "condition": "quality<95",
+      "backgroundColor": "#ff6666",
+      "fontColor": "#FFFFFF",
+      "value": "0.00"
+    },
+    "shift_fault": 0,
+    "shift_fault_count": 0,
+    "shift_updt": 190,
+    "changeover": 0,
+    "major_stop_count": {
+      "condition": "major_fault_count<=3",
+      "backgroundColor": "#66ff33",
+      "fontColor": "#FFFFFF",
+      "value": 0
+    },
+    "minor_fault": "123 / 01:22:22",
+    "minor_fault_count": 0,
+    "operator_name": "Not Defined",
+    "condition": "updt",
+    "avg_speed": {
+      "condition": "minspeed>=average_speed*0.95",
+      "backgroundColor": "#66ff33",
+      "fontColor": "#FFFFFF",
+      "value": 0
+    },
+    "ready": "00:09:27",
+    "current_timeStamp": "2020-08-15T10:16:48+05:30",
+    "shift_mtbf": "0.00",
+    "shift": "Shift A",
+    "shift_changeover_wastage": 0,
+    "date": "2020-08-15T00:00:00Z",
+    "machine": "cam_blister",
+    "shift_mttr": "0.00",
+    "shift_speed_loss": "00:00:00",
+    "shift_idel_time": "0 / 00:00:00",
+    "shift_totalTheoreticalTime": "03:09:43",
+    "shift_totalPlanProdTime": "00:00:07",
+    "shift_netOperatingTime": "00:00:00",
+    "shift_grossOperatingTime": "00:00:00",
+    "goodCount": 0,
+    "reject_count": 0,
+    "batch_wise": [
+      {
+        "_id": "5f373a98c0e6eab8e6aaeb42",
+        "shift": "Shift A",
+        "line_id": "5f0809fdc2b1ce30cc53eb8d",
+        "date": "2020-08-15T00:00:00.000Z",
+        "batch": {
+          "_id": "5f362f421e1435772b69c2ee",
+          "start_time": "2020-08-14T06:29:22.000Z",
+          "end_time": null,
+          "batch_size": 19690,
+          "line_id": "5f0809fdc2b1ce30cc53eb8d",
+          "product_name": "5ee85f94242f034908deb6a2",
+          "batch": "B56794",
+          "createdAt": "2020-08-14T06:29:22.392Z",
+          "updatedAt": "2020-08-14T06:29:22.392Z",
+          "__v": 0
+        },
+        "machine_name": "cam_blister",
+        "goodCount": 0,
+        "reject_count": 0,
+        "startup_reject": 0,
+        "fault": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f059b",
+          "stop_name": "fault",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f059c",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f059d",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "changeover": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f058f",
+          "stop_name": "changeover",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f0590",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f0591",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "blocked": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f059e",
+          "stop_name": "blocked",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f059f",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a0",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "pdt": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f0598",
+          "stop_name": "pdt",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f0599",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f059a",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "manual_stop": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f05a4",
+          "stop_name": "manual_stop",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a5",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a6",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "updt": {
+          "duration": 11376,
+          "count": 1,
+          "_id": "5f373a984fcce314c00f0595",
+          "stop_name": "updt",
+          "details": [
+            {
+              "duration": 11376,
+              "count": 1,
+              "_id": "5f373a984fcce314c00f0596",
+              "duration_type": "major",
+              "duration_details": [
+                { "duration": 11376, "count": 1, "fault_name": "updt" }
+              ]
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f0597",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "waiting": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f05a1",
+          "stop_name": "waiting",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a2",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a3",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "not_used": {
+          "duration": 7,
+          "count": 1,
+          "_id": "5f373a984fcce314c00f0592",
+          "stop_name": "not_used",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f0593",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 7,
+              "count": 1,
+              "_id": "5f373a984fcce314c00f0594",
+              "duration_type": "minor",
+              "duration_details": [
+                {
+                  "duration": 7,
+                  "count": 1,
+                  "_id": "5f373a9f4fcce314c00f05b0",
+                  "fault_name": "not_used"
+                }
+              ]
+            }
+          ]
+        },
+        "ready": {
+          "duration": 0,
+          "count": 0,
+          "_id": "5f373a984fcce314c00f05a7",
+          "stop_name": "ready",
+          "details": [
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a8",
+              "duration_type": "major",
+              "duration_details": []
+            },
+            {
+              "duration": 0,
+              "count": 0,
+              "_id": "5f373a984fcce314c00f05a9",
+              "duration_type": "minor",
+              "duration_details": []
+            }
+          ]
+        },
+        "operator_name": "Not Defined",
+        "isCurrent": true,
+        "rated_speed": 200,
+        "total_batch_duration": 11383
+      }
+    ],
+    "batch_wise_cal": [
+      {
+        "performance": 0,
+        "quality": 0,
+        "aviability": 0,
+        "idle_time": 0,
+        "working_time": 7,
+        "speed_loss": 0,
+        "performance_time": 0,
+        "oee": 0,
+        "mtbf": "00:00:00",
+        "mttr": "00:00:00",
+        "production_time": 0,
+        "total_time": 11383,
+        "reject_time": 0,
+        "changeover_wastage_time": 0,
+        "net_operating_time": 0,
+        "productive_time": 0
+      }
+    ],
+    "shift_inProcessRejectTime": "00:00:00",
+    "shift_changeOverWastageTime": "00:00:00",
+    "shift_productiveTime": "00:00:00",
+    "fault_1": "Signal Red  3 / 01:35:41 ",
+    "fault_2": "-",
+    "fault_3": "-",
+    "fault_4": "-",
+    "fault_5": "-",
+    "fault": "3 / 01:35:41",
+    "batch": "B56794",
+    "target_quantity": 0,
+    "batch_size": 19690,
+    "changeover_wastage": 0,
+    "product": "UTAMIDE-50 10 TAB",
+    "fgex_details": "100000740 / 200",
+    "fgex": "100000740",
+    "product_id": {
+      "_id": "5ee85f94242f034908deb6a2",
+      "fgex": "100000740",
+      "product_name": "UTAMIDE-50 10 TAB",
+      "halb_code": "100002950CT",
+      "pack": 10,
+      "type": "5ed4c48fb4331f22611aea8d",
+      "layout_no": "2755-1",
+      "blister_size": "41.2X102",
+      "current_machine\n": "NMX",
+      "blister_per_format": 8,
+      "blister_min": 180,
+      "blister_max": 220,
+      "machine_cycle": 25,
+      "rated_speed": 200,
+      "tablet_per_blister": 0
+    },
+    "total_count": 62467,
+    "batch_good_count": 60759,
+    "batch_reject_count": 1708,
+    "waiting": "2 / 00:00:42",
+    "count": "60759 / 1708",
+    "blocked": "54 / 00:43:38",
+    "changeover_time": "00:18:54",
+    "batch_manual_stop": "10 / 05:19:27",
+    "batch_minor_manual_stop": "68 / 00:30:41",
+    "batch_start_time": "14-08-2020 - 11:59:22",
+    "pdt": "0 / 00:00:00",
+    "updt": "2 / 04:14:47",
+    "batch_oee": "28.05",
+    "batch_aviability": "59.93",
+    "batch_performance": "48.13",
+    "batch_quality": "97.27",
+    "batch_mttr": "00:31:54",
+    "batch_mtbf": "06:01:04",
+    "mode": 0,
+    "speed_loss": "02:49:49",
+    "idel_time": "278 / 02:46:50",
+    "totalTheoreticalTime": "22:18:00",
+    "totalPlanProdTime": "18:03:13",
+    "netOperatingTime": "05:12:31",
+    "grossOperatingTime": "10:49:11",
+    "inProcessRejectTime": "00:08:32",
+    "changeOverWastageTime": "00:00:00",
+    "productiveTime": "05:03:59",
+    "speed_blisters": 0,
+    "state_mode": "Power Off"
+  }
+]

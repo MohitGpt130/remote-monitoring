@@ -1,0 +1,1002 @@
+[
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 18,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 86,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 83,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 75,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 86,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 78,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 62,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 17,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 34,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 8,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 46,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 17,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 73,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 31,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 20,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 63,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 24,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 45,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 55,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 81,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 23,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 72,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 40,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 11,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 38,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 45,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 65,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 88,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 25,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 77,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 5,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 61,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 73,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 56,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 56,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 2,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 4,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 38,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 15,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 65,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 35,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 52,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 11,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 50,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 47,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 27,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 48,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 25,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 75,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 78,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 11,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 81,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 6,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 10,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 60,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 62,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 43,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 23,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 7,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 7,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 2,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 41,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 6,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 57,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 1,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 50,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 78,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 61,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 1,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 12,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 54,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 60,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 43,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 21,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 37,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 68,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 11,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 48,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 12,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 22,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 4,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 67,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 53,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 33,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 43,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 4,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 51,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 32,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "manual stop",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 54,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 65,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 24,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 31,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "fault",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 5,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 80,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 76,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 78,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 65,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 23,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "changeover",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 40,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  },
+  {
+    "stopName": "blocked",
+    "from": "2020-08-12T00",
+    "to": "2020-08-12T00",
+    "duration": 84,
+    "stopCause": "cause",
+    "comments": [
+
+    ]
+  }
+]

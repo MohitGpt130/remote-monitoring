@@ -1,0 +1,571 @@
+{
+    "status_color": {
+        "executing": {
+            "text": "Running",
+            "color": "#01af4e"
+        },
+        "ready": {
+            "text": "Idle",
+            "color": "#666699"
+        },
+        "waiting": {
+            "text": "Waiting",
+            "color": "#9dc0e8"
+        },
+        "blocked": {
+            "text": "Blocked",
+            "color": "#b37700"
+        },
+        "stop": {
+            "text": "Fault",
+            "color": "#fe0100"
+        },
+        "pdt": {
+            "text": "Plant Down Time",
+            "color": "#FFFF33"
+        },
+        "manual_stop": {
+            "text": "Manual Stop",
+            "color": "#FFA500"
+        },
+        "updt": {
+            "text": "Power Off",
+            "color": "#ff33cc"
+        },
+        "changeover": {
+            "text": "Changeover",
+            "color": "#a3a375"
+        }
+    },
+    "table": {
+        "parameters": {
+            "product": {
+                "display_name": "Product",
+                "description": "Product Description",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "fgex_details": {
+                "display_name": "FGex / Rated Speed",
+                "description": "Product Code",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "batch": {
+                "display_name": "Batch No",
+                "description": "Batch Number",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "batch_start_time": {
+                "display_name": "Batch Start Time",
+                "description": "Current Batch Start Time(hh:mm:ss)",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "condition": {
+                "display_name": "Machine status",
+                "description": "",
+                "color": "#ffccee",
+                "format": "",
+                "active": false
+            },
+            "target_quantity": {
+                "display_name": "Target Quantity",
+                "description": "Achieved Good Count as % of Target Qty",
+                "color": "#ffccee",
+                "format": "",
+                "active": false
+            },
+            "batch_size": {
+                "display_name": "Batch Size",
+                "description": "",
+                "color": "#ffccee",
+                "format": "",
+                "active": false
+            },
+            "total_count/batch_good_count%batch_size": {
+                "display_name": "Target Manual /Achieved",
+                "description": "Achieved Good Count as % of Target Qty",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "batch_good_count": {
+                "display_name": "Batch Blister Good Count",
+                "description": "Count of Good Blister in Current Batch",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "speed_blisters": {
+                "display_name": "Speed (Blisters / min)",
+                "description": "Current Blister Production Speed",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "totalTheoreticalTime": {
+                "display_name": "Total Theoretical time",
+                "description": "Shift Start time - current time",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "pdt": {
+                "display_name": "PDT",
+                "description": "Shift Start time - current time",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "updt": {
+                "display_name": "Power off",
+                "description": "No Production planned",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "totalPlanProdTime": {
+                "display_name": "Total Planned Production time",
+                "description": "Total Theoretical time - PDT - UPDT",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+
+            "batch_oee": {
+                "display_name": "OEE",
+                "description": "Overall Equipment Effectiveness - KPI",
+                "color": "#ffff99",
+                "format": "%",
+                "active": true
+            },
+            "batch_aviability": {
+                "display_name": "Availability",
+                "description": "% of time machine was available to run",
+                "color": "#aaff80",
+                "format": "%",
+                "active": true
+            },
+            "changeover_time": {
+                "display_name": "ChangeOver Time (Duration)",
+                "description": "Time taken for the Changeover (hh:mm:ss)",
+                "color": "#aaff80",
+                "format": "",
+                "active": true
+            },
+            "fault": {
+                "display_name": "Major Fault Count / Duration",
+                "description": "Count and total duration of all faults,  individual duration > 10 min. (hh:mm:ss)",
+                "color": "#aaff80",
+                "format": "",
+                "active": true
+            },
+            "batch_manual_stop": {
+                "display_name": "Major Manual Stop",
+                "description": "Count and total duration of all Manual Stops,  individual stop duration > 10 min.(in hh:mm:ss)",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "grossOperatingTime": {
+                "display_name": "Gross Operating Time",
+                "description": "Total Planned Production time - ChangeOver Time - Major Fault Duration - Major Manual Stop Duration (hh:mm:ss)",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "batch_performance": {
+                "display_name": "Performance",
+                "description": "% of Blisters produced compared to Blisters produced at rated speed",
+                "color": "#ffff99",
+                "format": "%",
+                "active": true
+            },
+            "idel_time": {
+                "display_name": "Idle / Minor faults / duration",
+                "description": "Total of Idle, Minor faults, Minor stops, Wait, blocked time ",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+           
+            "blocked": {
+                "display_name": "■ Blocked Count / Duration",
+                "description": "Count and Total duration of machine stopped due to downstream machine not running",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "waiting": {
+                "display_name": "■ Waiting Count / Duration",
+                "description": "Count and Total duration of machine not running due to lack of Material",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "speed_loss": {
+                "display_name": "Speed Loss",
+                "description": "Speed lost due to time lost during minor stops and due to lower operating speed",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "netOperatingTime": {
+                "display_name": "Net Operating Time",
+                "description": "Net Operating Time",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "batch_quality": {
+                "display_name": "Quality",
+                "description": "Ratio of Good Blisters to Total Blisters produced",
+                "color": "#ffff99",
+                "format": "%",
+                "active": true
+            },
+            "inProcessRejectTime": {
+                "display_name": "In process reject time ",
+                "description": " = In process reject count / rated speed",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "batch_reject_count": {
+                "display_name": "Reject Count",
+                "description": "Reject Count",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "changeover_wastage": {
+                "display_name": "ChangeOver Wastage",
+                "description": "Reject Count of blisters during the Changeover process",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+
+            "productiveTime": {
+                "display_name": "Productive Time",
+                "description": "Productive Time",
+                "color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "state_mode": {
+                "display_name": "Current Status",
+                "description": "",
+                "color": "#ffb3b3",
+                "format": "",
+                "active": true
+            },
+            "current_first_fault": {
+                "display_name": "Current First Fault",
+                "description": "Current First Fault ",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "current_active_alarms": {
+                "display_name": "Current active alarm",
+                "description": "Displays in scroll form the current warnings and faults in machine",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "fault_1": {
+                "display_name": "Top First Fault 1 (Count / Duration)",
+                "description": "Topmost Fault count / duration till now",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "fault_2": {
+                "display_name": "Top First Fault 2(Count / Duration)",
+                "description": "2nd Topmost Fault count / duration till now",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "fault_3": {
+                "display_name": "Top First Fault 3(Count / Duration)",
+                "description": "3rd Topmost Fault count / duration till now",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "fault_4": {
+                "display_name": "Top First Fault 4(Count / Duration)",
+                "description": "4th Topmost Fault count / duration till now",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "fault_5": {
+                "display_name": "Top First Fault 5(Count / Duration)",
+                "description": "5th Topmost Fault count / duration till now😳",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "batch_mtbf": {
+                "display_name": "MTBF",
+                "description": "Mean Time Between Failure (hh:mm:ss)",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            },
+            "batch_mttr": {
+                "display_name": "MTTR ",
+                "description": "Mean Time To Repair(hh:mm:ss)",
+                "color": "#b3ffff",
+                "format": "",
+                "active": true
+            }
+        }
+    },
+    "critical_machine": {
+        "name": "cam_blister",
+        "parameters": {
+            "goodCount": {
+                "display_name": "Blister Good Count",
+                "description": "",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "reject_count": {
+                "display_name": "Blister Reject Count",
+                "description": "",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "avg_speed": {
+                "display_name": "Average Speed",
+                "description": "",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            
+            "performance": {
+                "display_name": "Performance",
+                "description": "Performance",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "%",
+                "active": true
+            },
+            "oee": {
+                "display_name": "OEE",
+                "description": "Overall Equipment Effectiveness",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "%",
+                "active": true
+            },
+            "aviability": {
+                "display_name": "Availability",
+                "description": "Availability",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "%",
+                "active": true
+            },
+            
+            "quality": {
+                "display_name": "Quality",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "%",
+                "active": true
+            },
+            "shift_totalTheoreticalTime": {
+                "display_name": "Total Theoretical Time",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "shift_totalPlanProdTime": {
+                "display_name": "Total Planned Prod. time",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "shift_grossOperatingTime": {
+                "display_name": "Gross Operating Time",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "shift_netOperatingTime": {
+                "display_name": "Net Operating Time",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            },
+            "shift_productiveTime": {
+                "display_name": "Productive Time",
+                "description": "Quality",
+                "background_color": "#add8e6",
+                "color": "black",
+                "format": "",
+                "active": true
+            }
+        }
+    },
+    "event_chart": {
+        "parameters": {
+            "executing": "Running",
+            "ready": "Idle",
+            "waiting": "Waiting",
+            "blocked": "Blocked",
+            "stop": "Stop",
+            "pdt": "PDT",
+            "manual_stop": "Manual Stop",
+            "updt": "UPDT",
+            "changeover": "Change Over"
+        },
+        "optoins": {}
+    },
+    "pie_chart": {
+        "parameters": {
+            "executing": "Running",
+            "ready": "Idle",
+            "waiting": "Waiting",
+            "blocked": "Blocked",
+            "stop": "Stop",
+            "pdt": "PDT",
+            "manual_stop": "Manual Stop",
+            "updt": "UPDT",
+            "changeover": "Change Over"
+        },
+        "optoins": {}
+    },
+    "line_chart": {
+        "parameters": {
+            "executing": "Running",
+            "ready": "Idle",
+            "waiting": "Waiting",
+            "blocked": "Blocked",
+            "stop": "Stop",
+            "pdt": "PDT",
+            "manual_stop": "Manual Stop",
+            "updt": "UPDT",
+            "changeover": "Change Over"
+        },
+        "optoins": {}
+    },
+    "faultDescritions": {
+        "cam_blister": {
+            "fault_0": {
+                "full": "-",
+                "short": "- "
+            },
+            "fault_1": {
+                "full": "Guard Safety Breached",
+                "short": "GuardSafety "
+            },
+            "fault_2": {
+                "full": "Emergency Stop",
+                "short": "Estop "
+            },
+            "fault_3": {
+                "full": "Stray Product Detected",
+                "short": "StrayProduct "
+            },
+            "fault_4": {
+                "full": "Pitch Detection on 3rd Gripper",
+                "short": "PitchThirdGripper "
+            },
+            "fault_5": {
+                "full": "Centered Print Check",
+                "short": "CenterPrintCheck "
+            },
+            "fault_6": {
+                "full": "Form Material Unwinder Safety",
+                "short": "FormMatUnwindSafety "
+            },
+            "fault_7": {
+                "full": "Product Web Position",
+                "short": "ProdWebPosition "
+            },
+            "fault_8": {
+                "full": "Safety Guard Microswitch",
+                "short": "SafetyGuard "
+            },
+            "fault_9": {
+                "full": "Insufficient Water Flow",
+                "short": "WaterFlow "
+            },
+            "fault_10": {
+                "full": "Failed Incomplete Blister Reject",
+                "short": "FailedReject "
+            },
+            "fault_11": {
+                "full": "Reject Detection in Cutting Area",
+                "short": "RejectCutArea "
+            },
+            "fault_12": {
+                "full": "Magazine Infeed Jam",
+                "short": "OutfeedJam "
+            },
+            "fault_13": {
+                "full": "Not Define",
+                "short": "Not Define "
+            },
+            "fault_14": {
+                "full": "Not Define",
+                "short": "Not Define "
+            },
+            "fault_15": {
+                "full": "Not Define",
+                "short": "Not Define "
+            },
+            "fault_16": {
+                "full": "Forming Material End",
+                "short": "FormMaterialEnd "
+            },
+            "fault_17": {
+                "full": "Lidding Material End",
+                "short": "LidMaterialEnd "
+            },
+            "fault_18": {
+                "full": "Product Low Level",
+                "short": "LowProduct "
+            },
+            "fault_19": {
+                "full": "Low Forming Material",
+                "short": "LowFormingM "
+            },
+            "fault_20": {
+                "full": "Low Lidding Material",
+                "short": "LowLiddingM "
+            },
+            "fault_21": {
+                "full": "Signal Red",
+                "short": "Signal Red"
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+<div>
+
+  <mat-toolbar color="primary">
+    <div style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="2">
+      <!-- <div>
+        <a [routerLink]="[ '/lineview/table/count' ]" routerLinkActive="active" style="text-decoration: none;">
+          <button mat-raised-button color="primary">Home
+            <mat-icon>home</mat-icon>
+          </button>
+        </a>
+      </div> -->
+      <div style="width: 100%; text-align: center;">{{ title | uppercase }}</div>
+      <div></div>
+    </div>
+  </mat-toolbar>
+
+  <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center">
+    <div fxLayout="row" style="width: 100%; padding: 5px;" fxLayoutAlign="space-between center">
+    </div>
+  </div>
+  <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center"
+    [ngClass]="{'disableDiv': DisableScreen}">
+    <div fxLayout="row" style="width: 100%; padding: 5px;" fxLayoutAlign="space-between center">
+      <div fxFlex="40">
+        <mat-grid-list cols="2" rowHeight="8:1">
+          <mat-grid-tile class="matgridheader" colspan="2">CURRENT</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">Batch</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{batchnameLabel}}</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">Batch Size</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{batchsizeLabel}}</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">Product</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{productnameLabel}} </mat-grid-tile>
+          <mat-grid-tile class="matevenrow">FGex</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{fgexLabel}}</mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <!-- <pre>{{BindData|json}}</pre> -->
+
+      <form [formGroup]="changeoverForm" style="width: 100%;padding: 5px;" fxFlex="60" fxLayoutAlign="start center">
+        <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center">
+          <div fxLayout="row" style="width: 100%; padding: 5px;" fxLayoutAlign="space-between center">
+            <mat-form-field class="form-field" fxFlex=1 class="invisible">
+              <mat-label> ID </mat-label>
+              <input autocomplete="off" matInput placeholder="ID" formControlName="_id">
+            </mat-form-field>
+            <mat-form-field class="form-field" fxFlex=31>
+              <mat-label>Select ChangeOver Type </mat-label>
+              <mat-select formControlName="changeover_type_id" (selectionChange)="CriteriaSelection($event.value)">
+                <mat-option *ngFor="let c of ChangeoverType"
+                  [value]="c.ChangeoverTypeID+'-'+c.ChangeovertypeDuration+'-'+c.ChangeoverType">
+                  {{c.ChangeoverType+'('+c.ChangeoverTypeName+')'}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-field" fxFlex=31>
+              <mat-label>Enter Batch Number</mat-label>
+              <input autocomplete="off" matInput placeholder="Enter Batch Number" formControlName="batch_name" required>
+            </mat-form-field>
+            <mat-form-field class="form-field" fxFlex=31>
+              <mat-label> Enter Batch Size </mat-label>
+              <input autocomplete="off" matInput placeholder="Enter Batch Size" required type="number"
+                formControlName="batch_size">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" style="width: 100%; padding: 5px;" fxLayoutAlign="space-between center">
+            <mat-form-field class="form-field" fxFlex=80 #product>
+              <mat-label>Select Product (Code/Name) </mat-label>
+              <mat-select formControlName="product_id" (selectionChange)="ProductChange($event)">
+                <mat-select-filter [array]="Products" [displayMember]="'ProductName'"
+                  (filteredReturn)="filteredProducts=$event"></mat-select-filter>
+                <mat-option *ngFor="let product of filteredProducts" [value]="product.ProductID">{{product.ProductName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- <mat-form-field class="form-field" fxFlex=30>
+              <mat-label>Select FGex </mat-label>
+              <mat-select #format formControlName="fgex">
+                <mat-option *ngFor="let f of FGex" [value]="f.FGexID">{{ f.FGexValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- <pre>{{filteredProducts|json}}</pre> -->
+
+  </div>
+
+  <div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="end start">
+      <button (click)="ChangeOverStart()" [disabled]="changeoverForm.invalid || DisableStart" mat-raised-button
+        color="warn" style="margin-left:5%;width: 150px;">Start <mat-icon> fast_forward</mat-icon></button>
+      <button (click)="ChangeoverStop()" [disabled]="DisableStop" mat-raised-button color="warn"
+        style="margin-left:5%;width: 150px;">
+        Stop <mat-icon> stop</mat-icon></button>
+      <button (click)="ProductionStart()" mat-raised-button color="warn" [disabled]="DisableProductionStart"
+        style="margin-left:2%;width: 170px;">
+        Production Start<mat-icon>assignment_turned_in</mat-icon></button>
+    </div>
+  </div>
+  <!--   <pre>{{changeoverForm.value|json}}</pre> -->
+  <div fxLayout="column" style="width: 100%;height: 100%; padding: 5px;" fxLayoutAlign="start center"
+  *ngIf="ShowProductionStartScreen">
+    
+    <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between start" fxFlex=100>
+
+      <div fxFlex="40">
+        <mat-grid-list cols="2" rowHeight="8:1">
+          <mat-grid-tile class="matgridheader" colspan="2">SUMMARY</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">Standard Duration:</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{std_duration}} Minutes</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">TIME ELAPSED:</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{total_time_elapsed}} Minutes</mat-grid-tile>
+          <mat-grid-tile class="matevenrow">Changeover Started At</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{changeover_started_date}}</mat-grid-tile>
+          <!-- <mat-grid-tile class="matevenrow">Changeover Ended At</mat-grid-tile>
+          <mat-grid-tile class="matoddrow">{{changeover_ended_date}}</mat-grid-tile> -->
+        </mat-grid-list>
+      </div>
+
+      <google-chart *ngIf="updated" [data]="Timelines" #chart fxFlex=55 style="width: 100%;"></google-chart>
+      <google-chart *ngIf="!updated"[data]="Timelines" #chart fxFlex=55 style="width: 100%;"></google-chart>
+    </div>
+    <div fxLayout="row" style="width: 100%; padding: 5px 0;" fxLayoutAlign="space-between center" fxFlex=100>
+
+    </div>
+  </div>
+</div>

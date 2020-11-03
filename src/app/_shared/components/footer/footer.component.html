@@ -1,0 +1,11 @@
+<div *ngIf="updateDaysDiff <= newUpdateOrUpgrade?.tillDays">
+  <mat-toolbar *ngIf="visible" color="primary" style="position:fixed; bottom: 0; height: auto; z-index: 1000; font-size: 13px;" [style]="newUpdateOrUpgrade?.styles">
+    <div class="footer" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between center" style="width: 100%;">
+      <div class="footer-text">{{companyName}}</div>
+      <div class="footer-text" fxLayout="row wrap" fxLayoutAlign="center center">
+        <span>V{{appVersion}}</span> <span> [ {{buildDate | date: 'dd-MMM-yyyy hh:mm a' }} ]</span>
+        <span>[ {{buildDate | timeAgo}} ] </span>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

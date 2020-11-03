@@ -1,0 +1,394 @@
+{
+  "fistColumnWidth": "200px",
+  "firstColumnStyles": "font-weight: bold;",
+  "rowHeight": "25px",
+  "columnMinWidth": "200px",
+  "headerHeight": "50px",
+  "fixedHeader": true,
+  "cellOverflow": "auto",
+  "hiddenColumns": [],
+  "isConfigurableDisplayName": true,
+  "undefinedCellContent": "NOT USED",
+  "fontSize": "13.5px",
+  "defaultCell": {
+    "backgroundColor": "white",
+    "fontColor": "black",
+    "alignment": "left"
+  },
+  "showDefinedData": false,
+  "styles": "border: 1px solid gray",
+  "groupRows": [],
+  "tableHeader": {
+    "columns": {
+      "displayName": {
+        "backgroundColor": "condition",
+        "backgroundColors": "statusColors",
+        "isSticky": true,
+        "exceptHeader": true,
+        "isStrict": true,
+        "fontColor": "black",
+        "fontColors": "statusColors",
+        "alignment": "left"
+      },
+      "cam_blister": {
+        "displayName": "NMX BLISTER MACHINE, GS AREA, LINE 12",
+        "backgroundColor": "condition",
+        "backgroundColors": "statusColors",
+        "alignment": "center"
+      }
+    },
+    "backgroundColors": "statusColors",
+    "backgroundColor": "#ff0000",
+    "fontColor": "White",
+    "fontColors": "statusColors"
+  },
+  "tableRows": {
+    "total_count": {
+      "displayName": "Previous Day Productivity",
+      "backgroundColor": "#8DB3E2",
+      "isStrict": true,
+      "cam_blister": {},
+      "alignment": "left",
+      "postfix": {
+        "content": "%"
+      }
+    },
+    "product": {
+      "displayName": "Product",
+      "description": "Product Description",
+      "backgroundColor": "#8DB3E2",
+      "fontColor": "#ffb3b3",
+      "alignment": "left",
+      "cam_blister": {
+        "alignment": "left"
+      },
+      "active": true
+    },
+    "fgex_details": {
+      "displayName": "FGex / Rated Speed",
+      "backgroundColor": "#8DB3E2",
+      "description": "Product Code",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch": {
+      "displayName": "Batch No",
+      "description": "Batch Number",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_start_time": {
+      "displayName": "Batch Start Time",
+      "description": "Current Batch Start Time(hh:mm:ss)",
+      "fontColor": "#ffb3b3",
+      "backgroundColor": "condition",
+      "backgroundColors": "statusColors",
+      "cam_blister": {},
+      "active": true
+    },
+    "condition": {
+      "displayName": "Machine status",
+      "description": "",
+      "fontColor": "#ffccee",
+      "cam_blister": {},
+      "active": false
+    },
+    "target_quantity": {
+      "displayName": "Target Quantity",
+      "description": "Achieved Good Count as % of Target Qty",
+      "fontColor": "#ffccee",
+      "active": false
+    },
+    "batch_size": {
+      "displayName": "Batch Size",
+      "description": "",
+      "fontColor": "#ffccee",
+      "cam_blister": {},
+      "active": false
+    },
+    "total_count/batch_good_count%batch_size": {
+      "displayName": "Target Manual /Achieved",
+      "description": "Achieved Good Count as % of Target Qty",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_good_count": {
+      "displayName": "Batch Blister Good Count",
+      "description": "Count of Good Blister in Current Batch",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "speed_blisters": {
+      "displayName": "Speed (Blisters / min)",
+      "description": "Current Blister Production Speed",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "totalTheoreticalTime": {
+      "displayName": "Total Theoretical time",
+      "description": "Shift Start time - current time",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "pdt": {
+      "displayName": "PDT",
+      "description": "Shift Start time - current time",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "updt": {
+      "displayName": "Power off",
+      "description": "No Production planned",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "totalPlanProdTime": {
+      "displayName": "Total Planned Production time",
+      "description": "Total Theoretical time - PDT - UPDT",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+
+    "batch_oee": {
+      "displayName": "OEE",
+      "description": "Overall Equipment Effectiveness - KPI",
+      "fontColor": "#ffff99",
+      "format": "%",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_aviability": {
+      "displayName": "Availability",
+      "description": "% of time machine was available to run",
+      "fontColor": "#aaff80",
+      "format": "%",
+      "cam_blister": {},
+      "active": true
+    },
+    "changeover_time": {
+      "displayName": "ChangeOver Time (Duration)",
+      "description": "Time taken for the Changeover (hh:mm:ss)",
+      "fontColor": "#aaff80",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault": {
+      "displayName": "Major Fault Count / Duration",
+      "description": "Count and total duration of all faults,  individual duration > 10 min. (hh:mm:ss)",
+      "fontColor": "#aaff80",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_manual_stop": {
+      "displayName": "Major Manual Stop",
+      "description": "Count and total duration of all Manual Stops,  individual stop duration > 10 min.(in hh:mm:ss)",
+      "fontColor": "#ffff99",
+      "active": true
+    },
+    "grossOperatingTime": {
+      "displayName": "Gross Operating Time",
+      "description": "Total Planned Production time - ChangeOver Time - Major Fault Duration - Major Manual Stop Duration (hh:mm:ss)",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_performance": {
+      "displayName": "Performance",
+      "description": "% of Blisters produced compared to Blisters produced at rated speed",
+      "fontColor": "#ffff99",
+      "format": "%",
+      "cam_blister": {},
+      "active": true
+    },
+    "idel_time": {
+      "displayName": "Idle / Minor faults / duration",
+      "description": "Total of Idle, Minor faults, Minor stops, Wait, blocked time ",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "blocked": {
+      "displayName": "■ Blocked Count / Duration",
+      "description": "Count and Total duration of machine stopped due to downstream machine not running",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "waiting": {
+      "displayName": "■ Waiting Count / Duration",
+      "description": "Count and Total duration of machine not running due to lack of Material",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "speed_loss": {
+      "displayName": "Speed Loss",
+      "description": "Speed lost due to time lost during minor stops and due to lower operating speed",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "netOperatingTime": {
+      "displayName": "Net Operating Time",
+      "description": "Net Operating Time",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_quality": {
+      "displayName": "Quality",
+      "description": "Ratio of Good Blisters to Total Blisters produced",
+      "fontColor": "#ffff99",
+      "format": "%",
+      "cam_blister": {},
+      "active": true
+    },
+    "inProcessRejectTime": {
+      "displayName": "In process reject time ",
+      "description": " = In process reject count / rated speed",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_reject_count": {
+      "displayName": "Reject Count",
+      "description": "Reject Count",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "changeover_wastage": {
+      "displayName": "ChangeOver Wastage",
+      "description": "Reject Count of blisters during the Changeover process",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "productiveTime": {
+      "displayName": "Productive Time",
+      "description": "Productive Time",
+      "fontColor": "#ffff99",
+      "cam_blister": {},
+      "active": true
+    },
+    "state_mode": {
+      "displayName": "Current Status",
+      "description": "",
+      "fontColor": "#ffb3b3",
+      "cam_blister": {},
+      "active": true
+    },
+    "current_first_fault": {
+      "displayName": "Current First Fault",
+      "description": "Current First Fault ",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "alarms": {
+      "displayName": "Current active alarm",
+      "description": "Displays in scroll form the current warnings and faults in machine",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault_1": {
+      "displayName": "Top First Fault 1 (Count / Duration)",
+      "description": "Topmost Fault count / duration till now",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault_2": {
+      "displayName": "Top First Fault 2(Count / Duration)",
+      "description": "2nd Topmost Fault count / duration till now",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault_3": {
+      "displayName": "Top First Fault 3(Count / Duration)",
+      "description": "3rd Topmost Fault count / duration till now",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault_4": {
+      "displayName": "Top First Fault 4(Count / Duration)",
+      "description": "4th Topmost Fault count / duration till now",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "fault_5": {
+      "displayName": "Top First Fault 5(Count / Duration)",
+      "description": "5th Topmost Fault count / duration till now😳",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_mtbf": {
+      "displayName": "MTBF",
+      "description": "Mean Time Between Failure (hh:mm:ss)",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    },
+    "batch_mttr": {
+      "displayName": "MTTR ",
+      "description": "Mean Time To Repair(hh:mm:ss)",
+      "fontColor": "#b3ffff",
+      "cam_blister": {},
+      "active": true
+    }
+  },
+  "colors": {
+    "statusColors": {
+      "executing": {
+          "text": "Running",
+          "color": "#01af4e"
+      },
+      "ready": {
+          "text": "Idle",
+          "color": "#666699"
+      },
+      "waiting": {
+          "text": "Waiting",
+          "color": "#9dc0e8"
+      },
+      "blocked": {
+          "text": "Blocked",
+          "color": "#b37700"
+      },
+      "stop": {
+          "text": "Fault",
+          "color": "#fe0100"
+      },
+      "pdt": {
+          "text": "Plant Down Time",
+          "color": "#FFFF33"
+      },
+      "manual_stop": {
+          "text": "Manual Stop",
+          "color": "#FFA500"
+      },
+      "updt": {
+          "text": "Power Off",
+          "color": "#ff33cc"
+      },
+      "changeover": {
+          "text": "Changeover",
+          "color": "#a3a375"
+      }
+    }
+  }
+}

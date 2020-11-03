@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" style="height: 100%; width: 100%;">
+  <!-- <div fxFlex style="width: 100%;">
+    <app-analysed-summary-data fxFlex *ngIf="dataLoaded" [tableSettings]="tableConfig" [tableData]="tableData" ></app-analysed-summary-data>
+  </div> -->
+  <div style="background: red; width: 50%; height: 100%;">
+    <app-data-table *ngIf="tableDataLoaded" [tableSettings]="tableConfig" [tableData]="tableData" [conversion]="conversion"></app-data-table>
+  </div>
+  <div style="background: blue; width: 50%; height: 100%;" fxLayout="column" fxLayoutAlign="start start">
+    <!-- <app-shift-summary-data *ngIf="dataLoaded"  [settings]="gridConfig" [data]="shiftData" ></app-shift-summary-data> -->
+    <app-data-grid   *ngIf="shiftDataLoaded"  [settings]="gridConfig" [data]="shiftData" ></app-data-grid>
+    <!-- <div fxFlex style="background: red; height: 100%; width: 100%;" ></div> -->
+    <app-event-causes-data-table *ngIf="faultsDataLoaded"  [lineID]="lineID" [data]="faultsData" [config]="faultsTableSettings" (refreshData)="getFaultsData()" fxFlex style="overflow: auto; width: 100%;" ></app-event-causes-data-table>
+  </div>
+  <!-- <app-analysed-summary-data fxFlex *ngIf="dataLoaded" [tableSettings]="tableConfig" [tableData]="tableData" ></app-analysed-summary-data> -->
+</div>
+<!-- <app-events-timeline-chart  *ngIf="dataLoaded" [config]="eventsTimelineConfig" [data]="eventsData"></app-events-timeline-chart> -->
+

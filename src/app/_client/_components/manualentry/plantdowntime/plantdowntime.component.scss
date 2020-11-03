@@ -1,0 +1,48 @@
+.form {
+  width: 75%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.form-field {
+  width: calc(50% - 20px);
+  margin: 3px 10px;
+}
+.invisible {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+.mat-card {
+  overflow: hidden;
+  &.custom-card {
+    .mat-card-header {
+      margin: -16px -16px 0;
+      .mat-card-title {
+        font-size: 14px;
+      }
+    }
+    .mat-card-actions {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+}
+.mat-sort-header-arrow {
+  color: white !important;
+}
+
+.mat-ink-bar {
+  background-color: black !important;
+}
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  text-align: center;
+}

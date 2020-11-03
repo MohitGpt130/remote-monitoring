@@ -1,0 +1,6 @@
+{
+  "dashboardAuthToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lc3BhY2UiOiJhamF5IiwiaWF0IjoxNTkyMjIyNzE4LCJleHAiOjE1OTIyODI3MTh9.sU1-Fo_0XO1axAJtZf562mMtMaVfQzSq1FT5XdzXbVQ",
+  "apiConfig":"configs/api.config.json",
+  "dashboardConfig":"configs/dashboard.config.json",
+  "socketConfig":"configs/socket.config.json"
+}

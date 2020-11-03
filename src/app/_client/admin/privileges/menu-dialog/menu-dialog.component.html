@@ -1,0 +1,66 @@
+<mat-card class="list" style="width: 400px;">
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <mat-form-field class="w-100">
+        <input required matInput placeholder="Menu Title" formControlName="title">
+        <mat-error *ngIf="form.controls.title.errors?.required">Menu title is required</mat-error>
+        <mat-error *ngIf="form.controls.title.hasError('minlength')">Menu title isn't long enough, minimum of 3
+          characters</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input required matInput placeholder="Menu Name"  formControlName="name" disabled>
+        <mat-error *ngIf="form.controls.name.errors?.required">Menu title is required</mat-error>
+        <mat-error *ngIf="form.controls.name.hasError('minlength')">Menu title isn't long enough, minimum of 3
+          characters</mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field class="w-100">
+        <mat-select placeholder="Icon" formControlName="icon">
+          <mat-option *ngFor="let icon of icons" [value]="icon" [matTooltip]="icon">
+            <mat-icon>{{icon}}</mat-icon>
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <!-- <mat-form-field class="w-100">
+        <mat-select placeholder="Parent menu" formControlName="parentId">
+          <mat-option value="0">-- Select Parent Menu --</mat-option>
+          <mat-option *ngFor="let menuItem of menuItems" [value]="menuItem.id">
+            {{menuItem.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <div label="Route" formGroupName="route">
+        <div fxLayout="column" class="form-field-outer">
+          <mat-form-field class="w-100">
+            <input required matInput placeholder="Route Name" formControlName="name">
+            <mat-error *ngIf="form.controls.name.errors?.required">Route title is required</mat-error>
+          </mat-form-field>
+          <!-- <mat-form-field class="w-100">
+            <input matInput placeholder="route Link" formControlName="link" matTooltip="e.g. /dashboard" matTooltipPosition="after">
+          </mat-form-field> -->
+          <!-- <mat-form-field>
+            <mat-label>Routes</mat-label>
+            <mat-select formControlName="link">
+              <mat-option *ngFor="let menuRoute of menuRoutes" [value]="menuRoute">{{menuRoute}}</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+          <mat-form-field class="w-100">
+            <input required matInput placeholder="Route Link" formControlName="link">
+            <mat-error *ngIf="form.controls.name.errors?.required">Route link is required</mat-error>
+          </mat-form-field>
+          <mat-radio-group formControlName="target" value="_blank">
+            <mat-radio-button value="_blank">_blank</mat-radio-button>
+            <mat-radio-button value="_self" class="mx-1">_self</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Href" formControlName="href" matTooltip="e.g. http://smartfactoryworx.com" matTooltipPosition="after">
+          </mat-form-field>
+          <!-- <mat-slide-toggle color="primary" formControlName="isActive" [checked]="form.route.isActive" (change)="form.route.isActive = !form.route.isActive"> </mat-slide-toggle> -->
+        </div>
+      </div>
+      <!-- <mat-checkbox formControlName="hasSubMenu">Has sub menu</mat-checkbox> -->
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button mat-raised-button color="primary" [mat-dialog-close]="form.value" [disabled]="!form.valid" type="submit">Add New Menu Item</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

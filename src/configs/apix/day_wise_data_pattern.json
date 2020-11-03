@@ -1,0 +1,231 @@
+{
+    "table": {
+        "parameters": {
+            "good_count": {
+                "display_name": "Shift Good Count",
+                "description": "",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "oee": {
+                "display_name": "OEE",
+                "description": "Overall Equipment Effectiveness",
+                "background_color": "#c3e6cb",
+                "format": "%",
+                "active": true
+            },
+            "aviability": {
+                "display_name": "Availability",
+                "description": "Availability",
+                "background_color": "#b8daff",
+                "format": "%",
+                "active": true
+            },
+            "performance": {
+                "display_name": "Performance",
+                "description": "Performance",
+                "background_color": "#ffff99",
+                "format": "%",
+                "active": true
+            },
+            "quality": {
+                "display_name": "Quality",
+                "description": "Quality",
+                "background_color": "#b8daff",
+                "format": "%",
+                "active": true
+            },
+            "pdt": {
+                "display_name": "PDT",
+                "description": "PDT",
+                "background_color": "#f5c6cb",
+                "format": "",
+                "active": true
+            },
+            "no_of_stop": {
+                "display_name": "No. of fault",
+                "description": "No. of fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault1": {
+                "display_name": "Fault 1",
+                "description": "First fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault2": {
+                "display_name": "Fault 2",
+                "description": "Second fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault3": {
+                "display_name": "Fault 3",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault4": {
+                "display_name": "Fault 4",
+                "description": "fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault5": {
+                "display_name": "Fault 5",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault6": {
+                "display_name": "Fault 6",
+                "description": "First fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault7": {
+                "display_name": "Fault 7",
+                "description": "Second fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault8": {
+                "display_name": "Fault 8",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault9": {
+                "display_name": "Fault 9",
+                "description": "fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault10": {
+                "display_name": "Fault 10",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault11": {
+                "display_name": "Fault 11",
+                "description": "First fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault12": {
+                "display_name": "Fault 12",
+                "description": "Second fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault13": {
+                "display_name": "Fault 13",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault14": {
+                "display_name": "Fault 4",
+                "description": "fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault15": {
+                "display_name": "Fault 15",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            
+            "fault16": {
+                "display_name": "Fault 16",
+                "description": "First fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault17": {
+                "display_name": "Fault 17",
+                "description": "Second fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault18": {
+                "display_name": "Fault 18",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "fault19": {
+                "display_name": "Fault 19",
+                "description": "fault",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "fault20": {
+                "display_name": "Fault 20",
+                "description": "fault",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            },
+            "manual_stop": {
+                "display_name": "Manual Stop",
+                "description": "Manual Stop",
+                "background_color": "#f5c6cb",
+                "format": "",
+                "active": true
+            },
+            "filler_stop": {
+                "display_name": "Siapi Stop due to (Count)",
+                "description": "",
+                "background_color": "#b8daff",
+                "format": "",
+                "active": true
+            },
+            "filler_min": {
+                "display_name": "Siapi Stop due to (Min)",
+                "description": "",
+                "background_color": "#dee2e6",
+                "format": "",
+                "active": true
+            },
+            "mtbf": {
+                "display_name": "MTBF",
+                "description": "Mean Time Between Failure (MTBF)",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true
+            },
+            "mttr": {
+                "display_name": "MTTR",
+                "description": "Mean Time To Repair (MTTR)",
+                "background_color": "#ffff99",
+                "format": "",
+                "active": true
+            }
+        }
+    }
+}

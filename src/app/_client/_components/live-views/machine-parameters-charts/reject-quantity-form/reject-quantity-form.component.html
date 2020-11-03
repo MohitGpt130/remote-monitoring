@@ -1,0 +1,94 @@
+<div>
+    <form class="example-form" style="height: 100%; width:100%;" novalidate [formGroup]="reject_quantity_form">
+        <div style="padding: 10px;  color:#000080;text-align: center;font-weight: bold;">
+            Reject Quantity Form
+        </div>
+        <div fxLayout="column" style="width: 100%; padding: 10;">
+            <div fxLayout="row" style="width: 100%; padding: 10;" fxLayoutAlign="space-around start">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name of User" formControlName="user_name" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                    <mat-label>Select Shift </mat-label>
+                    <mat-select formControlName="shift_name" (selectionChange)="getShiftEndData()">
+                        <mat-option *ngFor="let s of Shifts" [value]="s">
+                            {{s}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" (dateChange)="getShiftEndData()"
+                        formControlName="shift_date" placeholder="Shift Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="column" style="width: 100%; padding: 10;">
+            <div fxLayout="row" style="width: 100%; padding: 10;" fxLayoutAlign="space-around start">
+                <mat-form-field class="form-field">
+                    <mat-label>Select Machine </mat-label>
+                    <mat-select formControlName="machine_name" (selectionChange)="filterByMachine()">
+                        <mat-option *ngFor="let m of Machines;let i=index" [value]="m">
+                            <!-- {{apipath["allmachines"][m[0]]["display_name"]}} -->
+                            {{allmachines[Machines[i]]['display_name']}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                    <mat-label>Rejection Quantity </mat-label>
+                    <input matInput placeholder="Rejection Quantity" formControlName="reject_quantity" required>
+                </mat-form-field>
+
+                <mat-form-field class="form-field">
+                    <mat-label>Comments </mat-label>
+                    <textarea matInput placeholder="" formControlName="comment" cdkTextareaAutosize
+                        cdkAutosizeMinRows="3" cdkAutosizeMaxRows="9" required></textarea>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%; padding: 10;" fxLayoutAlign="space-around start">
+                <button mat-flat-button color="primary" (click)="postRejectQuantityData()">
+                    Submit
+                </button>
+            </div>
+            <!-- <pre>{{reject_quantity_form.value |json}}</pre> -->
+        </div>
+
+        <div>
+            <!-- <pre>{{ headerInfo }}</pre> -->
+            <div *ngIf="!RejectComments" fxLayoutAlign="center center" style="width: 100%; height:100%; ">
+                <mat-spinner diameter="30"></mat-spinner>
+            </div>
+            <div *ngIf="rejectCount==0" style="text-align: center;padding: 10px;color: darkblue;">
+                No record found
+            </div>
+            <div fxLayout="column" *ngFor="let sec of RejectComments">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                        <p mat-line style="color: #000080;">{{sec.machine_text}}- Reject Qty :{{sec.reject_quantity}}
+                        </p>
+                    </div>
+                </div>
+
+                <div *ngFor="let comment of sec.comments">
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>
+                            <mat-icon mat-list-icon>account_circle</mat-icon> {{comment.user_name}}
+                        </div>
+                        <div>
+                            {{getAge(comment.created_date,null).ago}}
+                        </div>
+                    </div>
+                    <div>
+                        {{comment.comment}}
+                    </div>
+                </div>
+                <mat-divider style="margin:7px 0;background:#666600;"></mat-divider>
+            </div>
+        </div>
+    </form>
+</div>

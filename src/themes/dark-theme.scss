@@ -1,0 +1,14 @@
+$sf-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$sf-black-accent: mat-palette($mat-blue-grey, 400);
+$sf-black-warn: mat-palette($mat-red, 500);
+
+$sf-black-theme: mat-dark-theme(
+  $sf-black-primary,
+  $sf-black-accent,
+  $sf-black-warn
+);
+
+.dark-theme {
+  @include angular-material-theme($sf-black-theme);
+  // @include custom-components-theme($sf-black-theme);
+}

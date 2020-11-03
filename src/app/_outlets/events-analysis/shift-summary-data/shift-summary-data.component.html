@@ -1,0 +1,53 @@
+{{settings | json}}
+<mat-toolbar><span class="grid-title" [style]="settings.title.style" [ngStyle]="{'text-align':settings.title.alignment}" >{{settings.title.text}}</span></mat-toolbar>
+<mat-grid-list cols="2" [rowHeight]="settings.rowHeight">
+  <mat-grid-tile *ngFor="let tile of (settings.tiles | keys)"
+  >
+  <div class="tile" [style]="settings.tiles[tile].style" fxLayout="column" fxLayoutAlign="center center">
+    <div class="title" [style]="settings.tiles[tile].title.style">
+      {{settings.tiles[tile].title.value}}
+    </div>
+    <div class="data" [style]="settings.tiles[tile].data.style">
+      {{settings.tiles[tile].data.value}}
+    </div>
+    <span *ngIf="(settings.tiles[tile]?.thresholds | isUndefined)">
+      <span *ngIf="settings.tiles[tile]?.evaluate | isDefined">
+        <span *ngIf="((settings.tiles[tile]?.pipe | isUndefined) && (expLoaded[settings.tiles[tile].parameterName] | isDefined) && expLoaded[settings.tiles[tile].parameterName]) && settings.tiles[tile]?.evaluate && (settings.tiles[tile]?.evaluate?.formula | isDefined)">
+          <span *ngIf="(computedTableData[settings.tiles[tile].parameterName][tile] | match : '[a-z]' : 'gi' | isNull )">
+            {{ (computedTableData[settings.tiles[tile].parameterName][tile]) | evaluate }}
+          </span>
+          <span *ngIf="(computedTableData[settings.tiles[tile].parameterName][tile] | match : '[a-z]' : 'gi' | isArray )">
+            {{ (computedTableData[settings.tiles[tile].parameterName][tile])  }}
+          </span>
+        </span>
+        <span *ngIf="((settings.tiles[tile]?.pipe | isDefined) || (settings.tiles[tile]?.pipe | isUndefined) && (settings.tiles[tile][tile]?.pipe | isDefined))">
+          <span *ngIf="(settings.tiles[tile]?.pipe | isDefined) && settings.tiles[tile]?.pipe?.name && settings.tiles[tile]?.pipe?.arg">
+            <span *ngIf="(computedTableData[settings.tiles[tile].parameterName][tile] | match : '[a-z]' : 'gi' | isNull )">
+              {{ (computedTableData[settings.tiles[tile].parameterName][tile]) | evaluate | dynamicPipe : settings.tiles[tile].pipe.name: settings.tiles[tile].pipe.arg  }}
+            </span>
+            <span *ngIf="(computedTableData[settings.tiles[tile].parameterName][tile] | match : '[a-z]' : 'gi' | isArray )">
+              {{ (computedTableData[settings.tiles[tile].parameterName][tile]) }}
+            </span>
+          </span>
+        </span>
+      </span>
+      <span *ngIf="settings.tiles[tile]?.evaluate | isUndefined">
+        <span *ngIf="(settings.tiles[tile]?.pipe | isUndefined) && !((expLoaded[settings.tiles[tile].parameterName] | isDefined) && expLoaded[settings.tiles[tile].parameterName])">
+          {{ (computedTableData[settings.tiles[tile].parameterName][tile]) }}
+        </span>
+        <span *ngIf="(settings.tiles[tile]?.pipe | isDefined) && settings.tiles[tile]?.pipe?.name && settings.tiles[tile]?.pipe?.arg">
+          {{ (computedTableData[settings.tiles[tile].parameterName][tile]) | dynamicPipe : settings.tiles[tile].pipe.name: settings.tiles[tile].pipe.arg }}
+        </span>
+      </span>
+      <span *ngIf="settings.tiles[tile]?.postfix" >
+        <span *ngIf="settings.tiles[tile]?.postfix?.icon">
+          <mat-icon>{{settings.tiles[tile].postfix.icon}}</mat-icon>
+        </span>
+        <span *ngIf="settings.tiles[tile]?.postfix?.content">
+          {{settings.tiles[tile]?.postfix?.content}}
+        </span>
+      </span>
+    </span>
+  </div>
+  </mat-grid-tile>
+</mat-grid-list>

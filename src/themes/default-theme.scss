@@ -1,0 +1,10 @@
+$sf-primary: mat-palette($mat-indigo, 800, 300, 900);
+$sf-accent: mat-palette($mat-light-blue);
+$sf-warn: mat-palette($mat-pink, 600);
+
+$sf-theme: mat-light-theme($sf-primary, $sf-accent, $sf-warn);
+
+.default-theme {
+  @include angular-material-theme($sf-theme);
+  // @include custom-components-theme($sf-theme);
+}

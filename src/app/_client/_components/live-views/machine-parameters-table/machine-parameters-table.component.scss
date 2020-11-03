@@ -1,0 +1,13 @@
+td {
+    border-left: 1px solid #e3e4e6;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type{
+    min-width: 130px;
+}
+
+div{
+    -webkit-overflow-scrolling: touch;
+}
+
+

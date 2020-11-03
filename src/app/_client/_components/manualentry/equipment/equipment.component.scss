@@ -1,0 +1,18 @@
+.invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+
+.gray { background-color:#4EDFD7 ;color:black}
+
+:host ::ng-deep .mat-sort-header-container { 
+    display: flex;  
+    justify-content: center; 
+  }
+  
+  th.mat-header-cell, td.mat-cell { 
+    text-align: center; 
+  }

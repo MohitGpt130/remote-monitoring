@@ -1,0 +1,327 @@
+{
+  "_id": "5df1c4eafb4b4025f88dfde3",
+  "company_name": "Adani",
+  "company_code": "Adan",
+  "__v": 0,
+  "countries": [
+    {
+      "_id": "5e10d0f5125d490308202a1b",
+      "company_id": "5df1c4eafb4b4025f88dfde3",
+      "country_name": "India",
+      "country_code": "India",
+      "__v": 0,
+      "states": [
+        {
+          "_id": "5e10d116125d490308202a1c",
+          "country_id": "5e10d0f5125d490308202a1b",
+          "state_name": "Gujrat",
+          "state_code": "Gujrat",
+          "__v": 0,
+          "locations": [
+            {
+              "_id": "5e10d127125d490308202a1d",
+              "state_id": "5e10d116125d490308202a1c",
+              "location_name": "Ahmedabad",
+              "location_code": "Ahmedabad",
+              "__v": 0,
+              "plants": [
+                {
+                  "_id": "5e10d13b125d490308202a1e",
+                  "location_id": "5e10d127125d490308202a1d",
+                  "plant_name": "Plant 1",
+                  "plant_code": "Plant1",
+                  "__v": 0,
+                  "lines": [
+                    {
+                      "_id": "5e10d14e125d490308202a1f",
+                      "plant_id": "5e10d13b125d490308202a1e",
+                      "line_name": "Line-1",
+                      "line_code": "Line1",
+                      "__v": 0,
+                      "equipments": [
+                        {
+                          "_id": "5e10d177125d490308202a20",
+                          "equipment_name": "filler",
+                          "display_name": "Filler",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "Bottle",
+                          "created_date": "2020-01-04T17:55:03.088Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d189125d490308202a21",
+                          "equipment_name": "induction",
+                          "display_name": "Induction",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "Product",
+                          "created_date": "2020-01-04T17:55:21.126Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d196125d490308202a22",
+                          "equipment_name": "labeller",
+                          "display_name": "Labeller",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "Bottle",
+                          "created_date": "2020-01-04T17:55:34.945Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d1a5125d490308202a23",
+                          "equipment_name": "shrink",
+                          "display_name": "Shrink",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "bottle",
+                          "created_date": "2020-01-04T17:55:49.580Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d1bb125d490308202a24",
+                          "equipment_name": "case_packer",
+                          "display_name": "Case Packer",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "cases",
+                          "created_date": "2020-01-04T17:56:11.136Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d1cb125d490308202a25",
+                          "equipment_name": "case_erector",
+                          "display_name": "Case Erector",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "cases",
+                          "created_date": "2020-01-04T17:56:27.275Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d1fc125d490308202a26",
+                          "equipment_name": "weigher",
+                          "display_name": "Weigher",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "case",
+                          "created_date": "2020-01-04T17:57:16.416Z",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5e10d214125d490308202a27",
+                          "equipment_name": "case_sealer",
+                          "display_name": "Case Sealer",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "product": "cases",
+                          "created_date": "2020-01-04T17:57:40.605Z",
+                          "__v": 0
+                        }
+                      ],
+                      "skus": [
+                        {
+                          "_id": "5e10d247125d490308202a28",
+                          "equipment": [
+                            {
+                              "_id": "5e10d177125d490308202a20",
+                              "equipment_name": "filler",
+                              "display_name": "Filler",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "Bottle",
+                              "created_date": "2020-01-04T17:55:03.088Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d189125d490308202a21",
+                              "equipment_name": "induction",
+                              "display_name": "Induction",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "Product",
+                              "created_date": "2020-01-04T17:55:21.126Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d196125d490308202a22",
+                              "equipment_name": "labeller",
+                              "display_name": "Labeller",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "Bottle",
+                              "created_date": "2020-01-04T17:55:34.945Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d1a5125d490308202a23",
+                              "equipment_name": "shrink",
+                              "display_name": "Shrink",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "bottle",
+                              "created_date": "2020-01-04T17:55:49.580Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d1bb125d490308202a24",
+                              "equipment_name": "case_packer",
+                              "display_name": "Case Packer",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "cases",
+                              "created_date": "2020-01-04T17:56:11.136Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d1cb125d490308202a25",
+                              "equipment_name": "case_erector",
+                              "display_name": "Case Erector",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "cases",
+                              "created_date": "2020-01-04T17:56:27.275Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d1fc125d490308202a26",
+                              "equipment_name": "weigher",
+                              "display_name": "Weigher",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "case",
+                              "created_date": "2020-01-04T17:57:16.416Z",
+                              "__v": 0
+                            },
+                            {
+                              "_id": "5e10d214125d490308202a27",
+                              "equipment_name": "case_sealer",
+                              "display_name": "Case Sealer",
+                              "line_id": "5e10d14e125d490308202a1f",
+                              "product": "cases",
+                              "created_date": "2020-01-04T17:57:40.605Z",
+                              "__v": 0
+                            }
+                          ],
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "sku_number": 2,
+                          "sku_name": "2L",
+                          "rated_speed": 16,
+                          "bpc": 16,
+                          "min_weight_range": 1.98,
+                          "max_weight_range": 2.012,
+                          "__v": 0
+                        }
+                      ],
+                      "shifts": [
+                        {
+                          "_id": "5df1b674f99161053472969d",
+                          "shiftName": "Shift A",
+                          "shiftStartTime": "480",
+                          "shiftEndTime": "1200",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "__v": 0
+                        },
+                        {
+                          "_id": "5df1d6512f392226a895ec01",
+                          "shiftName": "Shift B",
+                          "shiftStartTime": "1200",
+                          "shiftEndTime": "480",
+                          "line_id": "5e10d14e125d490308202a1f",
+                          "__v": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_id": "5e118894a575451444fdfba2",
+              "state_id": "5e10d116125d490308202a1c",
+              "location_name": "Hazira",
+              "location_code": "Hazira",
+              "__v": 0,
+              "plants": [
+                {
+                  "_id": "5e1188a8a575451444fdfba3",
+                  "location_id": "5e118894a575451444fdfba2",
+                  "plant_name": "Plant 2",
+                  "plant_code": "Plant2",
+                  "__v": 0,
+                  "lines": [
+                    {
+                      "_id": "5e11891da575451444fdfba5",
+                      "plant_id": "5e1188a8a575451444fdfba3",
+                      "line_name": "600 BPH LINE",
+                      "line_code": "1",
+                      "__v": 0,
+                      "equipments": [
+
+                      ],
+                      "skus": [
+
+                      ],
+                      "shifts": [
+
+                      ]
+                    },
+                    {
+                      "_id": "5e118928a575451444fdfba6",
+                      "plant_id": "5e1188a8a575451444fdfba3",
+                      "line_name": "2000 BPH LINE",
+                      "line_code": "2",
+                      "__v": 0,
+                      "equipments": [
+
+                      ],
+                      "skus": [
+
+                      ],
+                      "shifts": [
+
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5e13306513ef9b23b48d931e",
+          "country_id": "5e10d0f5125d490308202a1b",
+          "state_name": "Rajasthan",
+          "state_code": "Rajasthan",
+          "__v": 0,
+          "locations": [
+            {
+              "_id": "5e140b533479de23f8385ed3",
+              "state_id": "5e13306513ef9b23b48d931e",
+              "location_name": "Alwar",
+              "location_code": "Alwar",
+              "__v": 0,
+              "plants": [
+                {
+                  "_id": "5e1338d1a92581168c304c22",
+                  "location_id": "5e140b533479de23f8385ed3",
+                  "plant_name": "Plant 3",
+                  "plant_code": "Plant3",
+                  "__v": 0,
+                  "lines": [
+
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5e16e00d9776b60efc0e47ac",
+          "country_id": "5e10d0f5125d490308202a1b",
+          "state_name": "Uttar Pradesh",
+          "state_code": "UP",
+          "__v": 0,
+          "locations": [
+            {
+              "_id": "5e16e01f9776b60efc0e47ad",
+              "state_id": "5e16e00d9776b60efc0e47ac",
+              "location_name": "Noida",
+              "location_code": "Noida",
+              "__v": 0,
+              "plants": [
+
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+$sf-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$sf-nature-accent: mat-palette($mat-deep-purple, 300);
+$sf-nature-warn: mat-palette($mat-red, 600);
+
+$sf-nature-theme: mat-light-theme(
+  $sf-nature-primary,
+  $sf-nature-accent,
+  $sf-nature-warn
+);
+
+.nature-theme {
+  @include angular-material-theme($sf-nature-theme);
+  // @include custom-components-theme($sf-nature-theme);
+}

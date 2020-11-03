@@ -1,0 +1,30 @@
+{
+  "server": {
+    "ip": "",
+    "port": "",
+    "route": "https://avod.smartfactoryworx.tech/api/v1",
+    "apis": {
+      "auth": "https://avod.smartfactoryworx.tech/api/v1/auth",
+      "me": "https://avod.smartfactoryworx.tech/api/v1/me",
+      "admin": "https://avod.smartfactoryworx.tech/api/v1/admin"
+    }
+  },
+  "screen1": {
+    "api": "http://13.127.210.191/api/v1/live-api/avod-tv-screen1",
+    "interval": "",
+    "onError": "",
+    "sampleData": ""
+  },
+  "screen2": {
+    "api": "/api/tv/avod-tv-screen2",
+    "interval": "",
+    "onError": "",
+    "sampleData": ""
+  },
+  "screenConfigs": {
+    "api": "/tv-screen/samples/avod-tv-screen-def.json",
+    "interval": "",
+    "onError": "",
+    "sampleData": ""
+  }
+}

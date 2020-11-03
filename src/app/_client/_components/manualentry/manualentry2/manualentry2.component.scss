@@ -1,0 +1,125 @@
+.header-labels {
+  .header-label {
+    border: 1px solid blue;
+    margin: 1%;
+    padding: 5px;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    background: linear-gradient(90deg, #6660be 28%, white 28%);
+    border-radius: 1px;
+  }
+  .header-value {
+    // float: right;
+    color: black;
+    //align:center;
+  }
+}
+
+.header-labels-xs {
+  .header-label {
+    border: 1px solid blue;
+    margin: 1%;
+    color: white;
+    width: 100%;
+  }
+  .header-value {
+    color: black;
+  }
+}
+
+.header-labels-sm {
+  .header-label {
+    border: 1px solid blue;
+    // color: red;
+    margin: 1%;
+    color: white;
+    width: 100%;
+    font-size: 1.7vw;
+  }
+  .header-value {
+    color: black;
+  }
+}
+
+.header-labels-lg {
+  .header-label {
+    border: 2px solid blue;
+    // color: red;
+    margin: 1%;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    background: linear-gradient(90deg, #6660be 28%, white 28%);
+  }
+  .header-value {
+    color: black;
+  }
+}
+
+.header-labels-xl {
+  .header-label {
+    border: 2px solid blue;
+    color: white;
+    margin: 1%;
+    width: 100%;
+    font-size: 17px;
+    background: linear-gradient(90deg, #6660be 28%, white 28%);
+  }
+  .header-value {
+    align-content: center;
+    align-items: center;
+    color: black;
+  }
+}
+.label-box {
+  margin: 0 5px;
+  height: 100%;
+  color: white;
+  background: red;
+  background-image: linear-gradient(red, #ff8566);
+  .menu {
+  }
+}
+.active {
+  background: red;
+  color: white;
+  .mat-stroked-button {
+    color: white;
+    background: red;
+  }
+}
+
+.mat-stroked-button {
+  color: red;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid red;
+  font-family: Barlow, sans-serif;
+}
+
+.mat-stroked-button:hover {
+  color: white;
+  background: red;
+}
+
+nav {
+  border: 1px solid blue;
+}
+
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.mat-sort-header-arrow {
+  color: white !important;
+}
+
+.mat-ink-bar {
+  background-color: black !important;
+}

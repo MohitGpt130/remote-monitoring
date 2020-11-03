@@ -1,0 +1,45 @@
+
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;text-align: center;">Add Change Over</h3>
+    <form [formGroup]="changeoverform">
+        <div fxLayout="column" style="width:100%;">
+
+         <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+
+                <!---- <mat-form-field class="form-field" fxFlex=30>
+                    <input matInput autocomplete="off" placeholder="Operator ID"
+                        formControlName="_id">
+                </mat-form-field> -->
+                <mat-form-field fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Changeover Name" formControlName="changeover_name">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" fxFlex="45">
+                    <input matInput autocomplete="off" placeholder="Standard Duration" formControlName="standard_duration" type="number"
+                    min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                </mat-form-field>
+                </div>
+
+                <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="30">
+                    <mat-label>Changeover Type </mat-label>
+                    <mat-select formControlName="changeover_type">
+                        <mat-option value="Type A">Type A</mat-option>
+                        <mat-option value="Type B">Type B</mat-option>
+                        <mat-option value="Type C">Type C</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+    <button mat-raised-button color="primary" [disabled]="changeoverform.invalid"
+        [mat-dialog-close]="changeoverform.value">{{button}} </button>
+    <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+</div>
+
+<pre>{{changeoverform.value|json}}</pre>

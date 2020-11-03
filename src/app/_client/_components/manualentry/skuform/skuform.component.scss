@@ -1,0 +1,41 @@
+.form {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.form-field {
+  width: calc(50% - 20px);
+  margin: 3px 10px;
+}
+
+.list-horizontal {
+  padding: 0;
+  .mat-list-option {
+    display: inline-block;
+    height: auto;
+    width: auto;
+  }
+}
+.mat-list-option {
+  display: inline-block;
+  height: auto;
+  width: auto;
+}
+
+.invisible {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  text-align: center;
+}

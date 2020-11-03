@@ -1,0 +1,93 @@
+<div *ngFor="let threshold of element?.thresholds" class="threshold" [ngStyle]="{
+    'background':
+      (threshold.if === '>' && computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.backgroundColor :
+      (threshold.if === '<' && computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.backgroundColor :
+      (threshold.if === '=' && computedTableData[element.parameterName][displayedColumn] == ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.backgroundColor :
+      (threshold.if === '<>' && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? threshold.then?.backgroundColor:
+      (threshold.if === '><' && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? threshold.then?.backgroundColor:
+      '',
+    'color':
+      (threshold.if === '>' && computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.fontColor :
+      (threshold.if === '<' && computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.fontColor :
+      (threshold.if === '=' && computedTableData[element.parameterName][displayedColumn] == ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? threshold.then?.fontColor :
+      (threshold.if === '<>' && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? threshold.then?.fontColor:
+      (threshold.if === '><' && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? threshold.then?.fontColor:
+      ''
+  }" fxLayout="row" fxLayoutAlign="center space-around" style="width: 100%;"
+  (ngInit)="increaseThreshHoldCounter(element.parameterName, displayedColumn)">
+  <span *ngIf="threshold?.then?.showValue | isDefined" fxLayout="row" fxLayoutAlign="center space-around"
+    style="width: 100%;">
+    <span>
+      {{ (computedTableData[element.parameterName][displayedColumn])}}
+    </span>
+    <span *ngIf="element?.postfix">
+      <span *ngIf="element?.postfix?.icon">
+        <mat-icon>{{element.postfix.icon}}</mat-icon>
+      </span>
+      <span *ngIf="element?.postfix?.content">
+        {{element?.postfix?.content}}
+      </span>
+    </span>
+  </span>
+  <span *ngIf="
+        (threshold.if === '>' && computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? true :
+        (threshold.if === '<' && computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? true :
+        (threshold.if === '=' && computedTableData[element.parameterName][displayedColumn] == ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? true :
+        (threshold.if === '<>' && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? true:
+        (threshold.if === '><' && (computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target[0]] | isDefined) && (computedTableData[threshold.target[0]][displayedColumn] | isDefined) ? computedTableData[threshold.target[0]][displayedColumn] : threshold.target[0])) && (computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target[1]] | isDefined) && (computedTableData[threshold.target[1]][displayedColumn] | isDefined) ? computedTableData[threshold.target[1]][displayedColumn] : threshold.target[1])))? true:
+      false" fxLayout="row" fxLayoutAlign="center space-around" style="width: 100%;">
+    <div *ngIf="threshold?.then?.showDifference | isUndefined">
+      <mat-icon aria-hidden="false" aria-label="Example">{{threshold?.then?.icon}}</mat-icon>
+    </div>
+    <span *ngIf="threshold?.then?.showDifference | isDefined" fxLayout="row" fxLayoutAlign="center space-around"
+      style="width: 100%;"
+      [ngStyle]="{'background': threshold.then.showDifference?.backgroundColor ? threshold.then.showDifference?.backgroundColor : '', 'color': threshold.then.showDifference?.fontColor ? threshold.then.showDifference?.fontColor : ''}">
+      <span>
+        <mat-icon aria-hidden="false" aria-label="Example">{{threshold?.then?.icon}}</mat-icon>
+      </span>
+      <span *ngIf="threshold.then.showDifference?.pipe | isDefined">
+        <span>
+          {{
+            (threshold.if === '>' && computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? (
+              (computedTableData[element.parameterName][displayedColumn] - ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target)) | dynamicPipe : threshold.then.showDifference?.pipe.name: threshold.then.showDifference?.pipe.arg
+            ) :
+            (threshold.if === '<' && computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? (
+              (computedTableData[element.parameterName][displayedColumn] - ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target)) | dynamicPipe : threshold.then.showDifference?.pipe.name: threshold.then.showDifference?.pipe.arg
+            ) :
+            ''
+          }}
+        </span>
+      </span>
+      <span *ngIf="threshold.then.showDifference?.pipe | isUndefined">
+        {{
+          (threshold.if === '>' && computedTableData[element.parameterName][displayedColumn] > ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? (
+            (computedTableData[element.parameterName][displayedColumn] - ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))
+          ) :
+          (threshold.if === '<' && computedTableData[element.parameterName][displayedColumn] < ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))? (
+            (computedTableData[element.parameterName][displayedColumn] - ((computedTableData[threshold.target] | isDefined) && (computedTableData[threshold.target][displayedColumn] | isDefined) ? computedTableData[threshold.target][displayedColumn] : threshold.target))
+          ) :
+          ''
+        }}
+      </span>
+      <span *ngIf="threshold.then.showDifference?.text | isDefined">
+        {{threshold.then.showDifference.text}}
+      </span>
+
+    </span>
+  </span>
+</div>
+<div *ngIf="(threshHoldMatchCounter[element.parameterName] | isUndefined) || (threshHoldMatchCounter[element.parameterName][displayedColumn] | isUndefined) "
+  [ngStyle]="{}"
+>
+  <span>
+    {{ (computedTableData[element.parameterName][displayedColumn]) }}
+  </span>
+  <span *ngIf="element?.postfix">
+    <span *ngIf="element?.postfix?.icon">
+      <mat-icon>{{element.postfix.icon}}</mat-icon>
+    </span>
+    <span *ngIf="element?.postfix?.content">
+      {{element?.postfix?.content}}
+    </span>
+  </span>
+</div>

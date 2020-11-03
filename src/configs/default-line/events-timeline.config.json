@@ -1,0 +1,97 @@
+{
+  "mongodbId": "5ecc8663c4100a70cc4a8d08",
+  "eventBarChartColumnNames": [
+    { "type": "string", "id": "Position" },
+    { "type": "string", "id": "Type" },
+    { "type": "string", "role": "style" },
+    { "type": "date", "id": "Start" },
+    { "type": "date", "id": "End" },
+    {
+      "type": "string",
+      "label": "Tooltip Chart",
+      "role": "tooltip",
+      "p": { "html": true }
+    }
+  ],
+  "durationInHumanize": true,
+  "eventBarChartOptions": {
+    "height": 700,
+    "avoidOverlappingGridLines": false,
+    "hAxis": { "title": "Time", "format": "HH:mm" },
+    "legend": "none",
+    "tooltip": { "isHtml": true },
+    "enableInteractivity": true,
+    "timeline": { "showBarLabels": false },
+    "vAxis": { "minValue": 0 },
+    "isStacked": true
+  },
+  "isEnabledEventSelect": true,
+  "eventSelectBar": {
+    "top": "70px",
+    "left": "10px"
+  },
+  "machines": {
+    "lathe_1": {
+      "displayName": "Lathe 1"
+    },
+    "lathe_2": {
+      "displayName": "Lathe 2"
+    },
+    "lathe_3": {
+      "displayName": "Lathe 3"
+    },
+    "mntr21": {
+      "displayName": "MNTR21"
+    },
+    "mntr22": {
+      "displayName": "MNTR22"
+    },
+    "mntr23": {
+      "displayName": "MNTR23"
+    },
+    "mntr24": {
+      "displayName": "MNTR24"
+    },
+    "mntr25": {
+      "displayName": "MNTR25"
+    },
+    "mntr26": {
+      "displayName": "MNTR26"
+    },
+    "mntr27": {
+      "displayName": "MNTR27"
+    },
+    "cnc_tl31": {
+      "displayName": "CNC TL31"
+    },
+    "cnc_vm31": {
+      "displayName": "CNC VM31"
+    },
+    "fiber_laser": {
+      "displayName": "Fiber Laser"
+    },
+    "bending_machine": {
+      "displayName": "BENDING MACHINE"
+    }
+  },
+  "statusColors": {
+    "run": {
+      "text": "Ready",
+      "color": "#01af4e"
+    },
+    "stop": {
+      "text": "Fault",
+      "color": "#fe0100"
+    }
+  },
+  "eventChartTiming": {
+    "from": {
+      "hour": 6,
+      "minute": 0
+    },
+    "to": {
+      "hour": 6,
+      "minute": 0
+    }
+  }
+}

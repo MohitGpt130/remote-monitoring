@@ -1,0 +1,13 @@
+<div *ngIf="isLoaded && settings" [ngClass]="{'dark-theme': (isDarkTheme | async)}" style="height: 100%; width: 100%;">
+  <div id="app" class="app" [dir]="(settings.rtl) ? 'rtl' : 'ltr'" [ngClass]="settings.theme" [class.fixed-header]="settings.fixedHeader" [class.horizontal-menu]="settings.menu == 'horizontal'" [class.compact]="settings.menuType == 'compact'" [class.mini]="settings.menuType == 'mini'">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 1)" size="large" color="#fff" type="ball-elastic-dots" [fullScreen]="true">
+  <p style="color: white" template="<img src='assets/packaging.gif' />"> Loading... </p>
+</ngx-spinner> -->
+<ngx-spinner bdColor="rgba(0, 0, 0, 1)"> template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />" Loading...</ngx-spinner>
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 1)">template="<img src='assets/packaging.gif' />"</ngx-spinner> -->
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="triangle-skew-spin" [fullScreen]="true" template="<img src='assets/packaging.gif' />">
+  <p style="color: rgb(0, 0, 0); font-size: 30px;"> Loading... </p>
+</ngx-spinner> -->

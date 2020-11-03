@@ -1,0 +1,11 @@
+<!-- {{videoLink}} -->
+
+<!-- <video  *ngIf="isVideoAvailable" src="{{videoLink}}"></video> -->
+<mat-video #video *ngIf="isVideoAvailable" [autoplay]="true" [preload]="true" [fullscreen]="true" [download]="false" color="accent" spinner="dot" [src]="videoLink"></mat-video>
+<!-- <mat-spinner *ngIf="isVideoAvailable===undefined"
+    [value]="5">
+</mat-spinner> -->
+<div *ngIf="!isVideoAvailable">Error Code : 404 [Video is not available]</div>
+
+
+<!-- <div *ngIf="machineName!=='filler'" style="width: 100%; height: 100%;" fxLayout="row" fxLayoutAlign="center center"> no video </div> -->

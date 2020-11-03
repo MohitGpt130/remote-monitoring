@@ -1,0 +1,37 @@
+<mat-sidenav-container style="height: 100%;">
+  <mat-sidenav [opened]="sidenavIsOpened" [mode]="(sidenavIsPinned) ? 'side' : 'over'" #sidenav class="sidenav mat-elevation-z6">
+    <app-drawer></app-drawer>
+  </mat-sidenav>
+  <mat-sidenav-content id="main" perfectScrollbar [disabled]="fixedHeader" (psScrollY)="onPsScrollY($event)">
+    <app-header></app-header>
+
+    <mat-toolbar id="horizontal-menu" color="primary" *ngIf="menu == 'horizontal'"
+      class="horizontal-menu flex-p-x transition-2" [class.fixed-top]="!fixedHeader">
+      <div fxLayout="row" fxLayoutAlign="center center" class="w-100">
+        <app-navigation-bar [menuParentId]="0"></app-navigation-bar>
+      </div>
+    </mat-toolbar>
+
+    <div id="main-content" class="inner-sidenav-content transition-2" perfectScrollbar [disabled]="!fixedHeader"
+      (psScrollY)="onPsScrollY($event)">
+      <app-breadcrumb></app-breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="options-icon" (click)="options.toggle()">
+      <mat-icon>settings</mat-icon>
+    </div>
+
+    <!-- <div #backToTop fxLayout="row" fxLayoutAlign="center center" class="back-to-top" (click)="scrollToTop()">
+      <mat-icon>arrow_upward</mat-icon>
+    </div> -->
+
+  </mat-sidenav-content>
+
+  <mat-sidenav #options position="end" class="options">
+    <div fxLayout="row" fxLayoutAlign="center center" class="control mat-elevation-z1">
+      <h2>Settings</h2>
+    </div>
+  </mat-sidenav>
+
+</mat-sidenav-container>

@@ -1,0 +1,66 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  </style>
+</head>
+
+<body style="height: 100%; padding: 0%;">
+  <div style="margin: 1%;">
+    <div>
+      <!-- <div fxLayout="column" style="width: 100%; padding: 15;">
+                    <div fxLayout="row" style="width: 100%; padding: 15;" fxLayoutAlign="space-evenly center"> -->
+      <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap.gt-xs="2%" fxLayoutAlign="center"
+        ngClass.xs="mobileContainer" fxFlex="100%" style="width: 100%;">
+        <div fxLayout="row" style="width: 50%;" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%"
+          fxLayoutAlign="center center" fxFlex="100%">
+          <form novalidate [formGroup]="shift_report" fxLayout.xs="column" fxFlex="100%" fxLayoutAlign="start center">
+            <!-- <button mat-icon-button color="primary" style="align-content: center;" (click)="emailpopup()">Export to PDF
+                            <mat-icon style="color:black;font-size: 40px;">email</mat-icon>
+                        </button>  -->
+
+            <mat-form-field appearance="outline" fxFlex="40%">
+              <mat-label>Select Shift </mat-label>
+              <mat-select formControlName="shift">
+                <mat-option *ngFor="let s of Shifts" [value]="s">
+                  {{s}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="35%">
+              <input matInput [matDatepicker]="picker" [max]="tomorrow" formControlName="date" placeholder="Shift Date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="FilterReportData()" fxFlex="22%">Search</button>
+          </form>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="end center"
+          fxFlex="50%">
+          <button mat-stroked-button color="warn" matTooltip="Email report." fxFlex="25%" (click)="emailpopup()">Email
+            report
+            <mat-icon>email</mat-icon>
+          </button>
+
+          <button mat-stroked-button color="warn" matTooltip="Export this report to PDF" fxFlex="25%"
+            style="align-content: center;" (click)="captureScreen()">Export to PDF
+            <mat-icon>archive</mat-icon>
+          </button>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- <pre>{{shift_report.value|json}}</pre> -->
+    </div>
+    <br>
+    <!-- <div *ngIf="!footStructure" fxLayoutAlign="center center" style="width: 100%; height:100%; ">
+            <mat-spinner diameter="30"></mat-spinner>
+        </div> -->
+    <div id="contentToConvert">
+      <div [innerHTML]="headerStructure"></div>
+      <div [innerHTML]="tablestructure"></div>
+      <div [innerHTML]="footStructure"></div>
+      <div [innerHTML]="shiftEndcomment"></div>
+    </div>
+  </div>
+</body>

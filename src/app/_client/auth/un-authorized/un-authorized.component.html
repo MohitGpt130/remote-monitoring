@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="h-100">
+  <div fxFlex="80" fxFlex.gt-sm="30" fxFlex.sm="60">
+    <mat-card class="p-0 mat-elevation-z24 box">
+      <div fxLayout="column" fxLayoutAlign="center center" class="bg-primary box-header">
+        <button mat-fab color="accent" class="mat-elevation-z12">
+          <mat-icon>error</mat-icon>
+        </button>
+        <h1 class="error">404</h1>
+      </div>
+      <mat-card-content fxLayout="column" fxLayoutAlign="end center" class="box-content">
+        <mat-card fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z12 box-content-inner">
+          <p class="box-text">
+            Unauthorized URL {{unAuthorizedUrl}}
+          </p>
+          <p class="box-text">You are not authorized for this route</p>
+        </mat-card>
+        <button mat-raised-button color="primary" class="mat-elevation-z12 box-button" type="button" (click)="goHome()">
+          Go to Login
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

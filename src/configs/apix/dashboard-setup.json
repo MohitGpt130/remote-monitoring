@@ -1,0 +1,931 @@
+{
+  "title": "",
+  "apiConfigFile": "/configs/apis.config.json",
+  "machines": {
+    "filler": {
+      "display_name": "Filler",
+      "bc": "B"
+    },
+    "induction": {
+      "display_name": "Induction",
+      "bc": "B"
+    },
+    "labeller": {
+      "display_name": "Labeller",
+      "bc": "B"
+    },
+    "shrink": {
+      "display_name": "Shrink",
+      "bc": "B"
+    },
+    "case_packer": {
+      "display_name": "Case Packer",
+      "bc": "C"
+    },
+    "case_erector": {
+      "display_name": "Case Erector",
+      "bc": "C"
+    },
+    "weigher": {
+      "display_name": "Weigher",
+      "bc": "C"
+    },
+    "case_sealer": {
+      "display_name": "Case Sealer",
+      "bc": "C"
+    }
+  },
+  "statusColors": {
+    "ready": {
+      "text": "Ready",
+      "color": "#01af4e"
+    },
+    "waiting": {
+      "text": "Empty",
+      "color": "#9dc0e8"
+    },
+    "blocked": {
+      "text": "Blocked",
+      "color": "#b37700"
+    },
+    "manual_stop": {
+      "text": "Manual Stop",
+      "color": "#FFA500"
+    },
+    "stop": {
+      "text": "Not Ready",
+      "color": "#fe0100"
+    },
+    "pdt": {
+      "text": "Plant Down Time",
+      "color": "#FFFF33"
+    }
+  },
+  "machinesStatus": {
+    "filler": "manual_stop",
+    "induction": "ready",
+    "labeller": "ready",
+    "shrink": "ready",
+    "case_packer": "stop",
+    "case_erector": "stop",
+    "weigher": "ready",
+    "case_sealer": "manual_stop",
+    "parameter_name": "condition"
+  },
+  "machineMode": [
+    "Idle Mode",
+    "Production Mode",
+    "Draining Mode",
+    "Dry Cycle Mode"
+  ],
+  "tableDisplayColumns": ["parameter_name","filler","induction","labeller","shrink","case_packer","case_erector","weigher","case_sealer"],
+  "tableParameters": {
+    "sku_id": {
+      "display_name": "Batch No",
+      "description": "Batch No is either the data entered in the Manual Screen OR the format is: yyyymmddhhmm<SKU>  - Time stamp when the SKU with the SKU code started",
+      "color": "#ffb3b3",
+      "format": "",
+      "active": true
+    },
+    "condition": {
+      "display_name": "Machine status",
+      "description": "",
+      "color": "#ffccee",
+      "format": "",
+      "active": false
+    },
+    "target_quanity": {
+      "display_name": "Target Quantity",
+      "description": "",
+      "color": "#ffccee",
+      "format": "",
+      "active": false
+    },
+    "current_count/current_count%target_quanity": {
+      "display_name": "Target/Achieved",
+      "description": "Number in bracket is the Target quantity entered in Filler for the Batch. Achieved is the total number of bottles processed by Filler for the current Batch",
+      "color": "#ffb3b3",
+      "format": "",
+      "active": true
+    },
+    "total_count/rejected_quantity": {
+      "display_name": "Shift Good/Reject",
+      "description": "This is the Good and Reject Count of the products processed by each machine in the current Shift, irrespective of SKU or Batch No",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "bpm": {
+      "display_name": "Speed PPM",
+      "description": "Machine current actual Speed in terms of the Products Per Minute",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "filler_stop": {
+      "display_name": "Filler Stop (Count)",
+      "description": "This indicates the Count of Faults in Filler and under each machine. It is the count of Faults of that machine that caused Filler to Stop in current Shift",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "filler_min": {
+      "display_name": "Filler Stop (Minutes)",
+      "description": "Cumulative (total) Fault duration (of Fault count mentioned in Filler Stop category)",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "oee": {
+      "display_name": "OEE",
+      "description": "Overall Equipment Effectiveness",
+      "color": "#ffff99",
+      "format": "%",
+      "active": true
+    },
+    "aviability": {
+      "display_name": "Availability",
+      "description": "Availability",
+      "color": "#ffff99",
+      "format": "%",
+      "active": true
+    },
+    "performance": {
+      "display_name": "Performance",
+      "description": "Performance",
+      "color": "#ffff99",
+      "format": "%",
+      "active": true
+    },
+    "quality": {
+      "display_name": "Quality",
+      "description": "Quality",
+      "color": "#ffff99",
+      "format": "%",
+      "active": true
+    },
+    "mode": {
+      "display_name": "Current Status",
+      "description": "",
+      "color": "#ffb3b3",
+      "format": "",
+      "active": true
+    },
+    "current_first_fault": {
+      "display_name": "Current First Fault",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "current_active_alarms": {
+      "display_name": "Current Active Alarms",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "top_first_fault_1": {
+      "display_name": "Top First Fault 1",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "top_first_fault_2": {
+      "display_name": "Top First Fault 2",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "top_first_fault_3": {
+      "display_name": "Top First Fault 3",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "top_first_fault_4": {
+      "display_name": "Top First Fault 4",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "top_first_fault_5": {
+      "display_name": "Top First Fault 5",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "manual_stop": {
+      "display_name": "Manual Stop",
+      "description": "",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "mtbf": {
+      "display_name": "MTBF",
+      "description": "Mean Time Between Failure (MTBF)",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    },
+    "mttr": {
+      "display_name": "MTTR",
+      "description": "Mean Time To Repair (MTTR)",
+      "color": "#ffff99",
+      "format": "",
+      "active": true
+    }
+  },
+  "faultDescritions": {
+    "filler": {
+      "fault_0": {
+        "short": "NO FAULT ",
+        "full": "NO FAULT"
+      },
+      "fault_1": {
+        "full": "EMERGENCY STOP PRESSED ",
+        "short": "E-STOP PRESSED"
+      },
+      "fault_2": {
+        "full": "FRONT DOOR RIGHT OPENED ",
+        "short": "DOOR.FrontRight"
+      },
+      "fault_3": {
+        "full": "FRONT DOOR LEFT OPENED ",
+        "short": "DOOR.FrontLeft"
+      },
+      "fault_4": {
+        "full": "BACK DOOR RIGHT OPENED ",
+        "short": "DOOR.BackRight "
+      },
+      "fault_5": {
+        "full": "BACK DOOR LEFT OPENED ",
+        "short": "DOOR.BackLeft"
+      },
+      "fault_6": {
+        "full": "SIDE DOOR1 RIGHT OPENED ",
+        "short": "DOOR.RightS_1"
+      },
+      "fault_7": {
+        "full": "SIDE DOOR1 LEFT OPENED ",
+        "short": "DOOR.LeftS_1"
+      },
+      "fault_8": {
+        "full": "FRONT DOOR CENTER OPENED ",
+        "short": "DOOR.F_Center "
+      },
+      "fault_9": {
+        "full": "BACKDOOR CENTER OPENED ",
+        "short": "DOOR.B_Center "
+      },
+      "fault_10": {
+        "full": "SIDE DOOR2 RIGHT OPENED ",
+        "short": "DOOR.RightS_2"
+      },
+      "fault_11": {
+        "full": "SIDE DOOR2 LEFT OPENED ",
+        "short": "DOOR.LeftS_2"
+      },
+      "fault_12": {
+        "full": "INFEED STARWHEEL SLIPPED ",
+        "short": "SLIPPED_I/F SW"
+      },
+      "fault_13": {
+        "full": "TRANSFER STARWHEEL SLIPPED ",
+        "short": "SLIPPED_XferSW"
+      },
+      "fault_14": {
+        "full": "OUTFEED STARWHEEL SLIPPED ",
+        "short": "SLIPPED_O/FSW"
+      },
+      "fault_15": {
+        "full": "INFEED SCREW JAMMED ",
+        "short": "JAM_I/F Screw"
+      },
+      "fault_16": {
+        "full": "ANALOG LEVEL SENSOR HIGH LIMIT ACTIVATED ",
+        "short": "H_LMT_Analog "
+      },
+      "fault_17": {
+        "full": "DIGITAL LEVEL SENSOR HIGH LIMIT ACTIVATED ",
+        "short": "H_LMT_Digital"
+      },
+      "fault_18": {
+        "full": "CAPPER TURRET LOCK NOT OPENED ",
+        "short": "LOCK_NoCapTur "
+      },
+      "fault_19": {
+        "full": "DRAIN PAN NOT IN RETRACT POSITION ",
+        "short": "D_Pipe_No_Retr"
+      },
+      "fault_20": {
+        "full": "AIR PRESSURE LOW ",
+        "short": "AIR_LOW"
+      },
+      "fault_21": {
+        "full": "FILLER VFD FAULT ",
+        "short": "VFD_Flt_Filler"
+      },
+      "fault_22": {
+        "full": "INFEED CONVEYOR VFD FAULT ",
+        "short": "VFD_Flt_iConv"
+      },
+      "fault_23": {
+        "full": "CAP SORTER VFD FAULT ",
+        "short": "VFD_Flt_CSortr"
+      },
+      "fault_24": {
+        "full": "ADDITIONAL CAP SORTER VFD FAULT  ",
+        "short": "VFD_FltACapSort"
+      },
+      "fault_25": {
+        "full": "CAP ELEVATOR VFD FAULT ",
+        "short": "VFD_FltCapElev"
+      },
+      "fault_26": {
+        "full": "CAP SCREW VFD FAULT ",
+        "short": "VFD_FltCScrew"
+      },
+      "fault_27": {
+        "full": "CAP CONVEYOR VFD FAULT ",
+        "short": "VFD_Flt_cConv"
+      },
+      "fault_28": {
+        "full": "CAPPER MOTOR OVERLOAD ",
+        "short": "O/L_CapMotor"
+      },
+      "fault_29": {
+        "full": "CAPPER VACCUM MOTOR OVERLOAD ",
+        "short": "O/L_CapVacM"
+      },
+      "fault_30": {
+        "full": "FILLER UP DOWN MOTOR OVERLOAD ",
+        "short": "O/L_FillerU/DM"
+      },
+      "fault_31": {
+        "full": "CAP SORTER DOOR OPENED ",
+        "short": "DOOR_CapS"
+      },
+      "fault_32": {
+        "full": "UPSTREAM ACCUMULATION LOW ",
+        "short": "ACC_LowUpStrm"
+      },
+      "fault_33": {
+        "full": "CAP LOW IN CAP SORTER ",
+        "short": "CAP_LowCapS"
+      },
+      "fault_34": {
+        "full": "DOWNSTREAM ACCUMULATION FULL ",
+        "short": "ACC_FullD/S"
+      },
+      "fault_35": {
+        "full": "REJECT ACCUMULATION JAM ",
+        "short": "JAM Reject Acc "
+      },
+      "fault_36": {
+        "full": "REJECT ACCUMULATION FULL ",
+        "short": "FULL Reject Acc "
+      },
+      "fault_37": {
+        "full": "PRODUCT LEVEL LOW ",
+        "short": "LOW_ProdLevel"
+      },
+      "fault_38": {
+        "full": "CAP ACCUMULATION LOW ",
+        "short": "LOW_ Cap Acc "
+      },
+      "fault_39": {
+        "full": "ADDITION CAP ACCUMULATION HIGH ",
+        "short": "HIGH_AdCapAcc"
+      },
+      "fault_40": {
+        "full": "CAP LOW IN CAP ELEVATOR ",
+        "short": "LOW_C_CapElev"
+      },
+      "fault_41": {
+        "full": "MACHINE IN PRODUCTION MODE ",
+        "short": "PRODUCTION MODE"
+      },
+      "fault_42": {
+        "full": "MACHINE IN DRAINING MODE ",
+        "short": "DRAINING MODE"
+      },
+      "fault_43": {
+        "full": "MACHINE IN CLEANING MODE ",
+        "short": "CLEANING MODE"
+      },
+      "fault_44": {
+        "full": "MACHINE IN CHANGE OVER MODE ",
+        "short": "CHANGE OVER MODE"
+      },
+      "fault_45": {
+        "full": "MACHINE IN MANUAL MODE ",
+        "short": "MANUAL MODE"
+      },
+      "fault_46": {
+        "full": "PRODUCTION NOT READY ",
+        "short": "NOT READY"
+      },
+      "fault_47": {
+        "full": "MACHINE SYNCHRONISATION IN PROGRESS ",
+        "short": "SYNCHRONISATION IN PROGRESS"
+      },
+      "fault_48": {
+        "full": "CONVEYOR NOT READY ",
+        "short": "NOT_RdyConv"
+      },
+      "fault_49": {
+        "full": "PRODUCT SUPPLY NOT READY ",
+        "short": "NOT_RdyPrdSply"
+      },
+      "fault_50": {
+        "full": "TOO MANY CAP REJECT ",
+        "short": "MANY_CapRej"
+      },
+      "fault_51": {
+        "full": "OPEARTOP PANEL STOP ",
+        "short": "OPR_STOP"
+      },
+      "fault_52": {
+        "full": "OPEARATOR PANEL START ",
+        "short": "OPR_START"
+      },
+      "fault_53": {
+        "full": "DOORS OK ",
+        "short": "DOORS OK"
+      },
+      "fault_54": {
+        "full": "ALARM 58 ",
+        "short": "ALARM 58"
+      },
+      "fault_55": {
+        "full": "DRAIN PAN EXTEND DURING DRAINING ",
+        "short": "DR_PipeExtend"
+      },
+      "fault_56": {
+        "full": "Out ",
+        "short": "Out"
+      },
+      "fault_57": {
+        "full": "ADD CAP SORTER DOOR OPEN ",
+        "short": "DOOR.AdCapSort"
+      },
+      "fault_58": {
+        "full": "ADD CAP ACCUMULATUION HIGH ",
+        "short": "ACC.HighAddCap"
+      },
+      "fault_59": {
+        "full": "CAP LOW IN ADD CAP SORTER ",
+        "short": "CAP.LowACapSort"
+      },
+      "fault_60": {
+        "full": "AUTO SHUT OFF ALARM1 ",
+        "short": "AutoShutOff_1"
+      },
+      "fault_61": {
+        "full": "AUTO SHUT OFF ALARM2 ",
+        "short": "AutoShutOff_2"
+      },
+      "fault_62": {
+        "full": "ZERO PROD COUNTER VALUE ",
+        "short": "ZeroPrdCntrVal"
+      }
+    },
+    "induction": {
+      "fault_1": {
+        "short": "",
+        "full": ""
+      },
+      "fault_2": {
+        "short": "",
+        "full": ""
+      },
+      "fault_3": {
+        "short": "",
+        "full": ""
+      },
+      "fault_4": {
+        "short": "",
+        "full": ""
+      },
+      "fault_5": {
+        "short": "",
+        "full": ""
+      }
+    },
+    "labeller": {
+      "fault_1": {
+        "full": "LABEL ROLL BREAK LABELER 1 ",
+        "short": "Roll_1_Break"
+      },
+      "fault_2": {
+        "full": "LABEL ROLL BREAK LABELER 2 ",
+        "short": "Roll_2_Break"
+      },
+      "fault_3": {
+        "full": "AIR PRESSURE LOW ",
+        "short": "Air_P_Low"
+      },
+      "fault_4": {
+        "full": "LABEL ROLL 1 NEAR_END ",
+        "short": "Roll.1.NearE"
+      },
+      "fault_5": {
+        "full": "LABEL ROLL 2 NEAR_END ",
+        "short": "Roll.2.NearE"
+      },
+      "fault_6": {
+        "full": "REJECTION CONFIRMATION FAILED ",
+        "short": "Rej.Conf.Fail"
+      },
+      "fault_7": {
+        "full": "REJECTION BILL FULL ",
+        "short": "Rej_Bin_Full"
+      },
+      "fault_8": {
+        "full": "LABEL 1 SERVO DRIVE ERROR ",
+        "short": "Servo.1.Error"
+      },
+      "fault_9": {
+        "full": "LABEL 2 SERVO DRIVE ERROR ",
+        "short": "Servo.2.Error"
+      }
+    },
+    "shrink": {
+      "fault_1": {
+        "short": "",
+        "full": ""
+      },
+      "fault_2": {
+        "short": "",
+        "full": ""
+      },
+      "fault_3": {
+        "short": "",
+        "full": ""
+      },
+      "fault_4": {
+        "short": "",
+        "full": ""
+      },
+      "fault_5": {
+        "short": "",
+        "full": ""
+      }
+    },
+    "case_packer": {
+      "fault_1": {
+        "full": "F00_Drop Case Packer Emg Stop PB",
+        "short": "CP_E_Stop"
+      },
+      "fault_2": {
+        "full": "F01_ Drop Case Packer Safety Door S60",
+        "short": "CP_Door S60"
+      },
+      "fault_3": {
+        "full": "F02_ Drop Case Packer Safety Door S61",
+        "short": "CP_Door S61 "
+      },
+      "fault_4": {
+        "full": "F03_ Drop Case Packer Safety Door S-62",
+        "short": "CP_Door S62 "
+      },
+      "fault_5": {
+        "full": "F04_ Drop Case Packer Safety Door S-63",
+        "short": "CP_Door S63 "
+      },
+      "fault_6": {
+        "full": "F07_Drop Case Packer Safety Relay Fault",
+        "short": "CP_Relay Flt"
+      },
+      "fault_7": {
+        "full": "F05_ Drop Case Packer Safety Door S-64",
+        "short": "CP_Door S64"
+      },
+      "fault_8": {
+        "full": "F06_ Drop Case Packer Safety Door S-65",
+        "short": "CP_Door S65"
+      },
+      "fault_10": {
+        "full": "F08_Drop Case Packer Air Pressure Low",
+        "short": "CP_Air_Low "
+      },
+      "fault_11": {
+        "full": "F09_DCP_DOL Case Conveyor_MPCB_Trip_AL",
+        "short": "CP_Cnv_Trip"
+      },
+      "fault_13": {
+        "full": "F11_Drop Case Packer Shutter Sensor Open Not Found",
+        "short": "CP_ShSOpNF"
+      },
+      "fault_14": {
+        "full": "F12_Drop Case Packer Shutter Sensor Close Not Found",
+        "short": "CP_ShSClsNF"
+      },
+      "fault_63": {
+        "full": "F13_ Drop Case Packer Case Stuck At Drop Exit",
+        "short": "CP.CstuckDEx"
+      },
+      "fault_64": {
+        "full": "F14_Drop Case Packer Case Not Present at Pick point",
+        "short": "CP.CnotAtPick"
+      },
+      "fault_20": {
+        "full": "F20_Lane Devider Emg Stop PB",
+        "short": "LD.E-Stop"
+      },
+      "fault_21": {
+        "full": "F21_Lane Devider Safety Door S-60",
+        "short": "LD.Door S-60"
+      },
+      "fault_22": {
+        "full": "F22_Lane Devider Safety Door S-61",
+        "short": "LD.Door S-61 "
+      },
+      "fault_23": {
+        "full": "F23_Lane Devider Safety Door S-62",
+        "short": "LD.Door S-62"
+      },
+      "fault_24": {
+        "full": "F24_Lane Devider Safety Door S-63",
+        "short": "LD.Door S-63"
+      },
+      "fault_25": {
+        "full": "F25_Lane Divider Overtravel Negative",
+        "short": "LD.Otravl.Neg"
+      },
+      "fault_26": {
+        "full": "F26_Lane Divider Overtravel Positive",
+        "short": "LD.Otravel.Pos"
+      },
+      "fault_27": {
+        "full": "F27_Lane Divider Safety Relay Faulty",
+        "short": "LD.SafeRlyFlt"
+      },
+      "fault_28": {
+        "full": "F28_Lane Divider Encoder Error",
+        "short": "LD.Enc.Error"
+      },
+      "fault_29": {
+        "full": "F29_Lane Devider Jammed",
+        "short": "LD.Jam"
+      },
+      "fault_31": {
+        "full": "F40_Orienter Safety Door S-60",
+        "short": "O.Door S-60"
+      },
+      "fault_32": {
+        "full": "F41_Orienter Safety Door S-61",
+        "short": "O.Door S-61"
+      },
+      "fault_33": {
+        "full": "F42_Orienter Safety Door S-62",
+        "short": "O.Door S-62"
+      },
+      "fault_34": {
+        "full": "F43_Orienter Safety Door S-63",
+        "short": "O. Door S-63"
+      },
+      "fault_30": {
+        "full": "F44_Orienter Emg Stop PB",
+        "short": "O.E-Stop"
+      },
+      "fault_35": {
+        "full": "F45_Orienter Safety Relay Fault",
+        "short": "O.SafeRlyFlt"
+      },
+      "fault_36": {
+        "full": "F46_Orienter Jammed",
+        "short": "O.Jam"
+      },
+      "fault_40": {
+        "full": "F47_Orienter Bottle Orientation wrong after ORIENTER",
+        "short": "O.BtlOrWrng"
+      },
+      "fault_41": {
+        "full": "F48_Orienter Straight Bottle Orientation wrong after ORIENTER",
+        "short": "O.StrBOrWrng"
+      },
+      "fault_50": {
+        "full": "F60_Drive Bench Conveyor Trip ",
+        "short": "Drv_BnchCnvTrip "
+      },
+      "fault_51": {
+        "full": "F61_Drive Intermidate Conveyor Trip",
+        "short": "Drv IntCnvTrip"
+      },
+      "fault_52": {
+        "full": "F62_Drive Lane Devider Trip",
+        "short": "Drv LD Trip"
+      },
+      "fault_53": {
+        "full": "F63_Drive Lane Devider Gripper Conveyor Trip",
+        "short": "Drv LD GripCnvTrip"
+      },
+      "fault_54": {
+        "full": "F64_Drive",
+        "short": "Drive"
+      },
+      "fault_55": {
+        "full": "F65_Drive Orienter Gripper Conveyor Trip",
+        "short": "Drv O GripConvTrip"
+      },
+      "fault_56": {
+        "full": "F66_Drive Product Conveyor_1_Trip",
+        "short": "Drv PrConv1_Trip"
+      },
+      "fault_57": {
+        "full": "F67_Drive Product Conveyor_2_Trip",
+        "short": "Drv PrConv2_Trip"
+      },
+      "fault_58": {
+        "full": "F68_Drive Product Conveyor_3_Trip",
+        "short": "Drv PrConv3_Trip"
+      },
+      "fault_59": {
+        "full": "F69_Drive Product Conveyor_4_Trip",
+        "short": "Drv PrConv4_Trip"
+      },
+      "fault_60": {
+        "full": "F70_Drive Product Conveyor_5_Trip",
+        "short": "Drv PrConv5_Trip"
+      }
+    },
+    "case_erector": {
+      "fault_0": {
+        "full": "No Fault",
+        "short": "abcdefghijklm"
+      },
+      "fault_1": {
+        "full": "EMERGENCY STOP ",
+        "short": "E-STOP"
+      },
+      "fault_2": {
+        "full": "DOOR 60 OPEN",
+        "short": "DOOR 60 OPEN"
+      },
+      "fault_3": {
+        "full": "DOOR 61 OPEN",
+        "short": "DOOR 61 OPEN"
+      },
+      "fault_4": {
+        "full": "DOOR 62 OPEN",
+        "short": "DOOR 62 OPEN"
+      },
+      "fault_5": {
+        "full": "DOOR 63 OPEN",
+        "short": "DOOR 63 OPEN"
+      },
+      "fault_6": {
+        "full": "DOOR 64 OPEN",
+        "short": "DOOR 64 OPEN"
+      },
+      "fault_7": {
+        "full": "MOTOR OVERLOAD",
+        "short": "MOTOR O/L"
+      },
+      "fault_8": {
+        "full": "AIR PRESSURE FAULT",
+        "short": "AIR LOW"
+      },
+      "fault_9": {
+        "full": "CASE NOT PICK",
+        "short": "CASE NOT PICK"
+      },
+      "fault_10": {
+        "full": "CASE JAME ON BELTS",
+        "short": "CASE JAM ON BELTS"
+      },
+      "fault_11": {
+        "full": "INVERTER 1 FAULT",
+        "short": "INV 1 FAULT"
+      },
+      "fault_12": {
+        "full": "INVERTER 2 FAULT",
+        "short": "INV 2 FAULT"
+      },
+      "fault_13": {
+        "full": "SAFETY RELAY FAULT",
+        "short": "SAFE RLY FAULT"
+      },
+      "fault_14": {
+        "full": "CASE JAM IN PUSHER",
+        "short": "CASE JAM Pushr"
+      },
+      "fault_15": {
+        "full": "MAGAZINE EMPTY",
+        "short": "MAGZ EMPTY"
+      },
+      "fault_16": {
+        "full": "TAPE BROKEN",
+        "short": "TAPE BROKEN"
+      },
+      "fault_17": {
+        "full": "TAPE FINISHED",
+        "short": "TAPE FINISHED"
+      },
+      "fault_97": {
+        "full": "LOW MAGAZINE",
+        "short": "LOW MAGZ"
+      },
+      "fault_98": {
+        "full": "OUTFEED JAM",
+        "short": "O/F JAM"
+      },
+      "fault_99": {
+        "full": "LOW TAPE",
+        "short": "LOW TAPE"
+      },
+      "fault_100": {
+        "full": "PICKER HOMING ERROR",
+        "short": "PICKR HOM ERR"
+      },
+      "fault_101": {
+        "full": "PUSHER HOMING ERROR",
+        "short": "PUSH HOM ERR"
+      },
+      "fault_102": {
+        "full": "PICKER FWD NOT REACH/SENSOR ERROR",
+        "short": "PFntRch/SErr"
+      },
+      "fault_103": {
+        "full": "PICKER BWD NOT REACH/SENSOR ERROR",
+        "short": "PBntRch/SErr"
+      },
+      "fault_104": {
+        "full": "PUSHER FWD NOT REACH/SENSOR ERROR",
+        "short": "PFntRch/SErr"
+      },
+      "fault_105": {
+        "full": "PUSHER FWD NOT REACH/SENSOR ERROR",
+        "short": "PBntRch/SErr"
+      },
+      "fault_106": {
+        "full": "MAJOR FLAP NOT ON",
+        "short": "Maj.FlpNotON"
+      },
+      "fault_107": {
+        "full": "MAGAZINE NOT READY",
+        "short": "Mgz.Not.Rdy"
+      },
+      "fault_108": {
+        "full": "PICKER DISABLED IN HOME PAGE",
+        "short": "Pckr.Disabled"
+      },
+      "fault_109": {
+        "full": "PUSHER DISABLED IN HOME PAGE",
+        "short": "Pshr.Disabled"
+      },
+      "fault_110": {
+        "full": "OUTFEED DISABLE IN HOME PAGE",
+        "short": "O/F.DISABLE"
+      },
+      "fault_111": {
+        "full": "VACUUM DISABLE FROM HOME IN HOME PAGE",
+        "short": "VAC.DISABLE"
+      }
+    },
+    "weigher": {
+      "fault_1": {
+        "full": "Upstream JAM at check weigher",
+        "short": "INFEED JAM"
+      },
+      "fault_2": {
+        "full": "Downstream JAM at check weigher",
+        "short": "OUTFEED JAM"
+      },
+      "fault_3": {
+        "full": "Rejection box IN",
+        "short": "CAS.I.RJCT.BIN"
+      },
+      "fault_4": {
+        "full": "Rejection bin Full",
+        "short": "REJCT.BIN.FULL"
+      }
+    },
+    "case_sealer": {
+      "fault_1": {
+        "full": "SADM.1.CS_BoxJam",
+        "short": "BOXJAM"
+      },
+      "fault_3": {
+        "full": "SADM.1.CS_RedOn",
+        "short": "FAULT"
+      },
+      "fault_2": {
+        "full": "SADM.1.CS_TapeBroken",
+        "short": "TAPEBROKEN"
+      },
+      "fault_4": {
+        "full": "SADM.1.CS_TapeLow",
+        "short": "TAPELOW"
+      }
+    }
+  }
+}

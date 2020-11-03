@@ -1,0 +1,199 @@
+<div *ngIf="computedTableData" class="table-responsive">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="displayedColumn"
+      [sticky]="displayedColumnsTitles[displayedColumn]?.isSticky ? displayedColumnsTitles[displayedColumn]?.isSticky: false"
+      *ngFor="let displayedColumn of (displayedColumnsTitles | keys); let j = index;">
+      <th mat-header-cell *matHeaderCellDef
+        [style]="tableSettings?.tableHeader?.columns?.styles? tableSettings?.tableHeader?.columns?.styles : tableSettings?.tableHeader?.columns[displayedColumn]?.styles? tableSettings?.tableHeader?.columns[displayedColumn]?.styles : tableSettings?.tableHeader?.columns[displayedColumn]?.styles ? tableSettings?.tableHeader?.columns[displayedColumn].styles : tableSettings?.styles"
+        [matTooltip]="tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor && computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor] && computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn] ? computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn] : displayedColumn"
+        [title]="(computedTableData['displayName'] | isDefined) && !tableSettings?.displayConfigTitle ? computedTableData['displayName'][displayedColumn] : ''" [ngStyle]="{
+          'background': (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor] | isDefined) && (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn] | isDefined) ? ( tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]] | isDefined) ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]]?.color: tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor : tableSettings?.defaultCell?.backgroundColor,
+          'color': (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColor] | isDefined) && (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColor][displayedColumn] | isDefined) ? ( tableSettings?.tableHeader?.columns[displayedColumn]?.fontColors && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColors] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColor][displayedColumn]] | isDefined) ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.fontColor][displayedColumn]]?.color: tableSettings?.tableHeader?.columns[displayedColumn]?.fontColor : tableSettings?.defaultCell?.fontColor,
+          'min-width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnMinWidth ? tableSettings?.columnMinWidth: '',
+          'max-width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnMaxWidth ? tableSettings?.columnMaxWidth: '',
+          'width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnWidth ? tableSettings?.columnWidth: '',
+          'height': tableSettings?.headerHeight ? tableSettings?.headerHeight: tableSettings?.rowHeight ? tableSettings?.rowHeight : '',
+          'font-size': tableSettings?.fontSize ? tableSettings?.fontSize: ''
+        }">
+        <!-- {{tableSettings?.tableHeader?.columns?.styles? tableSettings?.tableHeader?.columns?.styles : tableSettings?.tableHeader?.columns[displayedColumn]?.styles? tableSettings?.tableHeader?.columns[displayedColumn]?.styles : tableSettings?.tableHeader?.columns[displayedColumn]?.styles ? tableSettings?.tableHeader?.columns[displayedColumn].styles : tableSettings?.styles}} -->
+        <!-- {{((computedTableData['displayName'] | isDefined) && (computedTableData['displayName'][displayedColumn] | isDefined))}} -->
+        <!-- {{tableSettings?.tableHeader?.columns[displayedColumn].displayName}} -->
+
+        <!-- {{computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]}} -->
+        <!-- {{tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] | json}} -->
+
+        <!-- {{computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]] : '' }} -->
+
+        <!-- {{(computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor] | isDefined) && (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn] | isDefined) ? ( tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]] | isDefined) ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]]?.color: tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor : 'white'}} -->
+        <!-- {{tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor][displayedColumn]] | json}} -->
+
+        <!-- {{tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColor]] | json}} -->
+        <div style="width: 100%;" fxLayout="row" fxLayoutAlign="center space-around">
+          {{((computedTableData['displayName'] | isDefined) && (computedTableData['displayName'][displayedColumn] | isDefined))? computedTableData['displayName'][displayedColumn] : tableSettings?.tableHeader?.columns[displayedColumn] && tableSettings?.tableHeader?.columns[displayedColumn]?.displayName ? tableSettings?.tableHeader?.columns[displayedColumn].displayName : ''}}
+          <!-- {{computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.displayName][displayedColumn]}} -->
+          <!-- {{((computedTableData['displayName'] | isDefined) && (computedTableData['displayName'][displayedColumn] | isDefined)) ? computedTableData['displayName'][displayedColumn] : (tableSettings?.tableHeader?.columns[displayedColumn]?.displayName | isDefined) ? (computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.displayName][displayedColumn] | isDefined) ? computedTableData[tableSettings?.tableHeader?.columns[displayedColumn]?.displayName][displayedColumn]: tableSettings?.tableHeader?.columns[displayedColumn]?.displayName: ''}} -->
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element; let i = index;" #tdElements (ngInit)="load(tdElements.offsetHeight)"
+        (click)="element[displayedColumn]?.expendable ? (element[displayedColumn].expendable.isExpended = !element[displayedColumn].expendable.isExpended) : element[displayedColumn]?.click ? open() : ''"
+        [title]="computedTableData[element.parameterName] && (computedTableData[element.parameterName][displayedColumn] | isString) ? computedTableData[element.parameterName][displayedColumn]: ''"
+        [attr.colspan]="j === 1 ? ((displayedColumnsTitles | keys).length - ((element | keys) | intersection: (displayedColumnsTitles | keys)).length) +1: 1"
+        [matTooltip]="element?.description"
+        [style]="element[displayedColumn] && element[displayedColumn].styles? element[displayedColumn] && element[displayedColumn].styles : element?.styles ? element?.styles : tableSettings?.styles"
+        [ngStyle]="{
+          'cursor': element[displayedColumn]?.click ? 'pointer' : '',
+          'background': (computedTableData[element?.backgroundColor] | isDefined) && (computedTableData[element?.backgroundColor][displayedColumn] | isDefined) ? ( tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[element?.backgroundColor][displayedColumn]] | isDefined) ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[element?.backgroundColor][displayedColumn]]?.color: element?.backgroundColor : tableSettings?.defaultCell?.backgroundColor,
+          'color': (computedTableData[element?.fontColor] | isDefined) && (computedTableData[element?.fontColor][displayedColumn] | isDefined) ? ( tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors] && tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[element?.fontColor][displayedColumn]] | isDefined) ? tableSettings.colors[tableSettings?.tableHeader?.columns[displayedColumn]?.backgroundColors][computedTableData[element?.fontColor][displayedColumn]]?.color: element?.fontColor : tableSettings?.defaultCell?.fontColor,
+          'min-width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnMinWidth ? tableSettings?.columnMinWidth: '',
+          'max-width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnMaxWidth ? tableSettings?.columnMaxWidth: '',
+          'width': tableSettings?.fistColumnWidth && j===0 ? tableSettings?.fistColumnWidth: tableSettings?.columnWidth ? tableSettings?.columnWidth: '',
+          'height':(computedTableData[element.parameterName] | isUndefined)? '20px': tableSettings?.rowHeight ? tableSettings?.rowHeight: '',
+          'font-size': tableSettings?.fontSize ? tableSettings?.fontSize: '',
+          'overflow': tableSettings?.cellOverflow ? tableSettings.cellOverflow : 'hidden',
+          'text-align': element[displayedColumn]?.alignment? element[displayedColumn].alignment : tableSettings?.tableHeader?.columns[displayedColumn]?.alignment ? tableSettings?.tableHeader?.columns[displayedColumn]?.alignment : tableSettings?.defaultCell?.alignment? tableSettings?.defaultCell.alignment: 'center'
+        }"
+        >
+        <div *ngIf="(computedTableData[element.parameterName] | isDefined)"
+          >
+          <div *ngIf="(computedTableData[element.parameterName][displayedColumn] | isObject)">
+            
+            <app-embedded-div [computedTableData]="computedTableData" [element]="element" [displayedColumn]="displayedColumn" ></app-embedded-div>
+          </div>
+          <div *ngIf="(computedTableData[element.parameterName][displayedColumn] | isArray)">
+            <!-- {{computedTableData[element.parameterName][displayedColumn] | json}} -->
+            <app-scrolling-data-div [computedTableData]="computedTableData" [element]="element" [displayedColumn]="displayedColumn" [interval]="element?.scrollable?.interval"></app-scrolling-data-div>
+            <owl-carousel-o style="height: 100%;" *ngIf="element[displayedColumn]?.scrolling"
+              [options]="element[displayedColumn]?.scrolling">
+              <ng-template carouselSlide *ngFor="let item of computedTableData[element.parameterName][displayedColumn]">
+                <div fxLayout="row" fxLayoutAlign="center center" rcRandomColor
+                  [bgColor]="element[displayedColumn]?.randomBackgroundColors"
+                  [textColor]="element[displayedColumn]?.randomTextColors"
+                  [ngStyle]="{'height': (tdElements.offsetHeight - 5)+ 'px', 'width': (tdElements.offsetWidth - 5)+ 'px'}">
+                  {{item}} {{tdElements.offsetHeight}}
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+            <div *ngIf="element[displayedColumn]?.separator">,
+              <span *ngFor="let item of computedTableData[element.parameterName][displayedColumn]; let al = index;">
+                {{item}}
+                {{ al < ((computedTableData[element.parameterName][displayedColumn]).length - 1) ? element[displayedColumn]?.separator : '' }}
+              </span>
+            </div>
+          </div>
+          <div *ngIf="(computedTableData[element.parameterName][displayedColumn] | isUndefined)" style="width: 100%;">
+            <span >
+              {{tableSettings.tableRows[element.parameterName] && tableSettings.tableRows[element.parameterName].displayName ? tableSettings.tableRows[element.parameterName].displayName : element.parameterName}}
+            </span>
+          </div>
+          <div *ngIf="(computedTableData[element.parameterName][displayedColumn] | isString) || (computedTableData[element.parameterName][displayedColumn] | isNumber)">
+            <span *ngIf="element[displayedColumn]?.prefix" fxLayout="row">
+              <span  *ngIf="element[displayedColumn]?.prefix?.icon">
+                <mat-icon>{{element[displayedColumn].prefix.icon}}</mat-icon>
+              </span>
+              <span *ngIf="element[displayedColumn]?.prefix?.content">
+                {{element[displayedColumn]?.prefix?.content}}
+              </span>
+            </span>
+            <div class="first-column"
+              [style]="tableSettings?.firstColumnStyles? tableSettings?.firstColumnStyles : ''" *ngIf="tableSettings?.isConfigurableDisplayName && displayedColumn === 'displayName'">
+              {{ element?.displayName }}
+            </div>
+            <span *ngIf="!(tableSettings?.isConfigurableDisplayName && displayedColumn === 'displayName')">
+              <span *ngIf="(element?.thresholds | isUndefined)">
+                <app-calculation-div *ngIf="element?.evaluate | isDefined" [computedTableData]="computedTableData" [element]="element" [displayedColumn]="displayedColumn" ></app-calculation-div>
+                <span *ngIf="element?.evaluate | isUndefined">
+                  <app-pipe-div [computedTableData]="computedTableData" [element]="element" [displayedColumn]="displayedColumn" ></app-pipe-div>
+                </span>
+                <span *ngIf="element?.postfix" >
+                  <span *ngIf="element?.postfix?.icon">
+                    <mat-icon>{{element.postfix.icon}}</mat-icon>
+                  </span>
+                  <span *ngIf="element?.postfix?.content">
+                    {{element?.postfix?.content}}
+                  </span>
+                </span>
+              </span>
+              <div *ngIf="element?.thresholds | isDefined">
+                <app-threshold-div [computedTableData]="computedTableData" [element]="element" [displayedColumn]="displayedColumn" ></app-threshold-div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div *ngIf="(computedTableData[element.parameterName] | isUndefined)">
+          <div *ngIf="computedTableData[displayedColumn]?.displayName">
+            {{computedTableData[displayedColumn].displayName}}
+          </div>
+          <div *ngIf="!computedTableData[displayedColumn]?.displayName">
+            <div class="first-column" *ngIf="(element.displayName | isDefined) && (element[displayedColumn] | isString)"
+            [style]="tableSettings?.firstColumnStyles? tableSettings?.firstColumnStyles : ''">
+              {{element[displayedColumn]}}
+            </div>
+            <div *ngIf="!((element.displayName | isDefined) && (element[displayedColumn] | isString))">
+              <span *ngIf="(element?.combine | isDefined) && (element?.combine?.parameters | isDefined) && (element?.combine?.separator | isDefined) && ((computedTableData[element.combine.parameters[0]] && computedTableData[element.combine.parameters[0]][displayedColumn] | isDefined) || (computedTableData[element.combine.parameters[0].name] && computedTableData[element.combine.parameters[0].name][displayedColumn] | isDefined))">
+                <span *ngFor="let parameter of element.combine.parameters; let i = index;">
+                  <span *ngIf="(parameter | isString)">
+                    {{(computedTableData[parameter] && computedTableData[parameter][displayedColumn])? computedTableData[parameter][displayedColumn]: parameter}} {{(i === (element.combine.parameters.length - 1)) ? '' : element.combine.separator }}
+                  </span>
+                  <span *ngIf="(parameter | isObject) && (parameter?.name && parameter?.pipe && parameter?.pipe?.name && parameter?.pipe?.arg) && (computedTableData[parameter.name] | isDefined)">
+                    {{(computedTableData[parameter.name] && computedTableData[parameter.name][displayedColumn])? (computedTableData[parameter.name][displayedColumn] | dynamicPipe : parameter.pipe.name: parameter.pipe.arg) : parameter.name}} {{(i === (element.combine.parameters.length - 1)) ? '' : element.combine.separator }}
+                  </span>
+                  <!-- <app-calculation-div *ngIf="parameter?.evaluate | isDefined" [computedTableData]="computedTableData" [element]="parameter" [displayedColumn]="displayedColumn" ></app-calculation-div>
+                  <span *ngIf="parameter?.evaluate | isUndefined">
+                    <app-pipe-div [computedTableData]="computedTableData" [element]="parameter" [displayedColumn]="displayedColumn" ></app-pipe-div>
+                  </span> -->
+                  <span *ngIf="(parameter?.pipe | isUndefined) && parameter?.evaluate && (parameter?.evaluate | isDefined)">
+                    <!-- {{computedTableData[parameter?.name][displayedColumn] | json}} -->
+                    <!-- {{computedTableData['targetAchieved'][displayedColumn] | json}} -->
+                    <!-- b{{(computedTableData[element.parameterName] | json)}} -->
+                    <span *ngIf="(computedTableData[parameter?.name][displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+                      {{ (computedTableData[parameter?.name][displayedColumn]) | evaluate }}
+                    </span>
+                    <span *ngIf="(computedTableData[parameter?.name][displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+                      {{ (computedTableData[parameter?.name][displayedColumn])  }}
+                    </span>
+                  </span>
+                  <span *ngIf="((parameter?.pipe | isDefined) || (parameter?.pipe | isUndefined))">
+                    <span *ngIf="(parameter?.pipe | isDefined) && parameter?.pipe?.name && parameter?.pipe?.arg">
+                      <span *ngIf="(computedTableData[parameter?.name][displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+                        {{ (computedTableData[parameter?.name][displayedColumn]) | evaluate | dynamicPipe : parameter.pipe.name: parameter.pipe.arg  }}
+                      </span>
+                      <span *ngIf="(computedTableData[parameter?.name][displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+                        {{ (computedTableData[parameter?.name][displayedColumn]) }}
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </span>
+              <span *ngIf="!((element?.combine | isDefined) && (element?.combine?.parameters | isDefined) && (element?.combine?.separator | isDefined) && ((computedTableData[element.combine.parameters[0]] && computedTableData[element.combine.parameters[0]][displayedColumn] | isDefined) || (computedTableData[element.combine.parameters[0].name] && computedTableData[element.combine.parameters[0].name][displayedColumn] | isDefined)))"
+                >
+                <span *ngIf="(element?.combine | isDefined)">
+                  {{tableSettings?.undefinedCellContent? tableSettings?.undefinedCellContent : '-'}}
+                </span>
+                <span *ngIf="(element?.combine | isUndefined)">
+                  {{tableSettings?.undefinedRowContent ? tableSettings?.undefinedRowContent: '-'}}
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsTitles | keys; sticky: tableSettings?.fixedHeader? tableSettings?.fixedHeader: false"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsTitles | keys;" [style]="row?.styles"
+      [hidden]="row?.active === true ? false: true"
+      [ngStyle]="{
+        'display': tableSettings?.showDefinedData && (computedTableData[row?.parameterName] | isUndefined) ? 'none' :row?.visible === false ? 'none':'',
+        'height': row?.height ? row.height : tableSettings?.undefinedRowHeight ? tableSettings?.undefinedRowHeight: tableSettings?.rowHeight ? tableSettings?.rowHeight : '20px' ,
+        'background': row?.backgroundColor? row?.backgroundColor : '',
+        'color': row?.fontColor? row.fontColor : '',
+        'border-color': row?.border?.color ? row?.border.color : '',
+        'border-style': row?.border?.style ? row?.border.style : '',
+        'border-width': row?.border?.size ? row?.border.size : ''
+        }">
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="!computedTableData">
+  not running any line
+</div>

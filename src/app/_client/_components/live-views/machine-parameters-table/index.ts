@@ -1,0 +1,1 @@
+export { MachineParametersTableComponent } from './machine-parameters-table.component';

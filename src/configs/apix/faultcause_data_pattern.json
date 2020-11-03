@@ -1,0 +1,122 @@
+{
+    "table": {
+        "parameters": {
+            "machine_name": {
+                "display_name": "Machine Name",
+                "description": "Machine Name",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true,
+                "type": "var"
+            },
+            "fault_name": {
+                "display_name": "Fault Name",
+                "description": "Fault Name",
+                "background_color": "#ccccb3",
+                "format": "%",
+                "active": true,
+                "type": "var"
+            },
+            "state": {
+                "display_name": "State",
+                "description": "State",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true,
+                "type": "var"
+            },           
+            
+            "user_comment": {
+                "display_name": "User Comment",
+                "description": "User Comment",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true,
+                "type": "multi"
+            },
+            "parts": {
+                "display_name": "Parts replaced ",
+                "description": "Parts",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true,
+                "type": "var"
+            },
+            "created_date": {
+                "display_name": "Created Date",
+                "description": "Created Date",
+                "background_color": "#ccccb3",
+                "format": "%",
+                "active": true,
+                "type": "date"
+            },
+            "selected_causes": {
+                "display_name": "Cause",
+                "description": "Causes",
+                "background_color": "#ccccb3",
+                "format": "",
+                "active": true,
+                "type": "var"
+            }
+        },
+        "subparameter": {
+            "user_name": {
+                "display_name": "User Name",
+                "description": "User Name",
+                "background_color": "#ffff99"
+            },
+            "comment": {
+                "display_name": "Comment",
+                "description": "Comment",
+                "background_color": "#ffff99"
+            },
+            "timestamp": {
+                "display_name": "Date",
+                "description": "Date",
+                "background_color": "#ffff99"
+            }
+        },
+        "color": {
+            "Even": "#ffffcc",
+            "Odd": "#b3ffb3"
+        },
+        "alternateTableColor":{
+            "Even":"#bfbfbf",
+            "Odd":"white"
+        },
+        "Machines": {
+            "filler": {
+                "display_name": "Filler",
+                "color": "#ff9f80"
+            },
+            "induction": {
+                "display_name": "Induction",
+                "color": "#4dff4d"
+            },
+            "labeller": {
+                "display_name": "Labeller",
+                "color": "#ffff1a"
+            },
+            "shrink": {
+                "display_name": "Shrink",
+                "color": "#ffaa80"
+            },
+            "case_erector": {
+                "display_name": "Case Erector",
+                "color": "#ff9f80"
+            },
+            "case_packer": {
+                "display_name": "Case Packer",
+                "color": "#c2c2a3"
+            },
+            "weigher": {
+                "display_name": "Weigher",
+                "color": "#ff80df"
+            },
+            "case_sealer": {
+                "display_name": "Case Sealer",
+                "color": "#4dd2ff"
+            }
+        }
+    }
+}

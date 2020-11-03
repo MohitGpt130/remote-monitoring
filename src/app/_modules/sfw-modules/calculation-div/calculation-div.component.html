@@ -1,0 +1,18 @@
+<span *ngIf="(element?.pipe | isUndefined) && element?.evaluate && (element?.evaluate?.formula | isDefined)">
+  <span *ngIf="(computedTableData[element.parameterName][displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+    {{ (computedTableData[element.parameterName][displayedColumn]) | evaluate }}
+  </span>
+  <span *ngIf="(computedTableData[element.parameterName][displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+    {{ (computedTableData[element.parameterName][displayedColumn])  }}
+  </span>
+</span>
+<span *ngIf="((element?.pipe | isDefined) || (element?.pipe | isUndefined) && (element[displayedColumn]?.pipe | isDefined))">
+  <span *ngIf="(element?.pipe | isDefined) && element?.pipe?.name && element?.pipe?.arg">
+    <span *ngIf="(computedTableData[element.parameterName][displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+      {{ (computedTableData[element.parameterName][displayedColumn]) | evaluate | dynamicPipe : element.pipe.name: element.pipe.arg  }}
+    </span>
+    <span *ngIf="(computedTableData[element.parameterName][displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+      {{ (computedTableData[element.parameterName][displayedColumn]) }}
+    </span>
+  </span>
+</span>

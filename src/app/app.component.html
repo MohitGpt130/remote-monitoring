@@ -1,0 +1,85 @@
+<app-loader></app-loader>
+<div *ngIf="isLoaded && settings">
+  <div *ngIf="configs.dashboardConfig?.connectionSettings  && configs.dashboardConfig?.connectionSettings?.visible" >
+    <div *ngIf="!isConnected"
+      style="position: fixed; background: rgba(0,0,0,0.5); height: 100%; width: 100%; z-index: 2;" fxLayout="row wrap"
+      fxLayoutAlign="center center">
+    <div
+      *ngIf="(configs.dashboardConfig?.connectionSettings?.notConnected | isDefined)"
+      fxLayout="column" style="font-size: 30px;"
+      [ngStyle]="{
+        'color': configs.dashboardConfig?.connectionSettings?.notConnected?.fontColor? configs.dashboardConfig?.connectionSettings?.notConnected?.fontColor : 'black',
+        'font-size': configs.dashboardConfig?.connectionSettings?.notConnected?.fontSize? configs.dashboardConfig?.connectionSettings?.notConnected?.fontSize : '18px'
+      }"
+      fxLayoutAlign="center center" style="width: 100%;">
+      <mat-icon style="font-size: 100px; height: auto; width: auto; color: black;"
+        [ngStyle]="{'color': configs.dashboardConfig?.connectionSettings?.notConnected?.fontColor ? configs.dashboardConfig?.connectionSettings?.notConnected?.fontColor : 'black', 'font-size': configs.dashboardConfig?.connectionSettings?.notConnected?.iconSize? configs.dashboardConfig?.connectionSettings?.notConnected?.iconSize : '18px'}">
+        {{configs.dashboardConfig?.connectionSettings?.defaultConnectionIcon ? configs.dashboardConfig?.connectionSettings?.defaultConnectionIcon : 'wifi_off'}}
+      </mat-icon>
+      <div style="text-align: center; width: 100%;" [matTooltip]="configs.dashboardConfig?.connectionSettings?.notConnected?.hoverText">{{configs.dashboardConfig?.connectionSettings?.notConnected?.title}}</div>
+    </div>
+  </div>
+  <div *ngIf="isConnected && connectionStatus!=='ok'"
+    style="position: fixed; background: rgba(0,0,0,0.5); height: 100%; width: 100%; z-index: 2;" fxLayout="row wrap"
+    fxLayoutAlign="center center">
+    <div
+      *ngIf="(configs.dashboardConfig?.connectionSettings?.connectionStatus && configs.dashboardConfig?.connectionSettings?.connectionStatus[connectionStatus] | isDefined)"
+      fxLayout="column" style="font-size: 30px;"
+      [ngStyle]="{'color': configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.textColor? configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.textColor: configs.dashboardConfig?.connectionSettings?.defaultConnectionColor? configs.dashboardConfig?.connectionSettings?.defaultConnectionColor : 'black', 'font-size': configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.fontSize? configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.fontSize: configs.dashboardConfig?.connectionSettings?.defaultConnectionFontSize? configs.dashboardConfig?.connectionSettings?.defaultConnectionFontSize : '18px' }"
+      fxLayoutAlign="center center" style="width: 100%;">
+      <mat-icon style="height: auto; width: auto; color: black;"
+        [ngStyle]="{'color': configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.iconColor? configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.iconColor: configs.dashboardConfig?.connectionSettings?.defaultConnectionColor? configs.dashboardConfig?.connectionSettings?.defaultConnectionColor : 'black', 'font-size': configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.fontSize? configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.iconSize: configs.dashboardConfig?.connectionSettings?.defaultConnectionIconSize? configs.dashboardConfig?.connectionSettings?.defaultConnectionIconSize : '18px' }">
+        {{configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.icon}}</mat-icon>
+      <div style="text-align: center; width: 100%;"
+        [matTooltip]="configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.hover">
+        {{configs.dashboardConfig?.connectionSettings.connectionStatus[connectionStatus]?.title}}</div>
+    </div>
+    <div
+      *ngIf="(configs.dashboardConfig?.connectionSettings.connectionStatus | isUndefined) || (configs.dashboardConfig?.connectionSettings?.connectionStatus[connectionStatus] | isUndefined)"
+      fxLayout="column" style="font-size: 30px;"
+      [ngStyle]="{'color': configs.dashboardConfig?.connectionSettings?.defaultConnectionColor? configs.dashboardConfig?.connectionSettings?.defaultConnectionColor : 'black', 'font-size': configs.dashboardConfig?.connectionSettings?.defaultConnectionFontSize? configs.dashboardConfig?.connectionSettings?.defaultConnectionFontSize : '18px'}"
+      fxLayoutAlign="center center" style="width: 100%;">
+      <mat-icon style="font-size: 100px; height: auto; width: auto; color: black;"
+        [ngStyle]="{'color': configs.dashboardConfig?.connectionSettings?.defaultConnectionColor? configs.dashboardConfig?.connectionSettings?.defaultConnectionColor : 'black', 'font-size': configs.dashboardConfig?.connectionSettings?.defaultConnectionIconSize? configs.dashboardConfig?.connectionSettings?.defaultConnectionIconSize : '18px'}">
+        {{configs.dashboardConfig?.connectionSettings?.defaultConnectionIcon ? configs.dashboardConfig?.connectionSettings?.defaultConnectionIcon : 'wifi_off'}}
+      </mat-icon>
+      <div style="text-align: center; width: 100%;" [matTooltip]="connectionStatus">
+        {{configs.dashboardConfig?.connectionSettings?.defaultConnectionErrorText}}</div>
+    </div>
+  </div>
+  </div>
+  <div id="app" class="app" [dir]="(settings.rtl) ? 'rtl' : 'ltr'" [ngClass]="settings.theme" [class.fixed-header]="settings.fixedHeader" [class.horizontal-menu]="settings.menu == 'horizontal'" [class.compact]="settings.menuType == 'compact'" [class.mini]="settings.menuType == 'mini'">
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="updateDaysDiff > configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.tillDays">
+    <mat-toolbar *ngIf="configs?.dashboardConfig?.footer && configs?.dashboardConfig?.footer?.visible" color="primary" style="position:fixed; bottom: 0; height: auto; z-index: 1000; font-size: 13px;" [ngStyle]="{'font-size': configs?.dashboardConfig?.footer?.fontSize, 'min-height': configs?.dashboardConfig?.footer?.height, 'background-color': configs?.dashboardConfig?.footer?.backgroundColor, 'color': configs?.dashboardConfig?.footer?.textColor}"
+        [style]="configs?.dashboardConfig?.footer?.styles">
+        <div class="footer" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between center" style="width: 100%;">
+            <div class="footer-text">{{env.title}}</div>
+            <div class="footer-text" fxLayout="row wrap" fxLayoutAlign="center center">
+                <span>V{{appVersion}}</span> <span> [ {{buildDate | date: 'dd-MMM-yyyy hh:mm a' }} ]</span>
+                <span>[ {{buildDate | timeAgo}} ] </span>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>
+<div *ngIf="updateDaysDiff <= configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.tillDays">
+    <mat-toolbar *ngIf="configs?.dashboardConfig?.footer && configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.visible" color="primary" style="position:fixed; bottom: 0; height: auto; z-index: 1000; font-size: 13px;" [ngStyle]="{'font-size': configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.fontSize, 'min-height': configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.height, 'background-color': configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.backgroundColor, 'color': configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.textColor}"
+        [style]="configs?.dashboardConfig?.footer?.newUpdateOrUpgrade?.styles">
+        <div class="footer" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between center" style="width: 100%;">
+            <div class="footer-text">{{env.title}}</div>
+            <div class="footer-text" fxLayout="row wrap" fxLayoutAlign="center center">
+                <span>V{{appVersion}}</span> <span> [ {{buildDate | date: 'dd-MMM-yyyy hh:mm a' }} ]</span>
+                <span>[ {{buildDate | timeAgo}} ] </span>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>
+  <ngx-spinner bdColor="rgba(0, 0, 0, 1)" size="large" color="#fff" type="ball-elastic-dots" [fullScreen]="true">
+    <p style="color: white" template="<img src='assets/packaging.gif' />"> Loading... </p>
+  </ngx-spinner>
+</div>
+
+<!-- <ng-marquee>
+  <mark>Hello, World.... Find Me @ <a href="https://www.linkedin.com/in/shivarajnaidu/" target="__blank"> https://www.linkedin.com/in/shivarajnaidu/ (Yuvaraj)</a></mark>
+</ng-marquee> -->

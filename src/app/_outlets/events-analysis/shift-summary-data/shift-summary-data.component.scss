@@ -1,0 +1,25 @@
+:host{
+  width: 100%;
+}
+
+
+.grid-title {
+  text-align: center; width: 100%;
+}
+
+.tile {
+  height: 100%;
+  width: 100%;
+  text-align: center; width: 100%;
+  background: yellow;
+  .title {
+    font-size: 10px;
+    text-align: center; width: 100%;
+    background: red;
+  }
+  .data {
+    font-size: 40px;
+    text-align: center; width: 100%;
+    background: blue;
+  }
+}

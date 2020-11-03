@@ -1,0 +1,58 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  </style>
+</head>
+
+<body style="height: 100%; padding: 0%;">
+  <div style="margin: 1%;">
+    <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap.gt-xs="2%" fxLayoutAlign="center"
+      ngClass.xs="mobileContainer" fxFlex="100%" style="width: 100%;">
+      <div fxLayout="row" style="width: 50%;" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%"
+        fxLayoutAlign="center center" fxFlex="100%">
+        <form novalidate [formGroup]="shift_report" fxLayout.xs="column" fxFlex="100%" fxLayoutAlign="start center">
+
+          <!-- <mat-form-field appearance="outline" fxFlex="35%">
+                            <input matInput formControlName="batch" placeholder="Batch Number">
+                        </mat-form-field> -->
+
+          <mat-form-field class="form-field" fxFlex=60 #batch>
+            <mat-label>Enter Batch </mat-label>
+            <mat-select formControlName="batch">
+              <mat-select-filter [array]="Batches" [displayMember]="'fullbatch_name'"
+                (filteredReturn)="filteredBatches=$event"></mat-select-filter>
+              <mat-option *ngFor="let batch of filteredBatches" [value]="batch.batch_name">
+                {{batch.fullbatch_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" (click)="FilterReportData()" fxFlex="22%">Search</button>
+        </form>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="end center" fxFlex="50%">
+        <button mat-stroked-button color="warn" matTooltip="Email report." fxFlex="25%" (click)="emailpopup()">Email
+          report
+          <mat-icon>email</mat-icon>
+        </button>
+
+        <button mat-stroked-button color="warn" matTooltip="Export this report to PDF" fxFlex="25%"
+          style="align-content: center;" (click)="captureScreen()">Export to PDF
+          <mat-icon>archive</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- <div *ngIf="!footStructure" fxLayoutAlign="center center" style="width: 100%; height:100%; ">
+            <mat-spinner diameter="30"></mat-spinner>
+        </div> -->
+  <div id="contentToConvert">
+    <div [innerHTML]="headerStructure"></div>
+    <div [innerHTML]="tablestructure"></div>
+    <div [innerHTML]="footStructure"></div>
+    <div [innerHTML]="shiftEndcomment"></div>
+  </div>
+
+</body>

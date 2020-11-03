@@ -1,0 +1,121 @@
+{
+    "server": "https://dashboard.testing.smartfactoryworx.net",
+    "line_id": "5f0809fdc2b1ce30cc53eb8d",
+    "apiUserRegistration": "http://192.168.2.3:3000",
+    "connection":{
+      "ok":"Connection Ok",
+      "plc_error":"PLC Error",
+      "ipc_error":"IPC Error",
+      "con_error":"Connection Error"
+    },
+    "apis": {
+        "alarms": {
+            "name": "/api/alarm?line_id=5f0809fdc2b1ce30cc53eb8d",
+            "interval": 30
+        },
+        "shift": {
+            "name": "/api/shift/shift/all?line_id=5f0809fdc2b1ce30cc53eb8d",
+            "interval": 30
+        },
+        "sku": {
+            "name": "/api/sku?line_id=5f0809fdc2b1ce30cc53eb8d",
+            "interval": 30
+        },
+        "events": {
+            "name": "/api/stops/new",
+            "interval": 30
+        },
+        "connection": {
+            "name": "/api/connection",
+            "interval": 30
+        },
+        "bmp": {
+            "name": "/api/history/bpm",
+            "serverAPI": "http://103.205.66.73:1200/api/history/bpm",
+            "interval": 600
+        },
+        "manual": {
+            "name": "/api/manual/schedulemaintanance",
+            "serverAPI": "https://dashboard.testing.smartfactoryworx.net/api/manual/schedulemaintanance",
+            "interval": 0
+        }
+    },
+    "slidesUrl": {
+        "overview": "/overview",
+        "line": "https://avod968rus.smartfactoryworx.tech/lineview",
+        "output":"https://int91mat.smartfactoryworx.tech/intas-report/#/output",
+        "changeover":"https://int91mat.smartfactoryworx.tech/intas-report/#/changeover",
+        "fault":"https://int91mat.smartfactoryworx.tech/intas-report/#/fault",
+        "trend": "/trend"
+    },
+    "product": "Intas products|XYZ",
+    "display_logs": false,
+    "faultsCauses": {
+        "filler": [],
+        "induction": [],
+        "labeller": [],
+        "shrink": [],
+        "case_packer": [],
+        "case_erector": [],
+        "weigher": [],
+        "case_sealer": [],
+        "palletiser": [],
+        "vertilator": []
+    },
+    "machines": {
+        "cam_blister": {
+            "display_name": "NMX Blister Machine, GS area, Line 12",
+            "bc": "B"
+        }
+    },
+    "shift_timings": {
+        "Shift A": {
+            "from": "07:00:00",
+            "to": "15:00:00",
+            "display1": "Shift A",
+            "display2": "Morning Shift"
+        },
+        "Shift B": {
+            "from": "15:00:00",
+            "to": "23:00:00",
+            "display1": "Shift B",
+            "display2": "Evening Shift"
+        },
+        "Shift C": {
+            "from": "23:00:00",
+            "to": "07:00:00",
+            "display1": "Shift C",
+            "display2": "Evening Shift"
+        }
+    },
+    "machinestates": {
+        "ready": {
+            "display_name": "Ready"
+        },
+        "manual_stop": {
+            "display_name": "Manual Stop"
+        },
+        "waiting": {
+            "display_name": "Waiting"
+        },
+        "block": {
+            "display_name": "Block"
+        },
+        "pdt": {
+            "display_name": "PDT"
+        },
+
+        "changeover": {
+            "display_name": "Changeover"
+        }
+    },
+    "icons": {
+        "home": {},
+        "person": {},
+        "card_travel": {},
+        "delete": {},
+        "event": {},
+        "favorite": {},
+        "help": {}
+    }
+}

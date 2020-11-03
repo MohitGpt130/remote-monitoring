@@ -1,0 +1,6 @@
+<span *ngIf="(element?.pipe | isUndefined)">
+  {{ (computedTableData[element.parameterName][displayedColumn]) }}
+</span>
+<span *ngIf="(element?.pipe | isDefined) && element?.pipe?.name && element?.pipe?.arg">
+  {{ (computedTableData[element.parameterName][displayedColumn]) | dynamicPipe : element.pipe.name: element.pipe.arg }}
+</span>

@@ -1,0 +1,58 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table class="table-responsive" [dataSource]="data" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="displayedColumn" *ngFor="let displayedColumn of (config?.header?.columns | keys)" >
+      <th mat-header-cell *matHeaderCellDef style="min-height: 50px; height: 50px;"> {{config?.header?.columns[displayedColumn]?.displayName ? config?.header?.columns[displayedColumn]?.displayName : displayedColumn}} </th>
+      <td mat-cell *matCellDef="let element" >
+        <div *ngIf="config?.header?.columns[displayedColumn]?.control | isDefined" >
+          <mat-form-field appearance="fill">
+            <mat-label>Select Fault Cause</mat-label>
+            <mat-select (selectionChange)="updateFaultCause($event, element)">
+              <mat-option *ngFor="let faultCause of faultCauses | filterBy: ['machine_state']: element?.stop_name" [value]="faultCause._id">
+                {{faultCause.cause_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <span *ngIf="element?.evaluate | isDefined">
+          <span *ngIf="((element?.pipe | isUndefined)) && element?.evaluate && (element?.evaluate?.formula | isDefined)">
+            <span *ngIf="(element[displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+              {{ element[displayedColumn] | evaluate }}
+            </span>
+            <span *ngIf="(element[displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+              {{ element[displayedColumn]  }}
+            </span>
+          </span>
+          <span *ngIf="((element?.pipe | isDefined) || (element?.pipe | isUndefined) && (element[displayedColumn]?.pipe | isDefined))">
+            <span *ngIf="(element?.pipe | isDefined) && element?.pipe?.name && element?.pipe?.arg">
+              <span *ngIf="(element[displayedColumn] | match : '[a-z]' : 'gi' | isNull )">
+                {{ element[displayedColumn] | evaluate | dynamicPipe : element.pipe.name: element.pipe.arg  }}
+              </span>
+              <span *ngIf="(element[displayedColumn] | match : '[a-z]' : 'gi' | isArray )">
+                {{ element[displayedColumn] }}
+              </span>
+            </span>
+          </span>
+        </span>
+        <div *ngIf="config?.header?.columns[displayedColumn]?.pipe | isDefined" >
+          {{ element[displayedColumn] | dynamicPipe : config?.header?.columns[displayedColumn]?.pipe.name: config?.header?.columns[displayedColumn]?.pipe.arg }}
+        </div>
+        <div *ngIf="(config?.header?.columns[displayedColumn]?.pipe | isUndefined) && (config?.header?.columns[displayedColumn]?.evaluate | isUndefined)">
+          {{element[displayedColumn]}}
+        </div>
+
+        <!-- <div *ngIf="element[displayedColumn]" >
+
+        </div> -->
+        <!-- <div *ngIf="displayedColumn !== 'duration'" >
+          {{element[displayedColumn]}}
+        </div>
+        <div *ngIf="displayedColumn === 'duration'" >
+          {{element[displayedColumn]}}
+        </div> -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="(config?.header?.columns | keys); sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: (config?.header?.columns | keys);" style="min-height: 20px; height: 20px;"></tr>
+  </table>
+</div>

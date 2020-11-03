@@ -1,0 +1,118 @@
+{
+  "title": {
+    "style": "",
+    "text": "Shift Details",
+    "alignment": ""
+  },
+  "rowHeight": "3:1",
+  "columns": 4,
+  "defaultCell": {
+    "backgroundColor": "gray",
+    "fontColor": "yellow",
+    "colspan": 1,
+    "rowspan": 1
+  },
+  "tiles":{
+    "a": {
+      "title": {
+        "value": "Blister Good Count"
+      },
+      "data": {
+        "value": "goodCount"
+             },
+      "backgroundColor": "green"
+    },
+    "b": {
+      "title": {
+        "value": "Blister Reject Count"
+      },
+      "data": {
+        "value": "reject_count"
+      }
+    },
+    
+    "d": {
+      "title": {
+        "value": "Performance"
+      },
+      "data": {
+        "value": "performance"
+      }
+    },
+    "e": {
+      "title": {
+        "value": "OEE"
+      },
+      "data": {
+        "value": "oee"
+      }
+      },
+    "f": {
+      "title": {
+        "value": "Availability"
+      },
+      "data": {
+        "value": "aviability"
+      }
+    },
+    "g": {
+      "title": {
+        "value": "Quality"
+      },
+      "data": {
+        "value": "quality"
+      }
+    },
+    "h": {
+      "title": {
+        "value": "Average Speed"
+      },
+      "data": {
+        "value": "avg_speed"
+      }
+    },
+    "i": {
+      "title": {
+        "value": "Total Theoretical Time"
+      },
+      "data": {
+        "value": "shift_totalTheoreticalTime"
+      }
+    },
+    "j": {
+      "title": {
+        "value": "Total Planned Prod. time"
+      },
+      "data": {
+        "value": "shift_totalPlanProdTime"
+      }
+    },
+    "k": {
+      "title": {
+        "value": "Gross Operating Time"
+      },
+      "data": {
+        "value": "shift_grossOperatingTime"
+      }
+    },
+    "l": {
+      "title": {
+        "value": "Net Operating Time"
+      },
+      "data": {
+        "value": "shift_netOperatingTime"
+      }
+    },
+    "m": {
+      "title": {
+        "value": "Productive Time"
+      },
+      "data": {
+        "value": "shift_productiveTime"
+      }
+      
+      }
+    }
+  }
+
+

@@ -1,0 +1,21 @@
+<div>
+    <form style="height: 100%; width:100%;" novalidate [formGroup]="shift_email_dailog">
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <input matInput placeholder="Enter Email address." required formControlName="emailaddress">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button mat-raised-button style="align-content: center;font-weight: bold;" [mat-dialog-close]="" (click)="sendemail()">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <!-- <pre>{{shift_email_dailog.value|json}}</pre> -->
+    </form>
+</div>

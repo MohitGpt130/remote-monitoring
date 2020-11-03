@@ -1,0 +1,55 @@
+.cal-month-view .cal-day-number {
+  float: left;
+  margin-right: 0;
+  margin-left: 15px;
+}
+.app[dir="rtl"] .cal-month-view .cal-day-badge {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.app[dir="rtl"] .mat-dialog-title,
+.app[dir="rtl"] input.mat-input-element {
+  text-align: right;
+}
+.app[dir="rtl"] .ps__rail-y {
+  right: auto !important;
+  left: 0 !important;
+}
+.app[dir="rtl"] .ps__thumb-y {
+  right: auto !important;
+  left: 1px !important;
+}
+.cal-month-view .cal-header {
+  text-align: center;
+  font-weight: bolder;
+}
+.cal-month-view .cal-header .cal-cell {
+  padding: 5px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
+.cal-month-view .cal-days {
+  border: 1px solid;
+  border-bottom: 0;
+}
+.cal-month-view .cal-cell-top {
+  min-height: 78px;
+  flex: 1;
+}
+.cal-month-view .cal-cell-row {
+  -js-display: flex;
+  display: flex;
+}
+.cal-month-view .cal-cell {
+  float: left;
+  flex: 1;
+  -js-display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.cal-month-view .cal-day-cell {
+  min-height: 100px;
+}

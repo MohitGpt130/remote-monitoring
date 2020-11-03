@@ -1,0 +1,37 @@
+<mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate" (viewDateChange)="fetchEvents()"
+  (viewChange)="fetchEvents()" (vc)="openScheduleDialog(null)">
+</mwl-demo-utils-calendar-header>
+
+<ng-template #loading>
+  <div class="text-center">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div *ngIf="lineid===null ||lineid===''">
+    Please select Line.. To show events.
+  </div>
+</ng-template>
+
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+  <div class="cal-cell-top">
+    <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
+    <small
+      style="align-content: right"><b><span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span></b></small>
+  </div>
+  <small  *ngFor="let item of day.events;let i=index;" [ngStyle]="{'background-color':item.color.primary}"
+    style="color: white;padding: 1px;border:green;" (click)="fun(item)">{{ item.title }} </small>
+</ng-template>
+
+<div *ngIf="events$ | async; else loading; let events">
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+      [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event.event)" [cellTemplate]="customCellTemplate">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-day-view>
+  </div>
+</div>

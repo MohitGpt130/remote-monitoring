@@ -1,0 +1,71 @@
+$cardheight:50%;
+$cardmargin:10px;
+$cardwidth:90%;
+$boxshadow:10px 10px 15px grey;
+$textcolor:black;
+$border:1px solid red;
+$height:30%;
+$height1:100%;
+
+.main{
+  border:$border;
+  height:$height;
+  padding: 1%;
+}
+
+.inner {
+  height:$height1;
+  margin: auto;
+  display: inline-block;
+}
+
+.card {
+  min-height:$cardheight;
+  min-width: $cardwidth;
+  box-shadow: $boxshadow;
+  transition: box-shadow 0s;
+  margin: $cardmargin;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.title {
+  color:$textcolor;
+  line-height:20pt;
+  font-size: large;
+}
+
+.value {
+  font-family:"Digital-7";
+  font-size: 5vw;
+  color:$textcolor;
+  line-height:60pt;
+  margin: auto;
+  padding: auto;
+}
+
+.OEE1, .OEE2, .qualityRate, .totalBreakDown {
+  font-size: calc(1.3vw + 5vh + 2vmin);
+  margin-top: 15%;
+  height: 70%;
+  text-align: center;
+}
+
+.mat-card>:first-child {
+  margin-top: 5%;
+}
+
+.title::first-letter {
+  text-transform: uppercase;
+}
+
+.bestOEE1 {
+  font-size: 0.93vw;
+  margin-top: 15%;
+  font-weight: bolder;
+}

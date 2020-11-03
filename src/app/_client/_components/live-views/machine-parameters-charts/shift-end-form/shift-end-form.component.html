@@ -1,0 +1,66 @@
+<div>
+    <form class="example-form" style="height: 100%; width:100%;" novalidate [formGroup]="shift_end_form">
+        <!-- <div style="padding: 1%;  color:#000080;text-align: center;font-size: large;font-weight: bold;">
+            Shift End Form
+        </div> -->
+        <div>
+            <h4 style="text-align: center;color: blue;">SHIFT END FORM</h4>
+            <p style="font-size: smaller;color: red;text-align: center;margin-bottom:0rem"> Note : Shift End Details can be
+                updated ONLY WITHIN 1 Hr. after end of Shift</p>
+        </div>
+        <div fxLayout="column" style="width: 100%; padding: 10px;">
+            <div fxLayout="row" style="width: 100%; " fxLayoutAlign="space-around start" fxFlex="100">
+                <mat-form-field class="form-field" appearance="outline" fxFlex="45">
+                    <input matInput placeholder="Shift Name" formControlName="shift_name" readonly>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline" fxFlex="45">
+                    <input matInput [matDatepicker]="picker" formControlName="comment_date" placeholder="Shift Date" disabled="true"
+                        readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%; " fxLayoutAlign="space-around start">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name of User" formControlName="user_name" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Comment</mat-label>
+                    <textarea matInput placeholder="" formControlName="comment" cdkTextareaAutosize
+                        cdkAutosizeMinRows="4" cdkAutosizeMaxRows="9" required></textarea>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="shift_end_form.invalid"
+                    (click)="postShiftEndData()"> Submit </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+
+        </div>
+        <!-- <pre>{{shift_end_form.value|json}}</pre> -->
+        <div *ngIf="!ShiftEndComments" fxLayoutAlign="center center" style="width: 100%; height:100%; ">
+            <mat-spinner diameter="30"></mat-spinner>
+        </div>
+        <div fxLayout="column" *ngFor="let sec of ShiftEndComments">
+            <div *ngIf="sec.user_name!==''">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="row" fxLayoutAlign="space-evenly start" fxFlex="50">
+                        <mat-icon mat-list-icon>account_circle</mat-icon>
+                        <p mat-line style="color: #000080;">{{sec.user_name}}</p>
+                        <p style="color: #4d4d00;font-size: medium;">{{sec.comment_date}}({{sec.shift_name}})</p>
+                    </div>
+                    <div fxFlex="50" fxLayoutAlign="end start">
+                        {{getAge(sec.created_date,null).ago}}
+                    </div>
+                </div>
+                <div style="color: black;">
+                    {{sec.comment}}
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </form>
+</div>

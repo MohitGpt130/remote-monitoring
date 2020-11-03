@@ -1,0 +1,16 @@
+<div *ngIf="isLoaded" fxLayout="column" fxLayoutAlign="space-around stretch">
+    <table mat-table [dataSource]="faultList" class="mat-elevation-z8">
+        <div *ngFor="let item of displayedColumns">
+            <ng-container [matColumnDef]="item">
+                <!-- <th mat-header-cell *matHeaderCellDef [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none': '' }">{{camelCase(item)}}</th> -->
+                <!-- <td mat-cell *matCellDef="let element" [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none': ''}"> {{element[item]}} </td> -->
+                <th mat-header-cell *matHeaderCellDef [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none' : '' }"> {{ addSpace(item) }} </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none' : '' , 'background' : screenConfigs?.statusColors[element?.status]?.background, 'color': screenConfigs?.statusColors[element?.status]?.color}"> {{item === 'status' ? screenConfigs?.statusColors[element?.status]?.text : element[item]}} </td>
+                <!-- <th mat-header-cell *matHeaderCellDef [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none': '' }">{{addSpace(item)}}</th> -->
+                <!-- <td mat-cell *matCellDef="let element" [ngStyle]="{'display': notDisplayColumns.includes(item) ? 'none': ''}"> {{element[item]}} {{statusColors[element?.status.status]?.background}} </td> -->
+            </ng-container>
+        </div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="height: 30px;"></tr>
+    </table>
+</div>

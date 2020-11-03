@@ -1,0 +1,18 @@
+<button mat-icon-button [matMenuTriggerFor]="timeZoneMenu" #timeZoneMenuTrigger="matMenuTrigger">
+  <mat-icon>flag</mat-icon>
+</button>
+<!--<button mat-icon-button [matMenuTriggerFor]="flagsMenu" #flagsMenuTrigger="matMenuTrigger">
+  <img src="assets/images/flags/gb.svg" width="20" alt="english">
+</button>-->
+<mat-menu #timeZoneMenu="matMenu" [overlapTrigger]="false" class="toolbar-dropdown-menu time-zones">
+  <span (mouseleave)="timeZoneMenuTrigger.closeMenu()">
+      <button mat-menu-item>
+          <img src="assets/images/flags/gb.svg" width="20" alt="english">
+          English
+      </button>
+      <button mat-menu-item>
+          <img src="assets/images/flags/de.svg" width="20" alt="german">
+          German
+      </button>
+  </span>
+</mat-menu>

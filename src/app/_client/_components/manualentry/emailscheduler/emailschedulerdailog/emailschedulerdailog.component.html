@@ -1,0 +1,59 @@
+<div fxLayout="column" class="form" style="width: 100%;">
+    <h3 style="color: blue;text-align: center;">{{title}}</h3>
+    <form [formGroup]="ScheduleEmailForm">
+        <div fxLayout="column" style="width:100%;">
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+
+                <mat-form-field class="form-mngv999field" fxFlex="90">
+                    <mat-label>Select Template</mat-label>
+                    <mat-select formControlName="TemplateCode">
+                        <mat-option *ngFor="let i of templates" [value]="i[1]">{{i[1]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" class="invisible" fxFlex="1">
+                    <input matInput autocomplete="off" formControlName="_id">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <mat-label>Select Shift</mat-label>
+                    <mat-select formControlName="ShiftName">
+                        <mat-option *ngFor="let i of shifts" [value]="i[1]">{{i[2]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <label fxFlex="40">Start Date</label>
+                <input fxFlex="50" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" 
+                placeholder="Date Time"
+                    formControlName="StartTime">
+                <owl-date-time #dt1 ></owl-date-time>
+
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start" fxFlex="90">
+                <mat-form-field class="form-field" fxFlex="100">
+                    <mat-label>Select Frequency</mat-label>
+                    <mat-select formControlName="Frequency">
+                        <mat-option [value]="1">8 Hours</mat-option>
+                        <mat-option [value]="2">At End Of Day</mat-option>
+                        <mat-option [value]="3">Weekly</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" [disabled]="ScheduleEmailForm.invalid"
+                    [mat-dialog-close]="ScheduleEmailForm.value" (click)="SubmitChanges()"> {{button}} </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <pre>{{ScheduleEmailForm.value|json}}</pre>
+</div>

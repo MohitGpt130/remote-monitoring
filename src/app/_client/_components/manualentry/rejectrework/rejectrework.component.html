@@ -1,0 +1,89 @@
+<div>
+    <div>
+        <h4 style="text-align: center;color: blue;">Add Reject Rework</h4>
+        <p style="font-size: smaller;color: red;text-align: center;margin-bottom:0rem"> Note : Reject Rework can be
+            updated ONLY WITHIN 1 Hr. after end of Shift</p>
+    </div>
+    <div>
+        <form [formGroup]="rejectreworkform">
+            <div fxLayout="column" style="width:100%;">
+                <div fxLayout="row" style="width: 90%;" fxLayoutAlign="space-around start" fxFlex="90">
+                    <mat-form-field appearance="outline" fxFlex="40">
+                        <input matInput [matDatepicker]="basicDatepicker" formControlName="date"
+                            placeholder="Shift Date" disabled="true" readonly>
+                        <mat-datepicker-toggle matSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #basicDatepicker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="form-field" appearance="outline" fxFlex="40">
+                        <!-- <mat-label>Select Shift</mat-label>
+                        <mat-select formControlName="shift_name" (selectionChange)="BuildFormFields('',$event.value)"
+                            disabled="true">
+                            <mat-option *ngFor="let m of Shifts;let i=index" [value]="m[2]">
+                                 
+                                {{m[2]}}
+                            </mat-option>
+                        </mat-select> -->
+                        <input matInput formControlName="shift_name" placeholder="Shift Name" readonly>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <div fxLayout="column" style="width:100%;">
+                    <div fxLayout="row" style="width: 100%;font-size: small;" fxLayoutAlign="space-around start"
+                        fxFlex="100">
+                        <mat-label fxFlex="1"></mat-label>
+                        <mat-label fxFlex="42" style="text-align: center;">Machine Name</mat-label>
+                        <mat-label fxFlex="14">Original Reject</mat-label>
+                        <mat-label fxFlex="14">Original Rework</mat-label>
+                        <mat-label fxFlex="14">Manual Reject</mat-label>
+                        <mat-label fxFlex="14">Manual Rework</mat-label>
+                    </div>
+                </div>
+
+                <div fxLayout="column" *ngFor="let data of t.controls; let i = index" style="width:100%;">
+                    <div fxLayout="row" style="width: 100%;font-size: small;" fxLayoutAlign="space-around start"
+                        [formGroup]="data" fxFlex="100">
+
+                        <mat-form-field appearance="outline" fxFlex="1" class="invisible">
+                            <input matInput formControlName="machine_name" placeholder="Machine Name" readonly
+                                style="border:0">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="42" disabled>
+                            <input matInput formControlName="display_name" placeholder="Machine Name" style="border:0">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" fxFlex="14">
+                            <input matInput formControlName="reject" placeholder="Reject" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="14">
+                            <input matInput formControlName="rework" placeholder="Rework" readonly>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="14">
+                            <input matInput formControlName="manual_reject" placeholder="Enter Reject" type="number"
+                                min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="14">
+                            <input matInput formControlName="manual_rework" placeholder="Enter Rework" type="number"
+                                min="0" onkeyup="if(this.value<0){this.value= this.value * -1}">
+                        </mat-form-field>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <!-- <div fxLayout="column" style="width:100%;">
+                <div fxLayout="row" style="width: 90%;" fxLayoutAlign="space-around start" fxFlex="90">
+                    <button [disabled]="rejectreworkform.invalid" mat-raised-button color="primary" fxFlex="15"
+                        (click)="PostRejectReworkForm()">
+                        Submit
+                    </button>
+                </div>
+            </div> -->
+
+            <div fxLayout="row" style="width: 100%;padding: 1%;" fxLayoutAlign="space-around start">
+                <button mat-raised-button color="primary" (click)="PostRejectReworkForm()"> Submit </button>
+                <button mat-raised-button color="warn" (click)="close()">Cancel</button>
+            </div>
+        </form>
+        <!-- <pre>{{rejectreworkform.value|json}}</pre> -->
+    </div>
+</div>

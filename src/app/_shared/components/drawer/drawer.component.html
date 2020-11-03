@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" [fxLayoutAlign]="(menuType != 'mini') ? 'space-between center' : 'center center'" class="sidenav-header">
+  <a mat-raised-button color="accent" routerLink="/" (click)="closeSubMenus()" class="small-logo">SFW</a>
+  <a *ngIf="menuType == 'default'" class="logo" routerLink="/" (click)="closeSubMenus()">SmartFactoryWorx</a>
+  <svg *ngIf="menuType != 'mini'" class="pin" (click)="sidenavIsPinned = !sidenavIsPinned">
+    <path *ngIf="!sidenavIsPinned" d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" />
+    <path *ngIf="sidenavIsPinned" d="M2,5.27L3.28,4L20,20.72L18.73,22L12.8,16.07V22H11.2V16H6V14L8,12V11.27L2,5.27M16,12L18,14V16H17.82L8,6.18V4H7V2H17V4H16V12Z" />
+  </svg>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayoutAlign="center center" class="user-block transition-2"
+  [class.show]="sidenavUserBlock">
+  <app-user-info [menuType]="menuType" [user]="user" ></app-user-info>
+</div>
+
+<perfect-scrollbar *ngIf="menuItems | isDefined" class="sidenav-menu-outer" [class.user-block-show]="sidenavUserBlock">
+  <div id="vertical-menu">
+    <app-menu-list [menuItems]="menuItems" [menuParentId]="0"></app-menu-list>
+  </div>
+</perfect-scrollbar>

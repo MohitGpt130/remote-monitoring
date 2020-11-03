@@ -1,0 +1,10 @@
+{
+  "connection": "https://intasua.smartfactoryworx.tech/api/v1/socket/connection",
+  "auth": "https://intasua.smartfactoryworx.tech/api/v1/socket/auth",
+  "admin": {
+      "users": "https://intasua.smartfactoryworx.tech/api/v1/socket/admin/users",
+      "roles": "https://intasua.smartfactoryworx.tech/api/v1/socket/admin/roles",
+      "menus": "https://intasua.smartfactoryworx.tech/api/v1/socket/admin/menus",
+      "privileges": "https://intasua.smartfactoryworx.tech/api/v1/socket/admin/privileges"
+  }
+}

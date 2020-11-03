@@ -1,0 +1,37 @@
+{
+  "title": {
+    "styles": ""
+  },
+  "header": {
+    "columns": {
+      "code": {
+        "displayName": "Code",
+        "width": "300px",
+        "styles": "font-weight: bold; font-size: 13px;"
+      },
+      "_id": {
+        "displayName": "ID",
+        "styles": "font-weight: bold; font-size: 13px;"
+        
+      },
+      "Text": {
+        "displayName": "To",
+        "styles": "font-weight: bold; font-size: 13px;"
+        
+      },
+      "stopCause": {
+        "displayName": "Select Stop Cause",
+        "styles": "font-weight: bold; font-size: 13px;",
+        "control": {
+          "name": "button",
+          "list": [
+            "https://dashboard.testing.smartfactoryworx.net/api/manual/faultcause?line_id=5f0809fdc2b1ce30cc53eb8d",
+            "https://dashboard.testing.smartfactoryworx.net/api/manual/faultcause?line_id=5f0809fdc2b1ce30cc53eb8d&machine_state=fault"
+          ]
+        }
+      }
+    }
+  },
+  "updateOn": "https://dashboard.testing.smartfactoryworx.net/api/manual/comment",
+  "updateAfter": 5
+}

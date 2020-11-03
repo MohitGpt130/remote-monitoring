@@ -1,0 +1,157 @@
+
+<table mat-table [dataSource]="tableData" class="mat-elevation-z8" style="width:100%; height: 100%;" >
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns; let i = index;" style="width:100%; height: 100%;" >
+        <ng-container style="width:100%; height: 100%;" >
+            <th mat-header-cell *matHeaderCellDef style="border:1px solid white; color:white;text-align: center;"
+            [ngStyle]="{'background': statusColors[machinesStatus[column]]?.color, 'color':machinesStatus[column]==='pdt'?'black':'white' }" [matTooltip]="machinesStatus[column]">
+                <div *ngIf="i!==0" fxLayout="row" fxLayoutAlign="center center" >
+                    {{machines[column]?.display_name | uppercase }}
+                </div>
+                <div *ngIf="i===0" style="color:brown;font-size: large; ">Batch Details</div>
+            </th>
+
+            <!-- [matTooltip]="tableParameters[element[column]]?.description" -->
+            <td mat-cell *matCellDef="let element; let j = index;"
+                aria-label="Button that displays a tooltip when focused or hovered over"
+                [attr.colspan]="(element.parameter_name==='sku_id' || element.parameter_name==='mode') && i===1?displayedColumns.length:1"
+                style="min-width: 200px; z-index: 0; "
+                [ngStyle]="{'background': (element.parameter_name==='sku_id'||element.parameter_name==='batch_start_time' ||element.parameter_name==='fgex'
+                ||element.parameter_name==='fgex_details'
+                ||element.parameter_name==='batch' ||element.parameter_name==='product' || element.parameter_name==='state_mode' 
+                || element.parameter_name==='total_count/total_count%batch_size')?'#ffb3b3':
+
+
+                (element.parameter_name==='totalTheoreticalTime'|| element.parameter_name==='totalPlanProdTime'
+                ||element.parameter_name==='productiveTime' || element.parameter_name==='current_first_fault'
+                ||element.parameter_name==='grossOperatingTime'|| element.parameter_name==='netOperatingTime')?'#80bfff':
+
+                (element.parameter_name==='batch_oee'||element.parameter_name==='batch_aviability'||element.parameter_name==='batch_performance'
+                ||element.parameter_name==='batch_quality' ||element.parameter_name==='current_active_alarms' )?'#9dc7f2':
+
+                (
+                element.parameter_name==='batch_good_count'||element.parameter_name==='speed_blisters'
+                ||element.parameter_name==='pdt'||element.parameter_name==='updt' ||element.parameter_name==='inProcessRejectTime' 
+                ||element.parameter_name==='changeover_time'||element.parameter_name==='idel_time'||element.parameter_name==='speed_loss' 
+                ||element.parameter_name==='fault'||element.parameter_name==='batch_reject_count'
+                ||element.parameter_name==='batch_reject_count' ||element.parameter_name==='blocked'||element.parameter_name==='waiting'
+                ||element.parameter_name==='batch_manual_stop' ||element.parameter_name==='changeover_wastage'||element.parameter_name==='waiting'
+                ||element.parameter_name==='fault_1' ||element.parameter_name==='fault_2'||element.parameter_name==='fault_3' ||element.parameter_name==='fault_4'||element.parameter_name==='fault_5'
+                )?'#cce6ff':
+
+                i==0?tableParameters[element.parameter_name]?.color:[1,2,3,4].indexOf(i)>-1?'rgb(179, 255, 255)':'rgb(255, 240, 179)',
+
+                'display':(element.parameter_name==='sku_id' || element.parameter_name==='state_mode') && i>1?'none':'table-cell', 
+
+                'color':machines[column]?.bc==='B'?'black':machines[column]?.bc==='C'?'black':'', 'width':i==0?'130px':'', 
+                
+                'font-weight':i==0&&(element.parameter_name==='totalTheoreticalTime'||element.parameter_name==='totalPlanProdTime'
+                ||element.parameter_name==='productiveTime'
+                ||element.parameter_name==='netOperatingTime' ||element.parameter_name==='grossOperatingTime')?'bold':'normal',
+                'font-size': i==0?'14px':'14px',
+                'padding':i==0?'0 5px;':'' }">
+                <div *ngIf="i===0" style="position: relative;" [title]="tableParameters[element[column]]?.description">
+                    <div *ngIf="element.parameter_name.includes('top_first_fault_') || element.parameter_name.includes('manual_stop')">
+                        {{tableParameters[element[column]]?.display_name}}
+                        <div *ngIf="element.parameter_name.includes('top_first_fault_1')" style="position: absolute;top: 20px; right: 0; " fxLayoutAlign="space-around center">
+                            <div style="transform: rotate(90deg); transform-origin: 75% 75%;" fxLayoutAlign="space-around center">
+                                <button mat-raised-button style="margin: 5px; width: 80px; border-radius:0;" [disabled]="selectedButton==='count'" [ngStyle]="{'background': selectedButton!=='count'?'gray':'blue', 'color': selectedButton!=='count'?'':'white'}" (click)="showCount()" >Count</button>
+                            </div>
+                        </div>
+                        <div *ngIf="element.parameter_name.includes('manual_stop')" style="position: absolute;bottom: 0; right: 0; ">
+                            <div style="transform: rotate(90deg); transform-origin: 75% 75%; " fxLayoutAlign="space-around center">
+                                <button mat-raised-button style="margin: 5px; width: 80px; border-radius:0;" [disabled]="selectedButton==='duration'" [ngStyle]="{'background': selectedButton!=='duration'?'gray':'blue', 'color': selectedButton!=='duration'?'':'white'}" (click)="showDuration()"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="!element.parameter_name.includes('top_first_fault_') && !element.parameter_name.includes('manual_stop')">
+                        <div *ngIf="tableParameters[element[column]]?.display_name.includes('Target')">
+                          {{ tableParameters[element[column]]?.display_name.includes('Target')?'Target ('+tableDataAsObject?.batch_size?.cam_blister+')/Achieved':tableParameters[element[column]]['display_name'] }}
+                        </div>
+                        <div *ngIf="!tableParameters[element[column]]?.display_name.includes('Target')">
+                            {{tableParameters[element[column]]?.display_name}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="i!==0" style="text-align: center" >
+                    <div *ngIf="element.parameter_name.includes('top_first_fault_')">
+                        <div *ngIf="element[column]?.fault_name">
+                            <div *ngIf="faultDescritions[column][element[column]?.fault_name]?.short!==null">
+                                {{ faultDescritions[column][element[column]?.fault_name]?.short }} ({{ selectedButton=='duration'? (element[column][selectedButton] | duration2Time:'HH:MM:SS') : element[column][selectedButton]  }})
+                            </div>
+                            <div *ngIf="faultDescritions[column][element[column]?.fault_name]?.short===null">
+                                {{element[column]?.fault_name}} ({{element[column][selectedButton] }})
+                            </div>
+                        </div>
+                        <div *ngIf="!element[column]?.fault_name">
+                            -
+                        </div>
+                    </div>
+
+                    <div *ngIf="!element.parameter_name.includes('top_first_fault_')">
+                        <div *ngIf="element.parameter_name==='state_mode'">
+                            {{machineMode[element[column]] | uppercase }}
+                        </div>
+                        <div *ngIf="element.parameter_name!=='mode'">
+                            <div *ngIf="element.parameter_name==='current_active_alarms'">
+                                <span *ngIf="element[column]?.length>0 && alarmsShuffling[column]!==undefined">
+                                    <div *ngIf="faultDescritions[column]['fault_' + element[column][alarmsShuffling[column]]?.code]?.short!==null">
+                                        {{ faultDescritions[column]['fault_' + element[column][alarmsShuffling[column]]?.code]?.short }}
+                                    </div>
+                                    <div *ngIf="faultDescritions[column]['fault_' + element[column][alarmsShuffling[column]]?.code]?.short===null">
+                                        {{'fault_' + element[column][alarmsShuffling[column]]?.code }}
+                                    </div>
+                                </span>
+                                <span *ngIf="element[column]?.length<=0">
+                                    -
+                                </span>
+                            </div>
+                            <div *ngIf="element.parameter_name!=='current_active_alarms'">
+                                <div *ngIf="element.parameter_name==='current_first_fault'">
+                                    <div *ngIf="element[column]!=='-'">
+                                        <div *ngIf="faultDescritions[column]['fault_' + element[column]]?.short!==null">
+                                            {{ faultDescritions[column]['fault_' + element[column]]?.short }}
+                                        </div>
+                                        <div *ngIf="faultDescritions[column]['fault_' + element[column]]?.short===null">
+                                            {{ 'fault_' + element[column] }}
+                                        </div>
+                                    </div>
+                                    <div *ngIf="element[column]==='-'">
+                                        {{ element[column] }}
+                                    </div>
+                                </div>
+                                <div *ngIf="element.parameter_name!=='current_first_fault'">
+                                    <div *ngIf="element.parameter_name==='manual_stop'">
+                                        {{ selectedButton==='duration'? ( element.parameter_name==='manual_stop' ? (element[column] | duration2Time:'HH:MM:SS'): ((element[column]*60) | duration2Time:'HH:MM:SS')) : element[column] }}
+                                    </div>
+                                    <div *ngIf="element.parameter_name==='mtbf' || element.parameter_name==='mttr'">
+                                        {{  ((element[column]*60) | duration2Time:'HH:MM:SS') }}
+                                    </div>
+                                    <div *ngIf="element.parameter_name!=='manual_stop' && element.parameter_name!=='mtbf' && element.parameter_name!=='mttr' ">
+                                        <div *ngIf="element[column]===undefined">
+                                            -
+                                        </div>
+                                        <div *ngIf="element[column]!==undefined">
+                                            {{ element.parameter_name==='total_count/rejected_quantity'?machines[column]?.bc:'' }}
+                                            {{ element[column] }}
+                                            {{ tableParameters[element.parameter_name]?.format }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="x" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon>more_vert</mat-icon>
+            </td>
+        </ng-container> -->
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" style="height:26px; border-left-width:1px; border-left-style: solid; " [ngStyle]="{'display':tableParameters[row.parameter_name]?.active?'':'none'}"></tr>
+</table>

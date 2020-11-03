@@ -1,0 +1,521 @@
+{
+  "authEnable": false,
+  "logger": {
+    "visible": true
+  },
+  "timezone": "UTC +530",
+  "withAdmin": true,
+  "defaultEnvironment": "testing",
+  "connectionSettings": {
+    "visible": true,
+    "defaultConnection": {
+      "title": "Connected",
+      "icon": "cloud_off",
+      "iconSize": "500px",
+      "hoverText": "cloud_off",
+      "fontColor": "blue",
+      "fontSize": "50px",
+      "style": ""
+    },
+    "notConnected": {
+      "title": "not connected",
+      "icon": "wifi_off",
+      "iconSize": "500px",
+      "hoverText": "cloud_off",
+      "fontColor": "red",
+      "fontSize": "100px",
+      "style": ""
+    },
+    "connectionStatus": {
+      "connection_ok": {
+        "title": "Connection Okay",
+        "iconSize": "500px",
+        "icon": "wifi_off",
+        "hoverText": "",
+        "fontColor": "",
+        "fontSize": "",
+        "style": ""
+      },
+      "connection_error": {
+        "title": "Internet Connection",
+        "icon": "wifi_off",
+        "iconSize": "500px",
+        "hoverText": "test",
+        "fontColor": "#550000",
+        "iconColor": "#550000",
+        "fontSize": "50px",
+        "style": ""
+      },
+      "plc_error": {
+        "title": "PLC Error",
+        "icon": "wifi_off",
+        "iconSize": "500px",
+        "hoverText": "test",
+        "fontColor": "#550000",
+        "iconColor": "#550000",
+        "fontSize": "50px",
+        "style": ""
+      },
+      "connection_ipc_error": {
+        "title": "PLC Error",
+        "icon": "wifi_off",
+        "iconSize": "500px",
+        "hoverText": "test",
+        "fontColor": "#550000",
+        "iconColor": "#550000",
+        "fontSize": "50px",
+        "style": ""
+      },
+      "connection_cloud_error": {
+        "title": "PLC Error",
+        "icon": "wifi_off",
+        "iconSize": "500px",
+        "hoverText": "test",
+        "fontColor": "#550000",
+        "iconColor": "#550000",
+        "fontSize": "50px",
+        "style": ""
+      }
+    }
+  },
+  "layoutSettings": {
+    "name": "SmartFactoryWorx",
+    "settingOption": {
+      "visible": false
+    },
+    "header": {
+      "menuOption": {
+        "visible": true,
+        "icon": "menu"
+      },
+      "profileVisibleOption": true,
+      "languageOption": false,
+      "timezoneOption": false,
+      "searchOption": false,
+      "applicationOption": false,
+      "notificationOption": false,
+      "userMenuOption": false
+    },
+    "loadingSpinner": true,
+    "fixedHeader": true,
+    "sidenavIsOpened": false,
+    "sidenavIsPinned": true,
+    "sidenavUserBlock": false,
+    "menu": "vertical",
+    "menuType": "mini",
+    "theme": "indigo-light",
+    "rtl": false
+  },
+  "defaultRoute": "/",
+  "menuRouteIndex": 1,
+  "menuItems": {
+    "default": [
+      {
+        "id": 25,
+        "title": "Dashboard",
+        "routerLink": "/",
+        "href": null,
+        "icon": "dashboard",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 0,
+        "isActive" : true
+      }
+    ],
+    "admin": [
+      {
+        "id": 25,
+        "title": "Admin",
+        "routerLink": "/admin",
+        "href": null,
+        "icon": "admin_panel_settings",
+        "target": null,
+        "hasSubMenu": true,
+        "parentId": 0,
+        "isActive" : true
+      },
+      {
+        "id": 26,
+        "title": "Users",
+        "routerLink": "/admin/users",
+        "href": null,
+        "icon": "people",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 25,
+        "isActive" : true
+      },
+      {
+        "id": 27,
+        "title": "Roles",
+        "routerLink": "/admin/roles",
+        "href": null,
+        "icon": "assignment_ind",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 25,
+        "isActive" : true
+      },
+      {
+        "id": 28,
+        "title": "Menus",
+        "routerLink": "/admin/menus",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 25,
+        "isActive" : true
+      }
+    ],
+    "sfw": [
+      {
+        "id": 1,
+        "title": "Overview",
+        "routerLink": "/sfw/intas/dashboard/line1",
+        "href": null,
+        "icon": "dashboard",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 0,
+        "isActive" : false
+      },
+      {
+        "id": 2,
+        "title": "Line-View",
+        "routerLink": "/sfw/intas/dashboard/line1",
+        "href": null,
+        "icon": "supervisor_account",
+        "target": null,
+        "hasSubMenu": true,
+        "parentId": 0,
+        "isActive" : true
+      },
+      {
+        "id": 3,
+        "title": "TabularView",
+        "routerLink": "/sfw/intas/dashboard/line1",
+        "href": null,
+        "icon": "card_membership",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 2,
+        "isActive" : true
+      },
+      {
+        "id": 4,
+        "title": "ChartView",
+        "routerLink": "/sfw/intas/lineview/charts",
+        "href": null,
+        "icon": "menu",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 2,
+        "isActive" : false
+      },
+      {
+        "id": 5,
+        "title": "Masters",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "web_asset",
+        "target": null,
+        "hasSubMenu": true,
+        "parentId": 0,
+        "isActive" : false
+      },
+      {
+        "id": 6,
+        "title": "Company",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "donut_small",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 7,
+        "title": "Country",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "flag",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 8,
+        "title": "State",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "location_city",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 9,
+        "title": "Location",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "my_location",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 10,
+        "title": "Plant",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "merge_type",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 11,
+        "title": "Line",
+        "routerLink": "/sfw/manual",
+        "href": null,
+        "icon": "view_headline",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 12,
+        "title": "Equipment",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "donut_small",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 13,
+        "title": "Shift",
+        "routerLink": "/sfw/intas/manual",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 14,
+        "title": "Line & its associates",
+        "routerLink": "/sfw/intas/line-wise-entry",
+        "href": null,
+        "icon": "settings_input_composite",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 15,
+        "title": "Other Cause",
+        "routerLink": "/sfw/intas/line-wise-entry",
+        "href": null,
+        "icon": "pages",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 16,
+        "title": "SKU",
+        "routerLink": "/sfw/intas/line-wise-entry",
+        "href": null,
+        "icon": "gavel",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 17,
+        "title": "Plant Down Time",
+        "routerLink": "/sfw/intas/line-wise-entry",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 18,
+        "title": "Reports",
+        "routerLink": "/sfw/intas/reports",
+        "href": null,
+        "icon": "card_membership",
+        "target": null,
+        "hasSubMenu": true,
+        "parentId": 0,
+        "isActive" : false
+      },
+      {
+        "id": 19,
+        "title": "Day Wise",
+        "routerLink": "/sfw/intas/reports/day-wise",
+        "href": null,
+        "icon": "trending_up",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 20,
+        "title": "Shift End",
+        "routerLink": "/sfw/intas/report/shift-end",
+        "href": null,
+        "icon": "update",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 21,
+        "title": "Fault Cause",
+        "routerLink": "/sfw/intas/report/fault-cause",
+        "href": null,
+        "icon": "card_membership",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 22,
+        "title": "Batch Wise",
+        "routerLink": "/sfw/intas/report/batch-wise",
+        "href": null,
+        "icon": "card_membership",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 23,
+        "title": "Change-Over",
+        "routerLink": "/sfw/intas/change-over",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 24,
+        "title": "Operator Report",
+        "routerLink": "/sfw/intas/report/operator",
+        "href": null,
+        "icon": "card_membership",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 25,
+        "title": "Schedule Maintenance",
+        "routerLink": "/sfw/intas/schedule-entry",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 26,
+        "title": "Operator",
+        "routerLink": "/sfw/intas/line-wise-entry",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 5,
+        "isActive" : false
+      },
+      {
+        "id": 27,
+        "title": "Event History",
+        "routerLink": "/sfw/intas/report/event-history",
+        "href": null,
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 28,
+        "title": "Output Report",
+        "routerLink": null,
+        "href": "https://int91mat.smartfactoryworx.tech/intas-report/#/output",
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 29,
+        "title": "Changeover Report",
+        "routerLink": null,
+        "href": "https://int91mat.smartfactoryworx.tech/intas-report/#/changeover",
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      },
+      {
+        "id": 30,
+        "title": "Fault Report",
+        "routerLink": null,
+        "href": "https://int91mat.smartfactoryworx.tech/intas-report/#/fault",
+        "icon": "list",
+        "target": null,
+        "hasSubMenu": false,
+        "parentId": 18,
+        "isActive" : false
+      }
+    ]
+  },
+  "footer": {
+    "visible": false,
+    "fontSize": "10px",
+    "height": "30px",
+    "backgroundColor": "blue",
+    "textColor": "white",
+    "styles": "border: 1px solid orange;",
+    "newUpdateOrUpgrade": {
+      "tillDays": 3,
+      "visible": false,
+      "fontSize": "20px",
+      "height": "30px",
+      "backgroundColor": "green",
+      "textColor": "white",
+      "styles": "border: 1px solid orange;"
+    }
+  }
+}
