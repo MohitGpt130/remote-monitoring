@@ -27,7 +27,7 @@ import { BatchskuentryComponent } from '../manualentry/batchskuentry/batchskuent
 export class LiveViewsComponent implements OnInit, OnChanges, OnDestroy {
   isLoaded = false;
   activeLink: string = 'Table';
-  showProcess: boolean = false;
+  showProcess: boolean = true;
 
   gotData = {
     Table: true,
